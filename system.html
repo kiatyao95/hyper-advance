@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System | Hyper Advance Sdn Bhd</title>
+  <link rel="icon" href="https://www.hyper-advance.com/assets/img/HA.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/shared.css"/>
+</head>
+<body>
+  <div id="nav"></div>
+  <div id="content"></div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Hyper Advance Sdn Bhd (338032-H) &nbsp;|&nbsp; <a href="systems.html">All Systems</a> &nbsp;|&nbsp; <a href="distributors.html">Distributors</a></p>
+    </div>
+  </footer>
+  <script src="js/catalog.js"></script>
+  <script>
+    (async () => {
+      document.getElementById('nav').innerHTML = Catalog.renderNav('systems');
+      Catalog.initNav();
+      await Catalog.load();
+      const id = Catalog.getParam('id');
+      const sys = Catalog.getSystem(id);
+      if (!sys) {
+        document.getElementById('content').innerHTML = '<div class="container" style="padding:8rem 0;text-align:center"><h2>System not found</h2><a href="systems.html" class="btn btn-teal" style="margin-top:1rem">Back to Systems</a></div>';
+        return;
+      }
+      document.title = sys.name + ' | Hyper Advance';
+      document.getElementById('content').innerHTML = Catalog.renderSystemDetail(sys);
+      Catalog.initReveal();
+    })();
+  </script>
+</body>
+</html>

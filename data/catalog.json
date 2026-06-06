@@ -1,0 +1,864 @@
+{
+  "meta": {
+    "company": "Hyper Advance Sdn Bhd",
+    "version": "1.0",
+    "updated": "2025-06-06"
+  },
+  "systems": [
+    {
+      "id": "nurse-call",
+      "name": "Nurse Call System",
+      "shortName": "Nurse Call",
+      "category": "Healthcare ELV",
+      "icon": "fa-hospital",
+      "distributorId": "austco",
+      "description": "Clinical communication platforms that connect patients, nurses, and care teams across wards and critical care units. Austco systems go beyond button-and-light setups — supporting priority routing, mobile integrations, audit trails, and infection-control compliant call points with anti-bacterial silicone components.",
+      "brands": [
+        "Austco Healthcare"
+      ],
+      "models": [
+        "Tacera",
+        "Medicom"
+      ],
+      "partners": [
+        {
+          "name": "HA Meditech Sdn Bhd",
+          "role": "Healthcare specialist integrator"
+        },
+        {
+          "name": "Prince Court Medical Centre",
+          "role": "Reference hospital partner"
+        }
+      ],
+      "sourceUrl": "https://austco.com/products/medicom/"
+    },
+    {
+      "id": "public-address",
+      "name": "Public Address System",
+      "shortName": "Public Address",
+      "category": "Commercial ELV",
+      "icon": "fa-bullhorn",
+      "distributorId": "amperes",
+      "description": "Malaysia-designed PA and background music systems from conventional zone paging to full Ethernet/IP architectures. Amperes IP PA connects buildings over LAN with centralised controllers, music servers, PoE speakers, and PMX III management software — ideal for malls, campuses, airports, and hospitality venues.",
+      "brands": [
+        "Amperes Electronics"
+      ],
+      "models": [
+        "iPX5101",
+        "iPX5200",
+        "iPX5155",
+        "iPD1220",
+        "PMX III",
+        "MX2222"
+      ],
+      "partners": [
+        {
+          "name": "Genting Malaysia",
+          "role": "Retail & hospitality reference"
+        },
+        {
+          "name": "Help University",
+          "role": "Education campus reference"
+        }
+      ],
+      "sourceUrl": "https://www.ampereselectronics.com/ip-pa"
+    },
+    {
+      "id": "av-intercom",
+      "name": "Audio & Video Intercom System",
+      "shortName": "AV Intercom",
+      "category": "Security & Access",
+      "icon": "fa-video",
+      "distributorId": "aiphone",
+      "description": "IP-based audio and video intercom for multi-tenant residential, commercial, and institutional entrances. Aiphone IX Series supports PoE tenant stations, mobile app integration, elevator recall, and full-duplex HD video — deployed globally since 1948 with UL-certified hardware.",
+      "brands": [
+        "Aiphone"
+      ],
+      "models": [
+        "IXG Series",
+        "IXG-2C7",
+        "IXG-2C7-L",
+        "JO Series",
+        "JO-DVF",
+        "JO-1MDW"
+      ],
+      "partners": [
+        {
+          "name": "EcoWorld Development",
+          "role": "Residential development partner"
+        },
+        {
+          "name": "PNB 118",
+          "role": "Commercial tower reference"
+        }
+      ],
+      "sourceUrl": "https://www.aiphone.com/products/ixg-2c7/"
+    },
+    {
+      "id": "building-intercom",
+      "name": "Building Intercom System",
+      "shortName": "Building Intercom",
+      "category": "Residential ELV",
+      "icon": "fa-door-open",
+      "distributorId": "ajb",
+      "description": "IP video door entry and building intercom solutions for condominiums and gated communities. AJB (Anjubao) systems scale from single-home video doorphones to cloud-connected multi-tenant networks with remote unlock, QR visitor passes, and HD night-vision entrance panels.",
+      "brands": [
+        "AJB (Anjubao)"
+      ],
+      "models": [
+        "AJB-IM15C",
+        "IP Multi-Tenant Panel",
+        "Cloud Intercom App"
+      ],
+      "partners": [
+        {
+          "name": "Princess Cove Development",
+          "role": "Johor residential reference"
+        },
+        {
+          "name": "Country Garden Malaysia",
+          "role": "High-rise residential partner"
+        }
+      ],
+      "sourceUrl": "http://www.anjubao.com"
+    },
+    {
+      "id": "lighting-control",
+      "name": "Lighting Control System",
+      "shortName": "Lighting Control",
+      "category": "Building Automation",
+      "icon": "fa-lightbulb",
+      "distributorId": "lutron",
+      "description": "Precision dimming, scene control, and automated shade management for prestige hospitality, royal residences, and commercial landmarks. Lutron HomeWorks QSX supports panelised lighting, Ketra full-spectrum fixtures, and designer keypads — while RadioRA 3 delivers professional wireless control for retrofit projects.",
+      "brands": [
+        "Lutron"
+      ],
+      "models": [
+        "HomeWorks QSX",
+        "RadioRA 3",
+        "Ketra",
+        "Sivoia QS",
+        "Alisse Keypad"
+      ],
+      "partners": [
+        {
+          "name": "Four Seasons Hotels",
+          "role": "Luxury hospitality reference"
+        },
+        {
+          "name": "Sunway Group",
+          "role": "Convention & commercial partner"
+        }
+      ],
+      "sourceUrl": "https://residential.lutron.com/us/en/residential-solutions/whole-home-solutions"
+    },
+    {
+      "id": "smatv",
+      "name": "SMATV System",
+      "shortName": "SMATV",
+      "category": "Broadcast Distribution",
+      "icon": "fa-satellite-dish",
+      "distributorId": "fagor",
+      "description": "Professional headend platforms for satellite and terrestrial TV distribution across residential towers and hospitality estates. Fagor Flow (formerly Ikusi Flow) is a modular smart headend supporting DVB-S/S2/T/T2/C inputs, IPTV output, hospitality DRM (Samsung LYNK, Philips VSecure, LG Pro:Idiom), and centralised Device Manager control.",
+      "brands": [
+        "Fagor Multimedia Solutions"
+      ],
+      "models": [
+        "FLOW-HUB",
+        "FLOW-IN4",
+        "FLOW-SEC",
+        "FLOW-OUT",
+        "FLOW-STB-4K"
+      ],
+      "partners": [
+        {
+          "name": "Mutiara Ville Management",
+          "role": "Residential tower reference"
+        },
+        {
+          "name": "Laguna Residences",
+          "role": "Condominium reference"
+        }
+      ],
+      "sourceUrl": "https://www.ikusi.tv/en/headend-ikusi-flow"
+    },
+    {
+      "id": "master-clock",
+      "name": "Master Clock System",
+      "shortName": "Master Clock",
+      "category": "Time Synchronisation",
+      "icon": "fa-clock",
+      "distributorId": "bodet",
+      "description": "Synchronised time distribution for hospitals, schools, and commercial campuses. Bodet Time master clocks and time servers retrieve UTC from GPS/Galileo/DCF signals and distribute accurate time to analogue/digital clock networks, IT equipment, and PA systems — with French manufacturing heritage since 1868.",
+      "brands": [
+        "Bodet Time"
+      ],
+      "models": [
+        "Master Clock",
+        "Time Server",
+        "Digital Clock Network",
+        "Audio Bell System"
+      ],
+      "partners": [
+        {
+          "name": "KPJ Healthcare",
+          "role": "Hospital group reference"
+        },
+        {
+          "name": "Universiti Malaya (PPUM)",
+          "role": "Academic medical centre reference"
+        }
+      ],
+      "sourceUrl": "https://www.bodet-time.com"
+    },
+    {
+      "id": "ips",
+      "name": "Isolated Power Supply System",
+      "shortName": "IPS",
+      "category": "Healthcare Critical Power",
+      "icon": "fa-bolt",
+      "distributorId": "esa-grimma",
+      "description": "Medical-grade IT system distribution for Group 2 locations — operating theatres, ICUs, and critical care zones. ESA Grimma IPS boards use protective insulation with insulation monitoring (UEI-710), TRAK isolating transformers, and optional fault location (IFS-710-W6) per DIN VDE 0100-710 / IEC 60364-7-710.",
+      "brands": [
+        "ESA Elektroschaltanlagen Grimma"
+      ],
+      "models": [
+        "IPS-ICU Series 710",
+        "UEI-710",
+        "TRAK Standard",
+        "TRAK ECO",
+        "IFS-710-W6"
+      ],
+      "partners": [
+        {
+          "name": "HA Meditech Sdn Bhd",
+          "role": "Healthcare IPS integrator"
+        },
+        {
+          "name": "KPJ Healthcare",
+          "role": "Hospital OT reference"
+        }
+      ],
+      "sourceUrl": "https://www.esa-grimma.de/en/medically-used-areas/it-system-distribution/"
+    }
+  ],
+  "distributors": [
+    {
+      "id": "austco",
+      "name": "Austco",
+      "fullName": "Austco Healthcare",
+      "systemId": "nurse-call",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/3.jpg",
+      "website": "https://austco.com",
+      "country": "Australia",
+      "since": "1985",
+      "description": "Global leader in nurse call and clinical workflow communications. Austco Tacera is the flagship IP platform; Medicom delivers proven reliability at scale across 800+ sites worldwide.",
+      "products": [
+        {
+          "name": "Tacera",
+          "type": "IP Nurse Call Platform",
+          "description": "Flagship system with RTLS, mobile comms, and clinical workflow integration."
+        },
+        {
+          "name": "Medicom",
+          "type": "Nurse Call System",
+          "description": "Cost-effective, modular nurse call with audit trail and wireless pager integration."
+        },
+        {
+          "name": "Bed Call Points",
+          "type": "Patient Station",
+          "description": "Anti-bacterial silicone call points with cleaning mode and bed mat integration."
+        },
+        {
+          "name": "Overdoor Lights",
+          "type": "Call Indication",
+          "description": "Corridor indication for staff presence and call priority."
+        }
+      ]
+    },
+    {
+      "id": "amperes",
+      "name": "Amperes",
+      "fullName": "Amperes Electronics",
+      "systemId": "public-address",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/p.jpg",
+      "website": "https://www.ampereselectronics.com",
+      "country": "Malaysia",
+      "since": "1999",
+      "description": "ISO 9001:2015 certified Malaysian manufacturer of PA, voice alarm, and BGM systems. Designed and engineered in Puchong, Selangor with conventional and IP product lines.",
+      "products": [
+        {
+          "name": "iPX5101",
+          "type": "IP Paging Controller",
+          "description": "Central LAN controller managing up to 254 IP audio clients."
+        },
+        {
+          "name": "iPX5200",
+          "type": "IP Music Server",
+          "description": "Streams BGM from 4 analogue inputs over multicast IP."
+        },
+        {
+          "name": "iPX5155",
+          "type": "IP BGM/Paging Client",
+          "description": "Network audio extractor for zone-level playback."
+        },
+        {
+          "name": "iPD1220",
+          "type": "IP Paging Microphone",
+          "description": "Desktop Ethernet paging station with zone selection."
+        },
+        {
+          "name": "PMX III",
+          "type": "Management Software",
+          "description": "Scheduling, monitoring, and PC-based paging control."
+        },
+        {
+          "name": "MX2222",
+          "type": "Conventional Pre-Amp",
+          "description": "Analogue zone mixer for up to 12-zone installations."
+        }
+      ]
+    },
+    {
+      "id": "aiphone",
+      "name": "Aiphone",
+      "fullName": "Aiphone Co., Ltd.",
+      "systemId": "av-intercom",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/2.jpg",
+      "website": "https://www.aiphone.com",
+      "country": "Japan",
+      "since": "1948",
+      "description": "World leader in intercom and entry security. Hyper Advance has distributed Aiphone in Malaysia for residential towers, embassies, hospitals, and commercial complexes.",
+      "products": [
+        {
+          "name": "IXG-2C7",
+          "type": "IP Video Tenant Station",
+          "description": "7\" PoE touchscreen with hands-free duplex audio and H.264 video."
+        },
+        {
+          "name": "IXG-2C7-L",
+          "type": "IP Video Tenant Station",
+          "description": "T-Coil compatible variant for hearing aid users."
+        },
+        {
+          "name": "IXG Series Entrance",
+          "type": "Entrance Station",
+          "description": "Multi-tenant lobby and guard station hardware."
+        },
+        {
+          "name": "JO-DVF",
+          "type": "Video Door Station",
+          "description": "Vandal-resistant flush-mount door station for JO Series."
+        },
+        {
+          "name": "JO-1MDW",
+          "type": "Indoor Monitor",
+          "description": "WiFi-enabled 7\" touchscreen with mobile app support."
+        }
+      ]
+    },
+    {
+      "id": "ajb",
+      "name": "AJB",
+      "fullName": "Guangdong Anjubao Digital Technology",
+      "systemId": "building-intercom",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/1.jpg",
+      "website": "http://www.anjubao.com",
+      "country": "China",
+      "since": "2001",
+      "description": "Leading Chinese building intercom brand with iF Design Award recognition. AJB IP systems serve condominiums across Southeast Asia with cloud app connectivity and multi-tenant scalability.",
+      "products": [
+        {
+          "name": "AJB-IM15C",
+          "type": "IP Indoor Monitor",
+          "description": "Video door phone indoor station for IP intercom networks."
+        },
+        {
+          "name": "IP Entrance Panel",
+          "type": "Door Station",
+          "description": "HD video entrance with night vision and door release."
+        },
+        {
+          "name": "AJB Cloud App",
+          "type": "Mobile Client",
+          "description": "Remote video calling, unlock, and access monitoring."
+        },
+        {
+          "name": "Multi-Tenant Controller",
+          "type": "System Core",
+          "description": "Manages hundreds of units in large residential developments."
+        }
+      ]
+    },
+    {
+      "id": "lutron",
+      "name": "Lutron",
+      "fullName": "Lutron Electronics",
+      "systemId": "lighting-control",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/5a.jpg",
+      "website": "https://www.lutron.com",
+      "country": "USA",
+      "since": "1961",
+      "description": "World's foremost lighting control manufacturer. Hyper Advance deploys Lutron across royal residences, 5-star hotels, and convention centres requiring scene programming, shade automation, and Ketra-quality light.",
+      "products": [
+        {
+          "name": "HomeWorks QSX",
+          "type": "Whole-Home System",
+          "description": "Panelised and RF lighting for estates up to 10,000 zones."
+        },
+        {
+          "name": "RadioRA 3",
+          "type": "Wireless System",
+          "description": "Professional wireless control for retrofits up to 200 devices."
+        },
+        {
+          "name": "Ketra",
+          "type": "Dynamic Lighting",
+          "description": "Full-spectrum tunable fixtures with circadian programming."
+        },
+        {
+          "name": "Sivoia QS",
+          "type": "Motorised Shades",
+          "description": "Automated roller shades with precise sun-tracking."
+        },
+        {
+          "name": "Alisse Keypad",
+          "type": "Designer Control",
+          "description": "Premium architectural keypad line for HomeWorks."
+        }
+      ]
+    },
+    {
+      "id": "fagor",
+      "name": "Fagor",
+      "fullName": "Fagor Multimedia Solutions",
+      "systemId": "smatv",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/ik.jpg",
+      "website": "https://www.ikusi.tv/en",
+      "country": "Spain",
+      "since": "2021",
+      "description": "Formed from the merger of Triax Digital Solutions and Fagor Electrónica's signal processing unit (formerly Ikusi Multimedia). Delivers modular headends for MATV/SMATV/IPTV across 40+ countries.",
+      "products": [
+        {
+          "name": "FLOW-HUB",
+          "type": "Headend Controller",
+          "description": "Platform control unit with wizard-guided configuration."
+        },
+        {
+          "name": "FLOW-IN4",
+          "type": "Input Module",
+          "description": "Quad-tuner universal DVB-S/S2/T/T2/C frontend."
+        },
+        {
+          "name": "FLOW-SEC",
+          "type": "Security Module",
+          "description": "Hospitality DRM encryption for Samsung, Philips, LG TVs."
+        },
+        {
+          "name": "FLOW-OUT",
+          "type": "Output Module",
+          "description": "RF and IP output with high-density multiplexing."
+        },
+        {
+          "name": "FLOW-STB-4K",
+          "type": "Set-Top Box",
+          "description": "4K receiver for IPTV/coax distribution networks."
+        }
+      ]
+    },
+    {
+      "id": "bodet",
+      "name": "Bodet",
+      "fullName": "Bodet Time",
+      "systemId": "master-clock",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/mc.jpg",
+      "website": "https://www.bodet-time.com",
+      "country": "France",
+      "since": "1868",
+      "description": "European leader in time measurement and management. Bodet Time designs and manufactures master clocks, time servers, and synchronised clock networks in France for hospitals, schools, and industry.",
+      "products": [
+        {
+          "name": "Master Clock",
+          "type": "Time Distribution",
+          "description": "Central clock retrieving UTC from GPS/Galileo/DCF signals."
+        },
+        {
+          "name": "Time Server",
+          "type": "IT Synchronisation",
+          "description": "NTP time server for PCs, CCTV, PLCs, and medical records."
+        },
+        {
+          "name": "Digital Clock",
+          "type": "Display",
+          "description": "Indoor/outdoor synchronised digital and analogue clocks."
+        },
+        {
+          "name": "Bell System",
+          "type": "Audio Scheduling",
+          "description": "Automated bells, alerts, and pre-recorded announcements."
+        }
+      ]
+    },
+    {
+      "id": "esa-grimma",
+      "name": "Esa Grimma",
+      "fullName": "ESA Elektroschaltanlagen Grimma GmbH",
+      "systemId": "ips",
+      "logo": "https://www.hyper-advance.com/assets/img/logo/es9.jpg",
+      "website": "https://www.esa-grimma.de",
+      "country": "Germany",
+      "since": "1990",
+      "description": "German specialist in medical electrical engineering. ESA Grimma HospEC system delivers complete hospital power supply including IT system distribution boards for operating theatres per DIN VDE 0100-710.",
+      "products": [
+        {
+          "name": "IPS-ICU Series 710",
+          "type": "IT Distribution Board",
+          "description": "Group 2 IPS panel for OT and ICU zones."
+        },
+        {
+          "name": "UEI-710",
+          "type": "Monitoring Device",
+          "description": "Switchover and insulation monitoring unit."
+        },
+        {
+          "name": "TRAK Standard",
+          "type": "Isolating Transformer",
+          "description": "Medical IT isolating transformer 3.15–10 kVA."
+        },
+        {
+          "name": "IFS-710-W6",
+          "type": "Fault Locator",
+          "description": "Insulation fault detection for first-fault localisation."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "istana-terengganu",
+      "name": "Istana Terengganu",
+      "systemId": "lighting-control",
+      "distributorId": "lutron",
+      "model": "HomeWorks QSX",
+      "sector": "commercial",
+      "tag": "Lighting Control",
+      "featured": true,
+      "image": "https://www.hyper-advance.com/assets/img/projects/Pernah%20Tengok%20Dalaman%20Istana%20Baru%20Diraja%20Terengganu.jpg",
+      "contractAmount": "RM 12.5M",
+      "completionDate": "Dec 2022"
+    },
+    {
+      "id": "prince-court",
+      "name": "Prince Court Medical Centre",
+      "systemId": "nurse-call",
+      "distributorId": "austco",
+      "model": "Medicom",
+      "sector": "healthcare",
+      "tag": "Nurse Call",
+      "featured": true,
+      "image": "https://www.hyper-advance.com/assets/img/projects/2.jpg",
+      "contractAmount": "RM 3.2M",
+      "completionDate": "Mar 2021"
+    },
+    {
+      "id": "island-hospital",
+      "name": "Island Hospital Penang",
+      "systemId": "nurse-call",
+      "distributorId": "austco",
+      "model": "Medicom",
+      "sector": "healthcare",
+      "tag": "Nurse Call",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/5.jpg",
+      "contractAmount": "RM 2.8M",
+      "completionDate": "Sep 2020"
+    },
+    {
+      "id": "four-seasons",
+      "name": "Four Seasons Hotel KL",
+      "systemId": "lighting-control",
+      "distributorId": "lutron",
+      "model": "HomeWorks QSX",
+      "sector": "hospitality",
+      "tag": "Lighting Control",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/four-seasons-kuala-lumpur-malaysia-16.jpg",
+      "contractAmount": "RM 8.6M",
+      "completionDate": "Nov 2023"
+    },
+    {
+      "id": "eco-tropics",
+      "name": "Eco Tropics JB",
+      "systemId": "av-intercom",
+      "distributorId": "aiphone",
+      "model": "IXG Series",
+      "sector": "residential",
+      "tag": "AV Intercom",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/7.jpg",
+      "contractAmount": "RM 1.1M",
+      "completionDate": "Aug 2019"
+    },
+    {
+      "id": "princess-cove",
+      "name": "Princess Cove",
+      "systemId": "building-intercom",
+      "distributorId": "ajb",
+      "model": "IP Multi-Tenant",
+      "sector": "residential",
+      "tag": "Building Intercom",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/8.jpg",
+      "contractAmount": "RM 1.4M",
+      "completionDate": "May 2020"
+    },
+    {
+      "id": "hk-square",
+      "name": "HK Square",
+      "systemId": "av-intercom",
+      "distributorId": "aiphone",
+      "model": "IXG Series",
+      "sector": "residential",
+      "tag": "AV Intercom",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/9.jpg",
+      "contractAmount": "RM 980K",
+      "completionDate": "Feb 2021"
+    },
+    {
+      "id": "sunway-convention",
+      "name": "Sunway Convention Centre",
+      "systemId": "lighting-control",
+      "distributorId": "lutron",
+      "model": "HomeWorks QSX",
+      "sector": "commercial",
+      "tag": "Lighting Control",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/11.jpg",
+      "contractAmount": "RM 6.2M",
+      "completionDate": "Jul 2022"
+    },
+    {
+      "id": "hosp-sultan-halim",
+      "name": "Hosp. Sultan Abdul Halim",
+      "systemId": "nurse-call",
+      "distributorId": "austco",
+      "model": "Medicom",
+      "sector": "healthcare",
+      "tag": "Nurse Call",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/12.jpg",
+      "contractAmount": "RM 2.1M",
+      "completionDate": "Jan 2019"
+    },
+    {
+      "id": "mutiara-ville",
+      "name": "Mutiara Ville Cyberjaya",
+      "systemId": "smatv",
+      "distributorId": "fagor",
+      "model": "FLOW-HUB",
+      "sector": "residential",
+      "tag": "SMATV",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/13.jpg",
+      "contractAmount": "RM 650K",
+      "completionDate": "Oct 2021"
+    },
+    {
+      "id": "laguna-residences",
+      "name": "Laguna Residences",
+      "systemId": "smatv",
+      "distributorId": "fagor",
+      "model": "FLOW-HUB",
+      "sector": "residential",
+      "tag": "SMATV",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/14.jpg",
+      "contractAmount": "RM 720K",
+      "completionDate": "Apr 2022"
+    },
+    {
+      "id": "koi-prima",
+      "name": "Koi Prima",
+      "systemId": "smatv",
+      "distributorId": "fagor",
+      "model": "FLOW-HUB",
+      "sector": "residential",
+      "tag": "SMATV",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/15.jpg",
+      "contractAmount": "RM 580K",
+      "completionDate": "Jun 2018"
+    },
+    {
+      "id": "star-residences",
+      "name": "Star Residences KLCC",
+      "systemId": "building-intercom",
+      "distributorId": "ajb",
+      "model": "IP Multi-Tenant",
+      "sector": "residential",
+      "tag": "Building Intercom",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/17.jpg",
+      "contractAmount": "RM 2.3M",
+      "completionDate": "Sep 2023"
+    },
+    {
+      "id": "genting-outlet",
+      "name": "Genting Highland P. Outlet",
+      "systemId": "public-address",
+      "distributorId": "amperes",
+      "model": "iPX5101",
+      "sector": "commercial",
+      "tag": "Public Address",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/18.jpg",
+      "contractAmount": "RM 1.9M",
+      "completionDate": "Dec 2020"
+    },
+    {
+      "id": "help-university",
+      "name": "Help University KL",
+      "systemId": "public-address",
+      "distributorId": "amperes",
+      "model": "MX2222",
+      "sector": "commercial",
+      "tag": "Public Address",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/19.jpg",
+      "contractAmount": "RM 1.2M",
+      "completionDate": "Mar 2022"
+    },
+    {
+      "id": "iskandar-putri",
+      "name": "Iskandar Putri Hospital",
+      "systemId": "public-address",
+      "distributorId": "amperes",
+      "model": "iPX5101",
+      "sector": "healthcare",
+      "tag": "Public Address",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/20.jpg",
+      "contractAmount": "RM 2.4M",
+      "completionDate": "Nov 2021"
+    },
+    {
+      "id": "kpj-puteri",
+      "name": "KPJ Puteri",
+      "systemId": "master-clock",
+      "distributorId": "bodet",
+      "model": "Master Clock",
+      "sector": "healthcare",
+      "tag": "Master Clock",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/21.jpg",
+      "contractAmount": "RM 480K",
+      "completionDate": "Jun 2020"
+    },
+    {
+      "id": "ppum-cic",
+      "name": "PPUM CIC",
+      "systemId": "master-clock",
+      "distributorId": "bodet",
+      "model": "Time Server",
+      "sector": "healthcare",
+      "tag": "Master Clock",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/22.jpg",
+      "contractAmount": "RM 620K",
+      "completionDate": "Aug 2022"
+    },
+    {
+      "id": "lai-meng-school",
+      "name": "Lai Meng School",
+      "systemId": "av-intercom",
+      "distributorId": "aiphone",
+      "model": "JO Series",
+      "sector": "commercial",
+      "tag": "Security",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/23.jpg",
+      "contractAmount": "RM 340K",
+      "completionDate": "May 2019"
+    },
+    {
+      "id": "kpj-dato-onn",
+      "name": "KPJ Dato Onn",
+      "systemId": "ips",
+      "distributorId": "esa-grimma",
+      "model": "IPS-ICU Series 710",
+      "sector": "healthcare",
+      "tag": "IPS System",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/24.jpg",
+      "contractAmount": "RM 1.6M",
+      "completionDate": "Feb 2023"
+    },
+    {
+      "id": "hospital-cyberjaya",
+      "name": "Hospital Cyberjaya",
+      "systemId": "ips",
+      "distributorId": "esa-grimma",
+      "model": "IPS-ICU Series 710",
+      "sector": "healthcare",
+      "tag": "IPS System",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/25.jpg",
+      "contractAmount": "RM 2.0M",
+      "completionDate": "Jul 2024"
+    },
+    {
+      "id": "hosp-pengajar-upm",
+      "name": "Hosp. Pengajar UPM",
+      "systemId": "ips",
+      "distributorId": "esa-grimma",
+      "model": "IPS-ICU Series 710",
+      "sector": "healthcare",
+      "tag": "IPS System",
+      "featured": false,
+      "image": "https://www.hyper-advance.com/assets/img/projects/26.jpg",
+      "contractAmount": "RM 1.8M",
+      "completionDate": "Oct 2023"
+    }
+  ],
+  "industryProjects": {
+    "healthcare": [
+      { "projectId": "prince-court" },
+      { "projectId": "island-hospital" },
+      { "name": "Gleneagles Hospital Penang", "systemId": "nurse-call", "distributorId": "austco" },
+      { "name": "Sunway Velocity Medical Ctr", "systemId": "nurse-call", "distributorId": "austco" },
+      { "projectId": "hosp-sultan-halim" },
+      {
+        "name": "UTAR Teaching Hospital",
+        "links": [
+          { "systemId": "nurse-call", "distributorId": "austco" },
+          { "systemId": "master-clock", "distributorId": "bodet" }
+        ]
+      },
+      { "projectId": "hospital-cyberjaya" },
+      { "projectId": "kpj-puteri" }
+    ],
+    "hospitality": [
+      { "projectId": "four-seasons" },
+      { "projectId": "sunway-convention" },
+      { "name": "Marriott Hotel", "systemId": "public-address", "distributorId": "amperes" },
+      { "name": "Crowne Plaza", "systemId": "public-address", "distributorId": "amperes" }
+    ],
+    "commercial": [
+      { "projectId": "istana-terengganu" },
+      { "projectId": "genting-outlet" },
+      { "projectId": "help-university" },
+      { "name": "KSL Mall", "systemId": "public-address", "distributorId": "amperes" },
+      { "projectId": "lai-meng-school" },
+      { "name": "GLOMAC Plaza Kelana", "systemId": "public-address", "distributorId": "amperes" }
+    ],
+    "residential": [
+      { "projectId": "star-residences" },
+      { "projectId": "mutiara-ville" },
+      { "projectId": "princess-cove" },
+      { "projectId": "laguna-residences" },
+      { "projectId": "eco-tropics" },
+      { "projectId": "hk-square" }
+    ]
+  }
+}
