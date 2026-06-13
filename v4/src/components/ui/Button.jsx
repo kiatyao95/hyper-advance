@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { publicPath } from '../../utils/publicPath';
 
 export default function Button({
   href,
@@ -48,10 +49,11 @@ export default function Button({
   }
 
   if (href) {
-    const isExternal = href.startsWith('http') || href.endsWith('.pdf');
+    const resolvedHref = publicPath(href);
+    const isExternal = resolvedHref.startsWith('http') || resolvedHref.startsWith('//');
     return (
       <motion.div whileHover={reduced ? {} : { scale: 1.02 }} whileTap={reduced ? {} : { scale: 0.98 }} style={{ display: 'inline-flex' }}>
-        <a href={href} className={cls} style={wrapStyle} onClick={onClick} {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+        <a href={resolvedHref} className={cls} style={wrapStyle} onClick={onClick} {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
           {inner}
         </a>
       </motion.div>

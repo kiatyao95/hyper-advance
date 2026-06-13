@@ -1,13 +1,15 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
+import { publicPath } from '../../utils/publicPath';
 
 export default function OfficeGallery({ images = [], compact = false }) {
   const [current, setCurrent] = useState(0);
+  const slides = images.map(publicPath);
 
-  if (!images.length) return null;
+  if (!slides.length) return null;
 
-  const prev = () => setCurrent((c) => (c - 1 + images.length) % images.length);
-  const next = () => setCurrent((c) => (c + 1) % images.length);
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+  const next = () => setCurrent((c) => (c + 1) % slides.length);
 
   return (
     <div className={`office-gallery${compact ? ' office-gallery--compact' : ''}`}>
@@ -29,8 +31,8 @@ export default function OfficeGallery({ images = [], compact = false }) {
         <div className="office-gallery-viewport">
           <AnimatePresence mode="wait">
             <motion.img
-              key={images[current]}
-              src={images[current]}
+              key={slides[current]}
+              src={slides[current]}
               alt={`Hyper Advance office ${current + 1}`}
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -38,7 +40,7 @@ export default function OfficeGallery({ images = [], compact = false }) {
               transition={{ duration: 0.35 }}
             />
           </AnimatePresence>
-          <span className="office-gallery-counter">{current + 1} / {images.length}</span>
+          <span className="office-gallery-counter">{current + 1} / {slides.length}</span>
         </div>
 
         <button type="button" className="office-gallery-nav office-gallery-nav--next" onClick={next} aria-label="Next photo">
@@ -48,7 +50,7 @@ export default function OfficeGallery({ images = [], compact = false }) {
 
       {compact ? (
         <div className="office-gallery-dots">
-          {images.map((src, i) => (
+          {slides.map((src, i) => (
             <button
               key={src}
               type="button"
@@ -60,7 +62,7 @@ export default function OfficeGallery({ images = [], compact = false }) {
         </div>
       ) : (
         <div className="office-gallery-thumbs">
-          {images.slice(0, 8).map((src, i) => (
+          {slides.slice(0, 8).map((src, i) => (
             <button
               key={src}
               type="button"

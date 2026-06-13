@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { uniqueProjectsBySite } from '../utils/uniqueProjects';
-import { publicPath } from '../utils/publicPath';
+import { publicPath, resolveCatalogPaths } from '../utils/publicPath';
 
 const CatalogContext = createContext(null);
 
@@ -16,7 +16,7 @@ export function CatalogProvider({ children }) {
         return res.json();
       })
       .then((json) => {
-        setData(json);
+        setData(resolveCatalogPaths(json));
         setLoading(false);
       })
       .catch((err) => {

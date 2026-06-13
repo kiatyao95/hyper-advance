@@ -91,7 +91,7 @@ export default function DistributorDetailPage() {
             projects={projects}
             renderCard={(p) => (
               <div key={p.id} className="ref-card">
-                <img src={p.image} alt={p.name} loading="lazy" />
+                <img src={publicPath(p.image)} alt={p.name} loading="lazy" />
                 <div className="ref-card-body">
                   <h4>{p.name}</h4>
                   <dl className="ref-meta">

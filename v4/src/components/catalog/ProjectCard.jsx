@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Card3D from '../21st/Card3D';
 import Reveal from '../ui/Reveal';
 import ProjectMeta from './ProjectMeta';
+import { publicPath } from '../../utils/publicPath';
 
 export default function ProjectCard({ project, distributor, hero = false, delay = 0 }) {
   return (
@@ -12,7 +13,7 @@ export default function ProjectCard({ project, distributor, hero = false, delay 
           <Link to={`/system/${project.systemId}`} className="proj-card-link">
           <div className="proj-card-media">
             <motion.img
-              src={project.image}
+              src={publicPath(project.image)}
               alt={project.name}
               loading="lazy"
               whileHover={{ scale: 1.05 }}
