@@ -70,30 +70,30 @@ const Catalog = (() => {
   /* --- Shared nav --- */
   function renderNav(active = '') {
     const links = [
-      { href: 'index_3.html', label: 'Home', key: 'home' },
-      { href: 'index_3.html#about', label: 'About', key: 'about' },
-      { href: 'index_3.html#systems-list', label: 'Systems', key: 'systems' },
-      { href: 'index_3.html#distributors-list', label: 'Distributors', key: 'distributors' },
+      { href: 'index.html', label: 'Home', key: 'home' },
+      { href: 'index.html#about', label: 'About', key: 'about' },
+      { href: 'index.html#systems-list', label: 'Systems', key: 'systems' },
+      { href: 'index.html#distributors-list', label: 'Distributors', key: 'distributors' },
       { href: 'projects.html', label: 'Projects', key: 'projects' },
-      { href: 'index_3.html#contact', label: 'Contact', key: 'contact' },
+      { href: 'index.html#contact', label: 'Contact', key: 'contact' },
     ];
     return `
     <nav class="site-nav" id="navbar">
       <div class="container nav-inner">
-        <a href="index_3.html" class="nav-logo">
+        <a href="index.html" class="nav-logo">
           <img src="https://www.hyper-advance.com/assets/img/HA.png" alt="Hyper Advance"/>
           <div class="nav-logo-text"><strong>Hyper Advance</strong><span>Sdn Bhd</span></div>
         </a>
         <div class="nav-links">
           ${links.map(l => `<a href="${l.href}" class="nav-link${active === l.key ? ' active' : ''}">${l.label}</a>`).join('')}
         </div>
-        <a href="index_3.html#contact" class="btn btn-teal nav-cta">Get a Quote</a>
+        <a href="index.html#contact" class="btn btn-teal nav-cta">Get a Quote</a>
         <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </nav>
     <div class="mobile-nav" id="mobile-nav">
       ${links.map(l => `<a href="${l.href}" class="mob-link">${l.label}</a>`).join('')}
-      <a href="index_3.html#contact" class="btn btn-teal" style="margin-top:1.5rem;align-self:flex-start">Get a Quote</a>
+      <a href="index.html#contact" class="btn btn-teal" style="margin-top:1.5rem;align-self:flex-start">Get a Quote</a>
     </div>`;
   }
 

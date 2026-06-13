@@ -2,42 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Authorised Distributors | Hyper Advance Sdn Bhd</title>
-  <meta name="description" content="Hyper Advance authorised brand distributors — each mapped 1:1 to an ELV system category."/>
-  <link rel="icon" href="https://www.hyper-advance.com/assets/img/HA.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="css/shared.css"/>
+  <meta http-equiv="refresh" content="0; url=v3/distributors.html"/>
+  <script>location.replace('v3/distributors.html');</script>
+  <title>Redirecting…</title>
 </head>
 <body>
-  <div id="nav"></div>
-  <div class="page-hero">
-    <div class="container reveal">
-      <span class="page-eyebrow">Authorised Brands</span>
-      <h1>Our Distributors</h1>
-      <p>Each distributor has a 1:1 relationship with one ELV system. Click any brand to view its product range and linked system specifications.</p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="catalog-grid" id="distGrid"></div>
-  </div>
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Hyper Advance Sdn Bhd (338032-H) &nbsp;|&nbsp; <a href="systems.html">Systems</a> &nbsp;|&nbsp; <a href="index_3.html">Home</a></p>
-    </div>
-  </footer>
-  <script src="js/catalog.js"></script>
-  <script>
-    (async () => {
-      document.getElementById('nav').innerHTML = Catalog.renderNav('distributors');
-      Catalog.initNav();
-      const data = await Catalog.load();
-      document.getElementById('distGrid').innerHTML = Catalog.renderDistributorsGrid(data.distributors, data.systems);
-      Catalog.initReveal();
-    })();
-  </script>
+  <p>Moved to <a href="v3/distributors.html">v3/distributors.html</a>.</p>
 </body>
 </html>

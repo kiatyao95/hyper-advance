@@ -1,0 +1,10 @@
+{
+  "name": "hyper-advance",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix v4",
+    "build": "npm run build --prefix v4",
+    "preview": "npm run preview --prefix v4",
+    "install:v4": "npm install --prefix v4"
+  }
+}

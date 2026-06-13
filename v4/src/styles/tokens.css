@@ -1,0 +1,33 @@
+/* Hyper Advance v4 — brand tokens (from index_3) */
+:root {
+  --teal: #3EC1D5;
+  --teal-dark: #165a64;
+  --teal-hover: #2fafc2;
+  --teal-bright: #5ee0f0;
+  --teal-glow: rgba(62, 193, 213, 0.35);
+  --navy: #0d2529;
+  --light-blue: #ADD8E6;
+  --bg-marketing: var(--navy);
+  --text-primary: #fff;
+  --text-secondary: rgba(255, 255, 255, 0.78);
+  --text-tertiary: rgba(255, 255, 255, 0.55);
+  --text-quaternary: rgba(255, 255, 255, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-standard: rgba(62, 193, 213, 0.2);
+  --surface-hover: rgba(62, 193, 213, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(62, 193, 213, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

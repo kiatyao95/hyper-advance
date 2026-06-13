@@ -1,0 +1,12 @@
+@import './tokens.css';
+@import './home.css';
+@import './shared.css';
+@import './21st.css';
+
+#root {
+  min-height: 100vh;
+}
+
+.scroll-progress {
+  width: 100%;
+}
