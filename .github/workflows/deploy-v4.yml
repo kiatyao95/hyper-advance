@@ -6,16 +6,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,20 +31,19 @@ jobs:
         run: npm run build --prefix v4
         env:
           GITHUB_PAGES: true
+          BASE_PATH: /hyper-advance/docs/
 
       - name: Add SPA fallback for GitHub Pages
-        run: cp v4/dist/index.html v4/dist/404.html
+        run: |
+          cp v4/dist/index.html v4/dist/404.html
+          touch v4/dist/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Publish built site to docs/
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: v4/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/deploy-pages@v4
-        id: deployment
+          branch: main
+          folder: v4/dist
+          target-folder: docs
+          clean: true
+          single-commit: true
+          commit-message: Deploy v4 site to docs/

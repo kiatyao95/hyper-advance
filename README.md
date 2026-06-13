@@ -19,11 +19,13 @@ npm run build --prefix v4
 
 ## Live site (GitHub Pages)
 
-After pushing to `main`, GitHub Actions builds and deploys v4 automatically.
+After pushing to `main`, GitHub Actions builds v4 and publishes it to the `docs/` folder.
 
-**URL:** https://kiatyao95.github.io/hyper-advance/
+**URL:** https://kiatyao95.github.io/hyper-advance/docs/
 
-If the site does not load on first deploy, open the repo **Settings → Pages** and set **Source** to **GitHub Actions**.
+The repo root (`/hyper-advance/`) redirects to the v4 site automatically.
+
+Legacy v3 static site (source only): `v3/index.html` — not served on Pages by default.
 
 ## Repository layout
 
