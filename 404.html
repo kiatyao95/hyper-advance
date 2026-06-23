@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      var l = window.location;
+      var parts = l.pathname.split('/').filter(Boolean);
+      var base = '/hyper-advance/docs/';
+
+      if (parts[0] !== 'hyper-advance' || parts[1] !== 'docs') {
+        l.replace(l.origin + base + l.search + l.hash);
+        return;
+      }
+
+      var subpath = parts.slice(2).join('/');
+      if (!subpath) {
+        l.replace(l.origin + base + l.search + l.hash);
+        return;
+      }
+
+      l.replace(l.origin + base + subpath + '/' + l.search + l.hash);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
