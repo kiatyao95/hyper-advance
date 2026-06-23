@@ -95,7 +95,7 @@ export default function SystemDetailPage() {
           <ProjectListPaginated
             projects={projects}
             renderCard={(p) => (
-              <div key={p.id} className="ref-card">
+              <Link key={p.id} to={`/project/${p.slug || p.id}`} className="ref-card ref-card-link">
                 <img src={publicPath(p.image)} alt={p.name} loading="lazy" />
                 <div className="ref-card-body">
                   <h4>{p.name}</h4>
@@ -111,7 +111,7 @@ export default function SystemDetailPage() {
                     <div className="ref-meta-row"><dt>Completed</dt><dd>{p.completionDate || '—'}</dd></div>
                   </dl>
                 </div>
-              </div>
+              </Link>
             )}
           />
         </Reveal>

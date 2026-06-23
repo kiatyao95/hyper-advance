@@ -5,14 +5,14 @@ import Button from '../ui/Button';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 
 const DISTRIBUTORS = [
-  { id: 'aiphone', label: 'Aiphone', group: 'Intercom' },
-  { id: 'ajb', label: 'AJB', group: 'Intercom' },
-  { id: 'lutron', label: 'Lutron', group: 'Lighting Control' },
-  { id: 'austco', label: 'Austco', group: 'Nurse Call' },
-  { id: 'amperes', label: 'Amperes', group: 'Public Address' },
-  { id: 'fagor', label: 'Fagor', group: 'SMATV' },
-  { id: 'bodet', label: 'Bodet', group: 'Master Clock' },
-  { id: 'esa-grimma', label: 'Esa Grimma', group: 'Isolated Power Supply' },
+  { id: 'aiphone', label: 'Aiphone' },
+  { id: 'ajb', label: 'AJB' },
+  { id: 'lutron', label: 'Lutron' },
+  { id: 'austco', label: 'Austco' },
+  { id: 'amperes', label: 'Amperes' },
+  { id: 'fagor', label: 'Fagor' },
+  { id: 'bodet', label: 'Bodet' },
+  { id: 'esa-grimma', label: 'Esa Grimma' },
 ];
 
 const SERVICE_LINKS = [
@@ -47,8 +47,6 @@ export default function Navbar({ activeKey = '' }) {
     return 'nav-link';
   };
 
-  const groups = [...new Set(DISTRIBUTORS.map((d) => d.group))];
-
   return (
     <>
       <motion.nav
@@ -78,13 +76,7 @@ export default function Navbar({ activeKey = '' }) {
                   Services <i className="fa-solid fa-chevron-down" />
                 </Link>
                 <div className="dropdown">
-                  <div className="dropdown-label">ELV Systems</div>
-                  {SERVICE_LINKS.slice(0, 6).map((s) => (
-                    <Link key={s} to="/#services" className="dropdown-item">{s}</Link>
-                  ))}
-                  <div className="dropdown-divider" />
-                  <div className="dropdown-label">Other Services</div>
-                  {SERVICE_LINKS.slice(6).map((s) => (
+                  {SERVICE_LINKS.map((s) => (
                     <Link key={s} to="/#services" className="dropdown-item">{s}</Link>
                   ))}
                 </div>
@@ -96,14 +88,9 @@ export default function Navbar({ activeKey = '' }) {
                 <Link to="/#distributors-list" className={navClass('distributors', '#distributors-list')}>
                   Distributors <i className="fa-solid fa-chevron-down" />
                 </Link>
-                <div className="dropdown mega-dropdown">
-                  {groups.map((group) => (
-                    <div key={group} className="mega-col">
-                      <div className="mega-col-title">{group}</div>
-                      {DISTRIBUTORS.filter((d) => d.group === group).map((d) => (
-                        <Link key={d.id} to={`/distributor/${d.id}`} className="dropdown-item">{d.label}</Link>
-                      ))}
-                    </div>
+                <div className="dropdown dropdown--right">
+                  {DISTRIBUTORS.map((d) => (
+                    <Link key={d.id} to={`/distributor/${d.id}`} className="dropdown-item">{d.label}</Link>
                   ))}
                 </div>
               </li>
@@ -145,11 +132,14 @@ export default function Navbar({ activeKey = '' }) {
           >
             <Link to="/#about" className="mob-link" onClick={() => setMobileOpen(false)}>About Us</Link>
             <div className="mob-sublabel">Services</div>
-            <Link to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>ELV Systems</Link>
-            <Link to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>Audio Visual</Link>
-            <Link to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>Isolated Power Supply</Link>
+            {SERVICE_LINKS.map((s) => (
+              <Link key={s} to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>{s}</Link>
+            ))}
             <Link to="/#systems-list" className="mob-link" onClick={() => setMobileOpen(false)}>Systems</Link>
-            <Link to="/#distributors-list" className="mob-link" onClick={() => setMobileOpen(false)}>Distributors</Link>
+            <div className="mob-sublabel">Distributors</div>
+            {DISTRIBUTORS.map((d) => (
+              <Link key={d.id} to={`/distributor/${d.id}`} className="mob-sublink" onClick={() => setMobileOpen(false)}>{d.label}</Link>
+            ))}
             <Link to="/#industries" className="mob-link" onClick={() => setMobileOpen(false)}>Industries</Link>
             <Link to="/projects" className="mob-link" onClick={() => setMobileOpen(false)}>Projects</Link>
             <Link to="/#contact" className="mob-link" onClick={() => setMobileOpen(false)}>Contact</Link>

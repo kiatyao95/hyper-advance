@@ -20,6 +20,8 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parents[2]
 REFS = ROOT / "References"
+DATA_DIR = ROOT / "23-06-2026"
+PROJECT_DETAILS = DATA_DIR / "project details"
 V4 = ROOT / "v4"
 OUT = V4 / "public" / "data" / "catalog.json"
 ASSETS = V4 / "public" / "assets"
@@ -169,11 +171,83 @@ def sector_for(name: str, category: str = "") -> str:
     return "commercial"
 
 
-def resolve_image(name: str, sector: str) -> str:
+def find_project_folder(name: str, folders: dict[str, Path]) -> Path | None:
     key = norm(name)
+    if key in folders:
+        return folders[key]
+    for fn, path in folders.items():
+        if key in fn or fn in key:
+            return path
+    return None
+
+
+def copy_project_images() -> dict[str, list[str]]:
+    """Copy 23-06-2026/project details images; return norm(name) -> public paths."""
+    projects_dir = ASSETS / "projects"
+    projects_dir.mkdir(parents=True, exist_ok=True)
+
+    if not PROJECT_DETAILS.exists():
+        return {}
+
+    folders = {norm(d.name): d for d in PROJECT_DETAILS.iterdir() if d.is_dir()}
+    image_map: dict[str, list[str]] = {}
+
+    for folder_key, folder in folders.items():
+        slug = slugify(folder.name)
+        dest_dir = projects_dir / slug
+        dest_dir.mkdir(parents=True, exist_ok=True)
+
+        sources = sorted(
+            [p for p in folder.iterdir() if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}],
+            key=lambda p: (
+                0 if p.stem.isdigit() else 1,
+                int(p.stem) if p.stem.isdigit() else 0,
+                p.stem.lower(),
+            ),
+        )
+
+        paths: list[str] = []
+        for i, src in enumerate(sources, 1):
+            dest = dest_dir / f"{i}.jpg"
+            if Image:
+                with Image.open(src) as im:
+                    im = im.convert("RGB")
+                    w, h = im.size
+                    if w > 1600:
+                        im = im.resize((1600, int(h * 1600 / w)), Image.Resampling.LANCZOS)
+                    im.save(dest, "JPEG", quality=82, optimize=True)
+            else:
+                shutil.copy2(src, dest)
+            paths.append(f"/assets/projects/{slug}/{i}.jpg")
+
+        if paths:
+            image_map[folder_key] = paths
+
+    return image_map
+
+
+def resolve_image(name: str, sector: str, image_map: dict[str, list[str]] | None = None) -> str:
+    key = norm(name)
+    if image_map and key in image_map and image_map[key]:
+        return image_map[key][0]
+    if image_map:
+        for fn, paths in image_map.items():
+            if key in fn or fn in key:
+                return paths[0]
     if key in EXISTING_IMAGES:
         return EXISTING_IMAGES[key]
     return f"/assets/projects/placeholder-{sector}.jpg"
+
+
+def resolve_images(name: str, image_map: dict[str, list[str]] | None = None) -> list[str]:
+    key = norm(name)
+    if image_map and key in image_map:
+        return image_map[key]
+    if image_map:
+        for fn, paths in image_map.items():
+            if key in fn or fn in key:
+                return paths
+    return []
 
 
 def parse_systems_text(text: str) -> list[tuple[str, str, str]]:
@@ -202,10 +276,14 @@ def project_record(
     featured: bool = False,
     additional_systems: list[str] | None = None,
     suffix: str = "",
+    image_map: dict[str, list[str]] | None = None,
 ) -> dict:
-    sid = slugify(name, suffix) if suffix else slugify(name)
+    route_slug = slugify(name)
+    sid = slugify(name, suffix) if suffix else route_slug
+    images = resolve_images(name, image_map)
     rec = {
         "id": sid,
+        "slug": route_slug,
         "name": name.strip(),
         "systemId": system_id,
         "distributorId": distributor_id,
@@ -213,9 +291,11 @@ def project_record(
         "sector": sector,
         "tag": SYSTEM_TAG.get(system_id, system_id),
         "featured": featured,
-        "image": resolve_image(name, sector),
+        "image": resolve_image(name, sector, image_map),
         "source": source,
     }
+    if images:
+        rec["images"] = images
     if completion:
         rec["completionDate"] = completion if completion.lower() in ("on-going", "ongoing") else str(completion)
     if amount:
@@ -464,8 +544,11 @@ def parse_amperes() -> list[dict]:
     return projects
 
 
-def parse_xlsx() -> list[dict]:
-    wb = load_workbook(REFS / "Project Details.xlsx", data_only=True)
+def parse_xlsx(image_map: dict[str, list[str]] | None = None) -> list[dict]:
+    xlsx_path = DATA_DIR / "Project Details.xlsx"
+    if not xlsx_path.exists():
+        xlsx_path = REFS / "Project Details.xlsx"
+    wb = load_workbook(xlsx_path, data_only=True)
     ws = wb["Project reference"]
     projects = []
     for row in ws.iter_rows(min_row=2, values_only=True):
@@ -500,6 +583,7 @@ def parse_xlsx() -> list[dict]:
             source="xlsx",
             featured=n in FEATURED_NAMES,
             additional_systems=additional or None,
+            image_map=image_map,
         ))
 
         # secondary entries for filter accuracy
@@ -514,6 +598,7 @@ def parse_xlsx() -> list[dict]:
                 source="xlsx-secondary",
                 featured=False,
                 suffix=sid,
+                image_map=image_map,
             ))
     return projects
 
@@ -535,7 +620,7 @@ def merge_projects(sources: list[list[dict]]) -> list[dict]:
                 order.append(k)
             else:
                 existing = merged[k]
-                for field in ("model", "completionDate", "contractAmount", "unitCount", "intercomType", "location", "additionalSystems", "image"):
+                for field in ("model", "completionDate", "contractAmount", "unitCount", "intercomType", "location", "additionalSystems", "image", "images", "slug"):
                     if p.get(field) and not existing.get(field):
                         existing[field] = p[field]
                 if p.get("featured"):
@@ -562,6 +647,16 @@ def merge_projects(sources: list[list[dict]]) -> list[dict]:
     return [merged[k] for k in order]
 
 
+def apply_local_images(projects: list[dict], image_map: dict[str, list[str]]) -> None:
+    for p in projects:
+        if "slug" not in p:
+            p["slug"] = slugify(p["name"])
+        images = resolve_images(p["name"], image_map)
+        if images:
+            p["images"] = images
+            p["image"] = images[0]
+
+
 def build_industry_projects(projects: list[dict]) -> dict:
     sectors = ["healthcare", "hospitality", "commercial", "residential"]
     out = {s: [] for s in sectors}
@@ -581,6 +676,157 @@ def build_industry_projects(projects: list[dict]) -> dict:
         out[sec].append({"projectId": p["id"]})
         seen[sec].add(p["id"])
 
+    return out
+
+
+def parse_systems_we_offer(xlsx_projects: list[dict]) -> list[dict]:
+    """Build systems-we-offer list from Excel with matched project slugs."""
+    xlsx_path = DATA_DIR / "Project Details.xlsx"
+    if not xlsx_path.exists():
+        xlsx_path = REFS / "Project Details.xlsx"
+    wb = load_workbook(xlsx_path, data_only=True)
+    ws = wb["Systems we offer "]
+
+    slug_by_name = {norm(p["name"]): p.get("slug", p["id"]) for p in xlsx_projects if p.get("source") == "xlsx"}
+
+    offers = []
+    for row in ws.iter_rows(min_row=2, values_only=True):
+        if not row[0]:
+            continue
+        name = str(row[0]).strip()
+        brands = str(row[1] or "").strip()
+        description = str(row[2] or "").strip()
+        if not description:
+            continue
+
+        key = norm(name)
+        tokens = [t for t in key.split() if len(t) > 2]
+        matched_slugs: list[str] = []
+        seen_slugs: set[str] = set()
+
+        wb2 = load_workbook(xlsx_path, data_only=True)
+        proj_ws = wb2["Project reference"]
+        for prow in proj_ws.iter_rows(min_row=2, values_only=True):
+            if not prow[0]:
+                continue
+            pname = str(prow[0]).strip()
+            systems_text = norm(str(prow[3] or ""))
+            if not any(t in systems_text or t in norm(pname) for t in tokens):
+                continue
+            slug = slug_by_name.get(norm(pname)) or slugify(pname)
+            if slug not in seen_slugs:
+                seen_slugs.add(slug)
+                matched_slugs.append(slug)
+
+        offers.append({
+            "id": slugify(name),
+            "name": name.strip().rstrip(","),
+            "brands": brands,
+            "description": description,
+            "projectSlugs": matched_slugs[:6],
+        })
+
+    return offers
+
+
+CLIENT_REFERENCES = [
+    {"name": "Sunway", "projectSlugs": ["sunway-resort-hotel", "sunway-medical-centre-damansara", "sunway-medical-centre-velocity"]},
+    {"name": "Park City Medical Centre", "projectSlugs": ["park-city-medical-centre"]},
+    {"name": "KPJ", "projectSlugs": ["kpj-ampang", "kpj-rawang"]},
+    {"name": "Gleneagles", "projectSlugs": ["gleneagles-hospital-penang"]},
+    {"name": "IOI", "projectSlugs": ["ioi-mall-damansara"]},
+    {"name": "KLCC", "projectSlugs": ["klcc"]},
+    {"name": "PNB", "projectSlugs": ["pnb-office"]},
+    {"name": "IGB", "projectSlugs": []},
+    {"name": "JKR", "projectSlugs": []},
+    {"name": "KKM", "projectSlugs": []},
+]
+
+AUTHORIZED_BRAND_IDS = ["aiphone", "austco", "amperes", "lutron", "fagor"]
+
+SERVICE_CAPABILITIES = [
+    {
+        "id": "design",
+        "icon": "fa-drafting-compass",
+        "title": "Design",
+        "description": "Design proposals for ELV systems, including layout plans and schematic drawings aligned to your project requirements.",
+    },
+    {
+        "id": "supply",
+        "icon": "fa-truck",
+        "title": "Supply",
+        "description": "A wide range of ELV products and systems from authorised brands and established partners.",
+    },
+    {
+        "id": "installation",
+        "icon": "fa-screwdriver-wrench",
+        "title": "Installation",
+        "description": "Capability to install virtually all types of ELV systems across commercial, residential, healthcare, and hospitality sites.",
+    },
+    {
+        "id": "maintenance",
+        "icon": "fa-wrench",
+        "title": "Maintenance",
+        "description": "Comprehensive and non-comprehensive maintenance programmes to keep every ELV system running smoothly.",
+    },
+    {
+        "id": "programming",
+        "icon": "fa-microchip",
+        "title": "Programming",
+        "description": "System programming configured to end-user needs, operational preferences, and site-specific workflows.",
+    },
+    {
+        "id": "testing",
+        "icon": "fa-flask",
+        "title": "Testing & Commissioning",
+        "description": "Structured testing, commissioning, and handover to ensure systems are ready for operational use.",
+    },
+    {
+        "id": "training",
+        "icon": "fa-graduation-cap",
+        "title": "Training",
+        "description": "User training on system operation, routine care, and best practices for long-term reliability.",
+    },
+]
+
+HA_MEDITECH = {
+    "title": "HA Meditech Sdn Bhd",
+    "description": "Hyper Advance's healthcare specialist division — backed by group resources and more than 25 years of clinical ELV experience in hospital environments.",
+    "systems": [
+        {
+            "name": "Isolated Power Supply (IPS)",
+            "brands": "Esa Grimma",
+            "distributorId": "esa-grimma",
+            "systemId": "ips",
+            "description": "Medical-grade isolated power systems for operating theatres, critical care zones, and hospital infrastructure.",
+        },
+        {
+            "name": "Nurse Call & Clinical Communication",
+            "brands": "Austco",
+            "distributorId": "austco",
+            "systemId": "nurse-call",
+            "description": "Nurse call and healthcare communication systems for wards, clinics, and aged-care facilities.",
+        },
+    ],
+}
+
+FAGOR_MERGER_NOTE = (
+    "Fagor SMATV systems distribute satellite and terrestrial TV signals across hotels, apartments, and commercial developments. "
+    "The range also carries forward the engineering legacy of Ikusi — an established name in professional TV distribution — "
+    "following its integration under the Fagor Group, combining proven expertise with expanded product support under one brand."
+)
+
+
+def enrich_distributors(distributors: list[dict]) -> list[dict]:
+    out = []
+    for d in distributors:
+        rec = dict(d)
+        if rec["id"] == "fagor":
+            rec["logo"] = "/assets/logos/fagor.svg"
+            rec["description"] = FAGOR_MERGER_NOTE
+            rec["mergerNote"] = "Ikusi is now part of the Fagor Group. Hyper Advance supports both Fagor and legacy Ikusi SMATV deployments."
+            rec["legacyImage"] = "/assets/logos/fagor.jpg"
+        out.append(rec)
     return out
 
 
@@ -647,14 +893,18 @@ def main():
         base = json.load(f)
 
     gallery = copy_assets()
+    image_map = copy_project_images()
 
     aiphone_q3 = parse_aiphone_q3()
     aiphone_q4 = parse_aiphone_q4()
     bodet = parse_bodet()
     amperes = parse_amperes()
-    xlsx = parse_xlsx()
+    xlsx = parse_xlsx(image_map)
 
     projects = merge_projects([xlsx, aiphone_q4, bodet, aiphone_q3, amperes])
+    apply_local_images(projects, image_map)
+    systems_we_offer = parse_systems_we_offer(projects)
+    distributors = enrich_distributors(base["distributors"])
 
     # ensure unique ids
     used_ids: set[str] = set()
@@ -674,20 +924,25 @@ def main():
             "projectCount": len(projects),
         },
         "systems": base["systems"],
-        "distributors": base["distributors"],
+        "distributors": distributors,
+        "authorizedBrandIds": AUTHORIZED_BRAND_IDS,
+        "clientReferences": CLIENT_REFERENCES,
+        "systemsWeOffer": systems_we_offer,
+        "serviceCapabilities": SERVICE_CAPABILITIES,
+        "haMeditech": HA_MEDITECH,
         "keyDistributorship": [
-            {"id": "intercom", "title": "INTERCOM SYSTEM", "icon": "fa-video", "brandIds": ["aiphone", "ajb"]},
-            {"id": "lighting", "title": "LIGHTING & GUEST ROOM CONTROL SYSTEM", "icon": "fa-lightbulb", "brandIds": ["lutron"]},
+            {"id": "intercom", "title": "INTERCOM SYSTEM", "icon": "fa-video", "brandIds": ["aiphone"]},
             {"id": "nurse-call", "title": "NURSE CALL SYSTEM", "icon": "fa-user-nurse", "brandIds": ["austco"]},
             {"id": "pa", "title": "PA SYSTEM", "icon": "fa-bullhorn", "brandIds": ["amperes"]},
+            {"id": "lighting", "title": "LIGHTING CONTROL SYSTEM", "icon": "fa-lightbulb", "brandIds": ["lutron"]},
             {"id": "smatv", "title": "SMATV SYSTEM", "icon": "fa-tv", "brandIds": ["fagor"]},
-            {"id": "ips", "title": "IPS SYSTEM", "icon": "fa-shield-halved", "brandIds": ["esa-grimma"]},
-            {"id": "master-clock", "title": "MASTER CLOCK SYSTEM", "icon": "fa-clock", "brandIds": ["bodet"]},
         ],
         "company": {
             "founded": 1995,
-            "staffCount": 50,
-            "yearsExperience": 31,
+            "staffCount": 30,
+            "systemsOffered": 10,
+            "authorizedBrandCount": 5,
+            "yearsExperience": date.today().year - 1995,
             "successStories": [
                 {
                     "name": "Four Seasons Hotel Kuala Lumpur",
@@ -756,6 +1011,7 @@ def main():
 
     print(f"Wrote {len(projects)} projects to {OUT}")
     print(f"Office gallery: {len(gallery)} images")
+    print(f"Project image folders: {len(image_map)}")
 
 
 if __name__ == "__main__":

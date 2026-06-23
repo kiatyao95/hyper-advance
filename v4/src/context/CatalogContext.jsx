@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { uniqueProjectsBySite } from '../utils/uniqueProjects';
+import { projectSlug } from '../utils/projectSlug';
 import { publicPath, resolveCatalogPaths } from '../utils/publicPath';
 
 const CatalogContext = createContext(null);
@@ -75,6 +76,17 @@ export function CatalogProvider({ children }) {
     [data, resolveIndustryEntry],
   );
 
+  const getProjectBySlug = useCallback(
+    (slug) => {
+      if (!slug || !data?.projects) return null;
+      const match = uniqueProjectsBySite(data.projects).find(
+        (p) => (p.slug || projectSlug(p.name)) === slug,
+      );
+      return match || null;
+    },
+    [data],
+  );
+
   const value = useMemo(
     () => ({
       data,
@@ -86,8 +98,9 @@ export function CatalogProvider({ children }) {
       getProjectsForSystem,
       getProjectsForDistributor,
       getIndustryProjects,
+      getProjectBySlug,
     }),
-    [data, loading, error, uniqueProjects, getSystem, getDistributor, getProjectsForSystem, getProjectsForDistributor, getIndustryProjects],
+    [data, loading, error, uniqueProjects, getSystem, getDistributor, getProjectsForSystem, getProjectsForDistributor, getIndustryProjects, getProjectBySlug],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

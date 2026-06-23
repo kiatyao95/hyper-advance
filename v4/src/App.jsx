@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
 import SystemsPage from './pages/SystemsPage';
 import SystemDetailPage from './pages/SystemDetailPage';
 import DistributorsPage from './pages/DistributorsPage';
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/project/:slug" element={<ProjectDetailPage />} />
         <Route path="/projects.html" element={<Navigate to="/projects" replace />} />
         <Route path="/systems" element={<SystemsPage />} />
         <Route path="/systems.html" element={<Navigate to="/systems" replace />} />

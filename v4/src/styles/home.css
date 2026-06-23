@@ -674,7 +674,7 @@
 
       box-shadow: var(--shadow-lg);
 
-      min-width: 220px; padding: 8px 0;
+      min-width: 220px; padding: 6px 0;
 
       opacity: 0; visibility: hidden; transform: translateY(-6px);
 
@@ -682,13 +682,15 @@
 
     }
 
+    .dropdown--right { left: auto; right: 0; }
+
     .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: none; }
 
     .dropdown-item {
 
-      display: block; padding: 8px 16px;
+      display: block; padding: 6px 16px;
 
-      font-size: 13px; font-weight: 400;
+      font-size: 13px; font-weight: 400; line-height: 1.35;
 
       color: var(--teal-dark);
 
@@ -697,54 +699,6 @@
     }
 
     .dropdown-item:hover { color: var(--teal); background: #f7fafa; }
-
-    .dropdown-label {
-
-      padding: 8px 16px 4px; font-size: 10px;
-
-      font-weight: 510; text-transform: uppercase;
-
-      letter-spacing: -0.15px; color: var(--text-quaternary);
-
-    }
-
-    .dropdown-divider { height: 1px; background: var(--border-subtle); margin: 6px 12px; }
-
-    .mega-dropdown {
-
-      left: auto; right: 0;
-
-      min-width: 0; width: max-content; max-width: min(520px, 92vw);
-
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-
-      padding: .625rem .75rem; gap: .125rem .625rem;
-
-    }
-
-    .mega-col { padding: 0; min-width: 0; }
-
-    .mega-col-title {
-
-      font-size: 10px; font-weight: 510;
-
-      text-transform: uppercase; letter-spacing: -0.15px;
-
-      color: var(--text-quaternary);
-
-      padding: .125rem 0 .25rem;
-
-      border-bottom: 1px solid var(--border-subtle);
-
-      margin-bottom: .125rem;
-
-    }
-
-    .mega-dropdown .dropdown-item {
-
-      padding: 4px 0; font-size: 12px;
-
-    }
 
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: .5rem; z-index: 1001; }
 
@@ -2618,6 +2572,79 @@
       gap: 1.25rem;
     }
 
+    .key-dist-grid--five {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .hero-brands { margin: 1rem 0 .75rem; }
+    .hero-brands-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.55); margin-bottom: .5rem; }
+    .hero-brands-row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; }
+    .hero-brand-link {
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.92); border-radius: 8px; padding: .45rem .65rem;
+      min-width: 72px; min-height: 44px; transition: var(--transition);
+    }
+    .hero-brand-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+    .hero-brand-link img { max-height: 28px; max-width: 88px; object-fit: contain; }
+
+    .client-logos { margin: .75rem 0; }
+    .client-logos-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.55); margin-bottom: .45rem; }
+    .client-logos-row { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .client-logos-item {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: .35rem .65rem; border-radius: 999px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.85); font-size: 11px; font-weight: 510;
+      transition: var(--transition);
+    }
+    .client-logos-item:hover { background: rgba(255,255,255,.18); color: #fff; }
+    .client-logos-item img { max-height: 22px; max-width: 90px; object-fit: contain; filter: brightness(0) invert(1); opacity: .9; }
+    .client-logos--compact .client-logos-row { gap: .35rem; }
+
+    .service-cap-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .service-cap-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.25rem; height: 100%;
+    }
+    .service-cap-icon {
+      width: 42px; height: 42px; border-radius: var(--radius);
+      background: var(--light-blue); color: var(--teal-dark);
+      display: flex; align-items: center; justify-content: center; margin-bottom: .75rem;
+    }
+    .service-cap-card h3 { font-size: 15px; font-weight: 590; color: var(--text-dark); margin-bottom: .4rem; }
+    .service-cap-card p { font-size: 13px; line-height: 1.55; color: var(--text); margin: 0; }
+
+    .systems-offer-list { display: grid; gap: 1rem; padding: 1rem 0 3rem; }
+    .systems-offer-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.25rem 1.35rem;
+    }
+    .systems-offer-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; }
+    .systems-offer-head h3 { font-size: 16px; font-weight: 590; color: var(--text-dark); margin: 0; }
+    .systems-offer-brands { font-size: 12px; color: var(--teal-dark); margin: 0; }
+    .systems-offer-brands i { color: var(--teal); margin-right: .25rem; }
+    .systems-offer-desc { font-size: 14px; line-height: 1.6; color: var(--text); margin: 0 0 .75rem; }
+    .systems-offer-projects-label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: #888; margin-bottom: .35rem; }
+    .systems-offer-project-links { display: flex; flex-wrap: wrap; gap: .35rem .65rem; }
+    .systems-offer-project-links a { font-size: 12px; color: var(--teal-dark); font-weight: 510; }
+    .systems-offer-project-links a:hover { color: var(--teal); text-decoration: underline; }
+
+    .ha-meditech-section { background: var(--gray-bg); }
+    .ha-meditech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .ha-meditech-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.35rem;
+    }
+    .ha-meditech-card-head { display: flex; gap: .85rem; align-items: center; margin-bottom: .75rem; }
+    .ha-meditech-logo { max-height: 40px; max-width: 100px; object-fit: contain; }
+    .ha-meditech-card h3 { font-size: 15px; font-weight: 590; color: var(--text-dark); margin: 0 0 .15rem; }
+    .ha-meditech-brands { font-size: 12px; color: var(--teal); margin: 0; }
+    .ha-meditech-card p { font-size: 14px; line-height: 1.55; color: var(--text); margin: 0 0 .75rem; }
+    .ha-meditech-link { font-size: 13px; color: var(--teal-dark); font-weight: 510; }
+    .ha-meditech-link:hover { color: var(--teal); }
+
     .key-dist-grid--top {
       grid-template-columns: repeat(4, 1fr);
       margin-bottom: 1.25rem;
@@ -3025,6 +3052,8 @@
       .about-logo-frame--compact { text-align: center; }
       .about-intro-bar .about-stats-row { justify-content: center; }
       .success-stories-grid { grid-template-columns: 1fr; }
+      .service-cap-grid { grid-template-columns: repeat(2, 1fr); }
+      .key-dist-grid--five { grid-template-columns: repeat(2, 1fr); }
       .key-dist-grid--top { grid-template-columns: repeat(2, 1fr); }
       .key-dist-grid--bottom { grid-template-columns: repeat(2, 1fr); max-width: none; }
       .supporting-brands-grid { grid-template-columns: repeat(2, 1fr); }
@@ -3033,8 +3062,11 @@
     @media (max-width: 600px) {
       .about-grid--slim { grid-template-columns: 1fr; }
       .ha-meditech-card--inline { grid-template-columns: 1fr; }
+      .key-dist-grid--five,
       .key-dist-grid--top,
       .key-dist-grid--bottom { grid-template-columns: 1fr; }
+      .service-cap-grid { grid-template-columns: 1fr; }
+      .ha-meditech-grid { grid-template-columns: 1fr; }
       .supporting-brands-grid { grid-template-columns: 1fr; }
     }
 

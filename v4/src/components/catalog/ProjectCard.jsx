@@ -10,7 +10,7 @@ export default function ProjectCard({ project, distributor, hero = false, delay 
     <Reveal delay={delay} className={`proj-card${hero ? ' proj-card--hero' : ''}`}>
       <Card3D>
         <motion.article layout whileHover={{ y: -4 }} transition={{ type: 'spring', stiffness: 400, damping: 28 }}>
-          <Link to={`/system/${project.systemId}`} className="proj-card-link">
+          <Link to={`/project/${project.slug || project.id}`} className="proj-card-link">
           <div className="proj-card-media">
             <motion.img
               src={publicPath(project.image)}

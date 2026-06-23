@@ -2,7 +2,7 @@
   "meta": {
     "company": "Hyper Advance Sdn Bhd",
     "version": "2.0",
-    "updated": "2026-06-13",
+    "updated": "2026-06-23",
     "projectCount": 389
   },
   "systems": [
@@ -434,11 +434,11 @@
       "name": "Fagor",
       "fullName": "Fagor Multimedia Solutions",
       "systemId": "smatv",
-      "logo": "/assets/logos/fagor.png",
+      "logo": "/assets/logos/fagor.svg",
       "website": "https://www.ikusi.tv/en",
       "country": "Spain",
       "since": "2021",
-      "description": "Formed from the merger of Triax Digital Solutions and Fagor Electrónica's signal processing unit (formerly Ikusi Multimedia). Delivers modular headends for MATV/SMATV/IPTV across 40+ countries.",
+      "description": "Fagor SMATV systems distribute satellite and terrestrial TV signals across hotels, apartments, and commercial developments. The range also carries forward the engineering legacy of Ikusi — an established name in professional TV distribution — following its integration under the Fagor Group, combining proven expertise with expanded product support under one brand.",
       "products": [
         {
           "name": "FLOW-HUB",
@@ -465,7 +465,10 @@
           "type": "Set-Top Box",
           "description": "4K receiver for IPTV/coax distribution networks."
         }
-      ]
+      ],
+      "logoAlt": "/assets/logos/fagor-ikusi.png",
+      "mergerNote": "Ikusi is now part of the Fagor Group. Hyper Advance supports both Fagor and legacy Ikusi SMATV deployments.",
+      "legacyImage": "/assets/logos/fagor.jpg"
     },
     {
       "id": "bodet",
@@ -534,22 +537,354 @@
       ]
     }
   ],
+  "authorizedBrandIds": [
+    "aiphone",
+    "austco",
+    "amperes",
+    "lutron",
+    "fagor"
+  ],
+  "clientReferences": [
+    {
+      "name": "Sunway",
+      "projectSlugs": [
+        "sunway-resort-hotel",
+        "sunway-medical-centre-damansara",
+        "sunway-medical-centre-velocity"
+      ]
+    },
+    {
+      "name": "Park City Medical Centre",
+      "projectSlugs": [
+        "park-city-medical-centre"
+      ]
+    },
+    {
+      "name": "KPJ",
+      "projectSlugs": [
+        "kpj-ampang",
+        "kpj-rawang"
+      ]
+    },
+    {
+      "name": "Gleneagles",
+      "projectSlugs": [
+        "gleneagles-hospital-penang"
+      ]
+    },
+    {
+      "name": "IOI",
+      "projectSlugs": [
+        "ioi-mall-damansara"
+      ]
+    },
+    {
+      "name": "KLCC",
+      "projectSlugs": [
+        "klcc"
+      ]
+    },
+    {
+      "name": "PNB",
+      "projectSlugs": [
+        "pnb-office"
+      ]
+    },
+    {
+      "name": "IGB",
+      "projectSlugs": []
+    },
+    {
+      "name": "JKR",
+      "projectSlugs": []
+    },
+    {
+      "name": "KKM",
+      "projectSlugs": []
+    }
+  ],
+  "systemsWeOffer": [
+    {
+      "id": "nurse-call-system",
+      "name": "Nurse Call system",
+      "brands": "Austco",
+      "description": "A Nurse Call System enables patients to quickly request assistance from healthcare staff in hospitals, clinics, and nursing homes. It improves patient safety, enhances communication, and ensures faster response times from caregivers.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "intercom",
+      "name": "Intercom",
+      "brands": "Aiphone & AJB",
+      "description": "An Intercom System provides instant voice and video communication between different areas of a building. Commonly used in residential, commercial, healthcare, and industrial facilities, it enhances security, visitor management, and operational efficiency.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "public-address",
+      "name": "Public address",
+      "brands": "Amperes",
+      "description": "A Public Address (PA) System is used to broadcast announcements, emergency messages, and background audio across a facility. Commonly installed in commercial buildings, schools, hospitals, and industrial sites, it ensures clear communication and improves safety and operational efficiency.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "kpj-rawang",
+        "kpj-ampang",
+        "hospital-universiti-tunku-abdul-rahman"
+      ]
+    },
+    {
+      "id": "smatv",
+      "name": "SMATV",
+      "brands": "Fagor",
+      "description": "A Satellite Master Antenna Television (SMATV) System distributes satellite and terrestrial TV signals from a central antenna to multiple users within a building or facility. Commonly used in hotels, apartments, hospitals, and commercial developments, it provides a cost-effective and reliable television distribution solution.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "lighting-control",
+      "name": "Lighting control",
+      "brands": "Lutron",
+      "description": "A Lighting Control System manages and automates lighting in buildings to improve comfort, energy efficiency, and convenience. It is commonly used in commercial buildings, hotels, offices, and smart homes to enable centralized, scheduled, or sensor-based lighting control.",
+      "projectSlugs": []
+    },
+    {
+      "id": "fireman-intercom",
+      "name": "Fireman intercom",
+      "brands": "Mictron",
+      "description": "A Fireman Intercom System provides reliable two-way communication between fire command centers and designated areas during emergencies. Commonly installed in high-rise buildings, it ensures clear coordination for firefighting operations and improves overall emergency response and safety.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "digital-call",
+      "name": "Digital call",
+      "brands": "GMS , MYQ",
+      "description": "A Digital Call System enables fast and reliable communication for service requests and assistance within facilities. Commonly used in hospitals, hotels, and care homes, it improves response efficiency, workflow coordination, and service quality.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "master-clock",
+      "name": "Master clock",
+      "brands": "National time , bodet",
+      "description": "A Master Clock System synchronizes and controls time across all clocks and time-based devices in a building or facility. Commonly used in schools, hospitals, factories, and transport hubs, it ensures accurate, unified timing for operations and scheduling.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "image-speak-through",
+      "name": "Image speak through",
+      "brands": "Amperes",
+      "description": "A Speak-Through System is a two-way communication system installed between MRI/X-ray rooms and control rooms, allowing clear communication between patients and radiology staff without entering the restricted area. It ensures safety, reduces radiation exposure, and allows technicians to guide patients during scans or procedures.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "hospital-miri",
+        "kpj-rawang",
+        "kpj-ampang"
+      ]
+    },
+    {
+      "id": "conference",
+      "name": "Conference",
+      "brands": "Bosch",
+      "description": "A Conference System provides clear audio (and sometimes video) communication for meetings and discussions in boardrooms and meeting spaces. It is commonly used in corporate offices, hotels, and government facilities to improve collaboration, presentation quality, and meeting efficiency.",
+      "projectSlugs": [
+        "pusat-latihan-unit-tindakhas-semenyih"
+      ]
+    },
+    {
+      "id": "panic-button",
+      "name": "Panic button",
+      "brands": "Austco, paradox, bosch",
+      "description": "A Panic Button System allows users to instantly trigger an emergency alert in situations of threat or distress. Commonly used in banks, retail stores, hospitals, and offices, it ensures fast security response and enhances personal safety.",
+      "projectSlugs": [
+        "prince-court-medical-centre",
+        "park-city-medical-centre",
+        "picaso-hospital"
+      ]
+    },
+    {
+      "id": "intruder-alarm",
+      "name": "Intruder alarm",
+      "brands": "Paradox",
+      "description": "An Intruder Alarm System detects unauthorized entry into a building using sensors on doors, windows, and motion detection. Commonly used in homes, offices, and commercial facilities, it provides early warning, deters break-ins, and enhances overall security.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "kpj-rawang",
+        "kpj-ampang",
+        "hospital-universiti-tunku-abdul-rahman"
+      ]
+    },
+    {
+      "id": "card-access",
+      "name": "Card Access",
+      "brands": "ZKTECO, Entrypass, microengine, Bosch, Dahua, HIKVision",
+      "description": "A Card Access System controls entry to buildings or restricted areas using RFID or smart cards. Commonly used in offices, hospitals, and commercial buildings, it enhances security, monitors movement, and allows controlled access to authorized users only.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "kpj-rawang",
+        "kpj-ampang",
+        "hospital-universiti-tunku-abdul-rahman"
+      ]
+    },
+    {
+      "id": "cctv",
+      "name": "CCTV",
+      "brands": "Dahua, HIKVision, Bosch",
+      "description": "A CCTV (Closed-Circuit Television) System is used for real-time monitoring and recording of activities within a building or area. Commonly installed in commercial, residential, and industrial sites, it enhances security, supports surveillance, and helps deter and investigate incidents.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "kpj-rawang",
+        "kpj-ampang",
+        "hospital-universiti-tunku-abdul-rahman"
+      ]
+    },
+    {
+      "id": "audio-visual-system",
+      "name": "Audio visual system",
+      "brands": "AMX, Abtus, Yamaha, Aten, Extron",
+      "description": "An Audio Visual (AV) System integrates sound and visual technologies for presentations, communication, and entertainment. Commonly used in meeting rooms, auditoriums, and commercial spaces, it enhances engagement, collaboration, and information delivery.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "kpj-rawang",
+        "kpj-ampang",
+        "hospital-universiti-tunku-abdul-rahman"
+      ]
+    },
+    {
+      "id": "ot-tie-line",
+      "name": "OT Tie Line",
+      "brands": "Abtus, Extron, Aten, Amperes",
+      "description": "An OT (Operating Theatre) Tie Line System enables secure live video and audio transmission from operating theatres to seminar or teaching rooms. It is commonly used in hospitals and medical training institutions to support real-time surgical education, allowing students and staff to observe procedures without entering the sterile environment.",
+      "projectSlugs": [
+        "hospital-tunku-ampuan-najihah",
+        "hospital-seri-manjung",
+        "hospital-baling",
+        "kpj-rawang",
+        "kpj-ampang",
+        "hospital-universiti-tunku-abdul-rahman"
+      ]
+    }
+  ],
+  "serviceCapabilities": [
+    {
+      "id": "design",
+      "icon": "fa-drafting-compass",
+      "title": "Design",
+      "description": "Design proposals for ELV systems, including layout plans and schematic drawings aligned to your project requirements."
+    },
+    {
+      "id": "supply",
+      "icon": "fa-truck",
+      "title": "Supply",
+      "description": "A wide range of ELV products and systems from authorised brands and established partners."
+    },
+    {
+      "id": "installation",
+      "icon": "fa-screwdriver-wrench",
+      "title": "Installation",
+      "description": "Capability to install virtually all types of ELV systems across commercial, residential, healthcare, and hospitality sites."
+    },
+    {
+      "id": "maintenance",
+      "icon": "fa-wrench",
+      "title": "Maintenance",
+      "description": "Comprehensive and non-comprehensive maintenance programmes to keep every ELV system running smoothly."
+    },
+    {
+      "id": "programming",
+      "icon": "fa-microchip",
+      "title": "Programming",
+      "description": "System programming configured to end-user needs, operational preferences, and site-specific workflows."
+    },
+    {
+      "id": "testing",
+      "icon": "fa-flask",
+      "title": "Testing & Commissioning",
+      "description": "Structured testing, commissioning, and handover to ensure systems are ready for operational use."
+    },
+    {
+      "id": "training",
+      "icon": "fa-graduation-cap",
+      "title": "Training",
+      "description": "User training on system operation, routine care, and best practices for long-term reliability."
+    }
+  ],
+  "haMeditech": {
+    "title": "HA Meditech Sdn Bhd",
+    "description": "Hyper Advance's healthcare specialist division — backed by group resources and more than 25 years of clinical ELV experience in hospital environments.",
+    "systems": [
+      {
+        "name": "Isolated Power Supply (IPS)",
+        "brands": "Esa Grimma",
+        "distributorId": "esa-grimma",
+        "systemId": "ips",
+        "description": "Medical-grade isolated power systems for operating theatres, critical care zones, and hospital infrastructure."
+      },
+      {
+        "name": "Nurse Call & Clinical Communication",
+        "brands": "Austco",
+        "distributorId": "austco",
+        "systemId": "nurse-call",
+        "description": "Nurse call and healthcare communication systems for wards, clinics, and aged-care facilities."
+      }
+    ]
+  },
   "keyDistributorship": [
     {
       "id": "intercom",
       "title": "INTERCOM SYSTEM",
       "icon": "fa-video",
       "brandIds": [
-        "aiphone",
-        "ajb"
-      ]
-    },
-    {
-      "id": "lighting",
-      "title": "LIGHTING & GUEST ROOM CONTROL SYSTEM",
-      "icon": "fa-lightbulb",
-      "brandIds": [
-        "lutron"
+        "aiphone"
       ]
     },
     {
@@ -569,33 +904,27 @@
       ]
     },
     {
+      "id": "lighting",
+      "title": "LIGHTING CONTROL SYSTEM",
+      "icon": "fa-lightbulb",
+      "brandIds": [
+        "lutron"
+      ]
+    },
+    {
       "id": "smatv",
       "title": "SMATV SYSTEM",
       "icon": "fa-tv",
       "brandIds": [
         "fagor"
       ]
-    },
-    {
-      "id": "ips",
-      "title": "IPS SYSTEM",
-      "icon": "fa-shield-halved",
-      "brandIds": [
-        "esa-grimma"
-      ]
-    },
-    {
-      "id": "master-clock",
-      "title": "MASTER CLOCK SYSTEM",
-      "icon": "fa-clock",
-      "brandIds": [
-        "bodet"
-      ]
     }
   ],
   "company": {
     "founded": 1995,
-    "staffCount": 50,
+    "staffCount": 30,
+    "systemsOffered": 10,
+    "authorizedBrandCount": 5,
     "yearsExperience": 31,
     "successStories": [
       {
@@ -746,6 +1075,7 @@
   "projects": [
     {
       "id": "hospital-tunku-ampuan-najihah",
+      "slug": "hospital-tunku-ampuan-najihah",
       "name": "Hospital Tunku Ampuan Najihah",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -753,8 +1083,12 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
+        "/assets/projects/hospital-tunku-ampuan-najihah/2.jpg"
+      ],
       "completionDate": "2026",
       "additionalSystems": [
         "public-address",
@@ -767,6 +1101,7 @@
     },
     {
       "id": "hospital-tunku-ampuan-najihah-public-address",
+      "slug": "hospital-tunku-ampuan-najihah",
       "name": "Hospital Tunku Ampuan Najihah",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -774,12 +1109,17 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
+        "/assets/projects/hospital-tunku-ampuan-najihah/2.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "hospital-tunku-ampuan-najihah-smatv",
+      "slug": "hospital-tunku-ampuan-najihah",
       "name": "Hospital Tunku Ampuan Najihah",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -787,12 +1127,17 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
+        "/assets/projects/hospital-tunku-ampuan-najihah/2.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "hospital-tunku-ampuan-najihah-master-clock",
+      "slug": "hospital-tunku-ampuan-najihah",
       "name": "Hospital Tunku Ampuan Najihah",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -800,12 +1145,17 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-tunku-ampuan-najihah/1.jpg",
+        "/assets/projects/hospital-tunku-ampuan-najihah/2.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "hospital-seri-manjung",
+      "slug": "hospital-seri-manjung",
       "name": "Hospital Seri Manjung",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -813,8 +1163,11 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-seri-manjung/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-seri-manjung/1.jpg"
+      ],
       "completionDate": "2024",
       "additionalSystems": [
         "public-address",
@@ -827,6 +1180,7 @@
     },
     {
       "id": "hospital-seri-manjung-public-address",
+      "slug": "hospital-seri-manjung",
       "name": "Hospital Seri Manjung",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -834,12 +1188,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-seri-manjung/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-seri-manjung/1.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-seri-manjung-smatv",
+      "slug": "hospital-seri-manjung",
       "name": "Hospital Seri Manjung",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -847,12 +1205,16 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-seri-manjung/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-seri-manjung/1.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-seri-manjung-master-clock",
+      "slug": "hospital-seri-manjung",
       "name": "Hospital Seri Manjung",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -860,12 +1222,16 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-seri-manjung/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-seri-manjung/1.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-baling",
+      "slug": "hospital-baling",
       "name": "Hospital Baling",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -873,8 +1239,12 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-baling/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-baling/1.jpg",
+        "/assets/projects/hospital-baling/2.jpg"
+      ],
       "completionDate": "2024",
       "additionalSystems": [
         "public-address",
@@ -887,6 +1257,7 @@
     },
     {
       "id": "hospital-baling-public-address",
+      "slug": "hospital-baling",
       "name": "Hospital Baling",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -894,12 +1265,17 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-baling/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-baling/1.jpg",
+        "/assets/projects/hospital-baling/2.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-baling-smatv",
+      "slug": "hospital-baling",
       "name": "Hospital Baling",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -907,12 +1283,17 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-baling/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-baling/1.jpg",
+        "/assets/projects/hospital-baling/2.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-baling-master-clock",
+      "slug": "hospital-baling",
       "name": "Hospital Baling",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -920,12 +1301,17 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-baling/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-baling/1.jpg",
+        "/assets/projects/hospital-baling/2.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-miri",
+      "slug": "hospital-miri",
       "name": "Hospital Miri",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -933,8 +1319,13 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-miri/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-miri/1.jpg",
+        "/assets/projects/hospital-miri/2.jpg",
+        "/assets/projects/hospital-miri/3.jpg"
+      ],
       "completionDate": "2025",
       "additionalSystems": [
         "master-clock",
@@ -943,6 +1334,7 @@
     },
     {
       "id": "hospital-miri-master-clock",
+      "slug": "hospital-miri",
       "name": "Hospital Miri",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -950,12 +1342,18 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-miri/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-miri/1.jpg",
+        "/assets/projects/hospital-miri/2.jpg",
+        "/assets/projects/hospital-miri/3.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "hospital-miri-av-intercom",
+      "slug": "hospital-miri",
       "name": "Hospital Miri",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -963,12 +1361,18 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-miri/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-miri/1.jpg",
+        "/assets/projects/hospital-miri/2.jpg",
+        "/assets/projects/hospital-miri/3.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "kpj-rawang",
+      "slug": "kpj-rawang",
       "name": "Kpj Rawang",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -976,8 +1380,12 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-rawang/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/kpj-rawang/1.jpg",
+        "/assets/projects/kpj-rawang/2.jpg"
+      ],
       "completionDate": "2023",
       "additionalSystems": [
         "public-address",
@@ -990,6 +1398,7 @@
     },
     {
       "id": "kpj-rawang-public-address",
+      "slug": "kpj-rawang",
       "name": "Kpj Rawang",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -997,12 +1406,17 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-rawang/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kpj-rawang/1.jpg",
+        "/assets/projects/kpj-rawang/2.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "kpj-rawang-smatv",
+      "slug": "kpj-rawang",
       "name": "Kpj Rawang",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1010,12 +1424,17 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-rawang/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kpj-rawang/1.jpg",
+        "/assets/projects/kpj-rawang/2.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "kpj-rawang-master-clock",
+      "slug": "kpj-rawang",
       "name": "Kpj Rawang",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1023,12 +1442,17 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-rawang/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kpj-rawang/1.jpg",
+        "/assets/projects/kpj-rawang/2.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "kpj-ampang",
+      "slug": "kpj-ampang",
       "name": "Kpj Ampang",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1036,8 +1460,11 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-ampang/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/kpj-ampang/1.jpg"
+      ],
       "completionDate": "2023",
       "additionalSystems": [
         "public-address",
@@ -1050,6 +1477,7 @@
     },
     {
       "id": "kpj-ampang-public-address",
+      "slug": "kpj-ampang",
       "name": "Kpj Ampang",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1057,12 +1485,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-ampang/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kpj-ampang/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "kpj-ampang-smatv",
+      "slug": "kpj-ampang",
       "name": "Kpj Ampang",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1070,12 +1502,16 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-ampang/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kpj-ampang/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "kpj-ampang-master-clock",
+      "slug": "kpj-ampang",
       "name": "Kpj Ampang",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1083,12 +1519,16 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kpj-ampang/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kpj-ampang/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "hospital-sultanah-maliha",
+      "slug": "hospital-sultanah-maliha",
       "name": "Hospital Sultanah Maliha",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1096,8 +1536,11 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-sultanah-maliha/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-sultanah-maliha/1.jpg"
+      ],
       "completionDate": "2025",
       "additionalSystems": [
         "master-clock",
@@ -1106,6 +1549,7 @@
     },
     {
       "id": "hospital-sultanah-maliha-master-clock",
+      "slug": "hospital-sultanah-maliha",
       "name": "Hospital Sultanah Maliha",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1113,12 +1557,16 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-sultanah-maliha/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-sultanah-maliha/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "hospital-sultanah-maliha-av-intercom",
+      "slug": "hospital-sultanah-maliha",
       "name": "Hospital Sultanah Maliha",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1126,12 +1574,16 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-sultanah-maliha/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-sultanah-maliha/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "hospital-sri-iskandar",
+      "slug": "hospital-sri-iskandar",
       "name": "Hospital Sri Iskandar",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1139,8 +1591,11 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-sri-iskandar/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-sri-iskandar/1.jpg"
+      ],
       "completionDate": "2024",
       "additionalSystems": [
         "av-intercom"
@@ -1148,6 +1603,7 @@
     },
     {
       "id": "hospital-sri-iskandar-av-intercom",
+      "slug": "hospital-sri-iskandar",
       "name": "Hospital Sri Iskandar",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1155,12 +1611,16 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-sri-iskandar/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-sri-iskandar/1.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "hospital-universiti-tunku-abdul-rahman",
+      "slug": "hospital-universiti-tunku-abdul-rahman",
       "name": "Hospital Universiti Tunku Abdul Rahman",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1168,8 +1628,12 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/2.jpg"
+      ],
       "completionDate": "2022",
       "contractAmount": "RM 3.3M",
       "additionalSystems": [
@@ -1183,6 +1647,7 @@
     },
     {
       "id": "hospital-universiti-tunku-abdul-rahman-public-address",
+      "slug": "hospital-universiti-tunku-abdul-rahman",
       "name": "Hospital Universiti Tunku Abdul Rahman",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1190,13 +1655,18 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/2.jpg"
+      ],
       "completionDate": "2022",
       "contractAmount": "RM 3.3M"
     },
     {
       "id": "hospital-universiti-tunku-abdul-rahman-smatv",
+      "slug": "hospital-universiti-tunku-abdul-rahman",
       "name": "Hospital Universiti Tunku Abdul Rahman",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1204,13 +1674,18 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/2.jpg"
+      ],
       "completionDate": "2022",
       "contractAmount": "RM 3.3M"
     },
     {
       "id": "hospital-universiti-tunku-abdul-rahman-master-clock",
+      "slug": "hospital-universiti-tunku-abdul-rahman",
       "name": "Hospital Universiti Tunku Abdul Rahman",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1218,13 +1693,18 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/1.jpg",
+        "/assets/projects/hospital-universiti-tunku-abdul-rahman/2.jpg"
+      ],
       "completionDate": "2022",
       "contractAmount": "RM 3.3M"
     },
     {
       "id": "hospital-jengka",
+      "slug": "hospital-jengka",
       "name": "Hospital Jengka",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1232,8 +1712,11 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-jengka/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-jengka/1.jpg"
+      ],
       "completionDate": "2023",
       "additionalSystems": [
         "master-clock",
@@ -1243,6 +1726,7 @@
     },
     {
       "id": "hospital-jengka-master-clock",
+      "slug": "hospital-jengka",
       "name": "Hospital Jengka",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1250,12 +1734,16 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-jengka/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-jengka/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "hospital-jengka-av-intercom",
+      "slug": "hospital-jengka",
       "name": "Hospital Jengka",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1263,12 +1751,16 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-jengka/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-jengka/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "hospital-jengka-public-address",
+      "slug": "hospital-jengka",
       "name": "Hospital Jengka",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1276,12 +1768,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-jengka/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-jengka/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "hospital-sultan-aminah",
+      "slug": "hospital-sultan-aminah",
       "name": "Hospital Sultan Aminah",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1289,12 +1785,16 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-sultan-aminah/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-sultan-aminah/1.jpg"
+      ],
       "completionDate": "On-going"
     },
     {
       "id": "sunway-medical-centre-damansara",
+      "slug": "sunway-medical-centre-damansara",
       "name": "Sunway Medical centre Damansara",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1302,12 +1802,16 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/sunway-medical-centre-damansara/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/sunway-medical-centre-damansara/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "sunway-medical-centre-velocity",
+      "slug": "sunway-medical-centre-velocity",
       "name": "Sunway Medical centre Velocity",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1315,12 +1819,16 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/sunway-medical-centre-velocity/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/sunway-medical-centre-velocity/1.jpg"
+      ],
       "completionDate": "On-going"
     },
     {
       "id": "prince-court-medical-centre",
+      "slug": "prince-court-medical-centre",
       "name": "Prince Court Medical Centre",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1328,14 +1836,19 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": true,
-      "image": "https://www.hyper-advance.com/assets/img/projects/2.jpg",
+      "image": "/assets/projects/prince-court-medical-centre/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/prince-court-medical-centre/1.jpg",
+        "/assets/projects/prince-court-medical-centre/2.jpg"
+      ],
       "additionalSystems": [
         "public-address"
       ]
     },
     {
       "id": "prince-court-medical-centre-public-address",
+      "slug": "prince-court-medical-centre",
       "name": "Prince Court Medical Centre",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1343,11 +1856,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": true,
-      "image": "https://www.hyper-advance.com/assets/img/projects/2.jpg",
-      "source": "xlsx-secondary"
+      "image": "/assets/projects/prince-court-medical-centre/1.jpg",
+      "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/prince-court-medical-centre/1.jpg",
+        "/assets/projects/prince-court-medical-centre/2.jpg"
+      ]
     },
     {
       "id": "park-city-medical-centre",
+      "slug": "park-city-medical-centre",
       "name": "Park city Medical centre",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1355,8 +1873,11 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/park-city-medical-centre/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/park-city-medical-centre/1.jpg"
+      ],
       "additionalSystems": [
         "smatv",
         "public-address"
@@ -1364,6 +1885,7 @@
     },
     {
       "id": "park-city-medical-centre-smatv",
+      "slug": "park-city-medical-centre",
       "name": "Park city Medical centre",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1371,11 +1893,15 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx-secondary"
+      "image": "/assets/projects/park-city-medical-centre/1.jpg",
+      "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/park-city-medical-centre/1.jpg"
+      ]
     },
     {
       "id": "park-city-medical-centre-public-address",
+      "slug": "park-city-medical-centre",
       "name": "Park city Medical centre",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1383,11 +1909,15 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx-secondary"
+      "image": "/assets/projects/park-city-medical-centre/1.jpg",
+      "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/park-city-medical-centre/1.jpg"
+      ]
     },
     {
       "id": "picaso-hospital",
+      "slug": "picaso-hospital",
       "name": "Picaso Hospital",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1395,12 +1925,17 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/picaso-hospital/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/picaso-hospital/1.jpg",
+        "/assets/projects/picaso-hospital/2.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "hospital-alor-gajah",
+      "slug": "hospital-alor-gajah",
       "name": "Hospital Alor Gajah",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1408,8 +1943,11 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-alor-gajah/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/hospital-alor-gajah/1.jpg"
+      ],
       "completionDate": "2026",
       "additionalSystems": [
         "master-clock",
@@ -1418,6 +1956,7 @@
     },
     {
       "id": "hospital-alor-gajah-master-clock",
+      "slug": "hospital-alor-gajah",
       "name": "Hospital Alor Gajah",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -1425,12 +1964,16 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-alor-gajah/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-alor-gajah/1.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "hospital-alor-gajah-av-intercom",
+      "slug": "hospital-alor-gajah",
       "name": "Hospital Alor Gajah",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1438,12 +1981,16 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-alor-gajah/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/hospital-alor-gajah/1.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "assunta-hospital",
+      "slug": "assunta-hospital",
       "name": "Assunta hospital",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1451,12 +1998,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/assunta-hospital/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/assunta-hospital/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "klcc",
+      "slug": "klcc",
       "name": "Klcc",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1471,6 +2022,7 @@
     },
     {
       "id": "k2-data-centre",
+      "slug": "k2-data-centre",
       "name": "K2 Data Centre",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1478,8 +2030,11 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/k2-data-centre/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/k2-data-centre/1.jpg"
+      ],
       "completionDate": "2024",
       "additionalSystems": [
         "av-intercom"
@@ -1487,6 +2042,7 @@
     },
     {
       "id": "pjs-highway",
+      "slug": "pjs-highway",
       "name": "PJS Highway",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1500,6 +2056,7 @@
     },
     {
       "id": "pnb-office",
+      "slug": "pnb-office",
       "name": "PNB Office",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1507,12 +2064,17 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/pnb-office/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/pnb-office/1.jpg",
+        "/assets/projects/pnb-office/2.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "the-seed",
+      "slug": "the-seed",
       "name": "The seed",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1520,12 +2082,16 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/the-seed/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/the-seed/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "121-residence",
+      "slug": "121-residence",
       "name": "121 Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1533,12 +2099,17 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/121-residence/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/121-residence/1.jpg",
+        "/assets/projects/121-residence/2.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "crown-residence",
+      "slug": "crown-residence",
       "name": "Crown Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1546,12 +2117,16 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/crown-residence/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/crown-residence/1.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "gardens-mall",
+      "slug": "gardens-mall",
       "name": "Gardens mall",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1559,11 +2134,15 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx"
+      "image": "/assets/projects/gardens-mall/1.jpg",
+      "source": "xlsx",
+      "images": [
+        "/assets/projects/gardens-mall/1.jpg"
+      ]
     },
     {
       "id": "menara-tan-tan",
+      "slug": "menara-tan-tan",
       "name": "Menara Tan & Tan",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1571,12 +2150,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/menara-tan-tan/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/menara-tan-tan/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "menara-hampshire",
+      "slug": "menara-hampshire",
       "name": "Menara Hampshire",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1584,12 +2167,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/menara-hampshire/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/menara-hampshire/1.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "midvalley-centrepoint-north-south",
+      "slug": "midvalley-centrepoint-north-south",
       "name": "Midvalley centrepoint north & south",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1597,12 +2184,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/midvalley-centrepoint-north-south/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/midvalley-centrepoint-north-south/1.jpg"
+      ],
       "completionDate": "2026"
     },
     {
       "id": "menara-southpoint",
+      "slug": "menara-southpoint",
       "name": "Menara Southpoint",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1610,12 +2201,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/menara-southpoint/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/menara-southpoint/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "gardens-south-tower",
+      "slug": "gardens-south-tower",
       "name": "Gardens South tower",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1623,12 +2218,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/gardens-south-tower/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/gardens-south-tower/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "lai-meng-school",
+      "slug": "lai-meng-school",
       "name": "Lai Meng school",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1636,11 +2235,15 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "https://www.hyper-advance.com/assets/img/projects/23.jpg",
-      "source": "xlsx"
+      "image": "/assets/projects/lai-meng-school/1.jpg",
+      "source": "xlsx",
+      "images": [
+        "/assets/projects/lai-meng-school/1.jpg"
+      ]
     },
     {
       "id": "atwater-office",
+      "slug": "atwater-office",
       "name": "ATWATER office",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1657,6 +2260,7 @@
     },
     {
       "id": "w-hotel",
+      "slug": "w-hotel",
       "name": "W Hotel",
       "systemId": "lighting-control",
       "distributorId": "lutron",
@@ -1664,11 +2268,16 @@
       "sector": "commercial",
       "tag": "Lighting Control",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx"
+      "image": "/assets/projects/w-hotel/1.jpg",
+      "source": "xlsx",
+      "images": [
+        "/assets/projects/w-hotel/1.jpg",
+        "/assets/projects/w-hotel/2.jpg"
+      ]
     },
     {
       "id": "sunway-resort-hotel",
+      "slug": "sunway-resort-hotel",
       "name": "Sunway Resort Hotel",
       "systemId": "lighting-control",
       "distributorId": "lutron",
@@ -1676,11 +2285,15 @@
       "sector": "commercial",
       "tag": "Lighting Control",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx"
+      "image": "/assets/projects/sunway-resort-hotel/1.jpg",
+      "source": "xlsx",
+      "images": [
+        "/assets/projects/sunway-resort-hotel/1.jpg"
+      ]
     },
     {
       "id": "four-seasons-kl",
+      "slug": "four-seasons-kl",
       "name": "Four seasons KL",
       "systemId": "lighting-control",
       "distributorId": "lutron",
@@ -1688,13 +2301,18 @@
       "sector": "commercial",
       "tag": "Lighting Control",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/four-seasons-kl/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/four-seasons-kl/1.jpg",
+        "/assets/projects/four-seasons-kl/2.jpg"
+      ],
       "contractAmount": "RM 4.4M",
       "completionDate": "2017"
     },
     {
       "id": "istana-syarqiyyah",
+      "slug": "istana-syarqiyyah",
       "name": "Istana Syarqiyyah",
       "systemId": "lighting-control",
       "distributorId": "lutron",
@@ -1702,11 +2320,19 @@
       "sector": "commercial",
       "tag": "Lighting Control",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx"
+      "image": "/assets/projects/istana-syarqiyyah/1.jpg",
+      "source": "xlsx",
+      "images": [
+        "/assets/projects/istana-syarqiyyah/1.jpg",
+        "/assets/projects/istana-syarqiyyah/2.jpg",
+        "/assets/projects/istana-syarqiyyah/3.jpg",
+        "/assets/projects/istana-syarqiyyah/4.jpg",
+        "/assets/projects/istana-syarqiyyah/5.jpg"
+      ]
     },
     {
       "id": "kl-wellness-city",
+      "slug": "kl-wellness-city",
       "name": "KL Wellness city",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1714,8 +2340,11 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kl-wellness-city/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/kl-wellness-city/1.jpg"
+      ],
       "completionDate": "On-going",
       "additionalSystems": [
         "smatv"
@@ -1723,6 +2352,7 @@
     },
     {
       "id": "kl-wellness-city-smatv",
+      "slug": "kl-wellness-city",
       "name": "KL Wellness city",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1730,12 +2360,16 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/kl-wellness-city/1.jpg",
       "source": "xlsx-secondary",
+      "images": [
+        "/assets/projects/kl-wellness-city/1.jpg"
+      ],
       "completionDate": "On-going"
     },
     {
       "id": "bamboo-hill",
+      "slug": "bamboo-hill",
       "name": "Bamboo Hill",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1743,12 +2377,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/bamboo-hill/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/bamboo-hill/1.jpg"
+      ],
       "completionDate": "2025"
     },
     {
       "id": "ioi-mall-damansara",
+      "slug": "ioi-mall-damansara",
       "name": "IOI Mall damansara",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1756,12 +2394,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/ioi-mall-damansara/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/ioi-mall-damansara/1.jpg"
+      ],
       "completionDate": "2023"
     },
     {
       "id": "tuanku-ja-afar-hospital-seremban",
+      "slug": "tuanku-ja-afar-hospital-seremban",
       "name": "Tuanku Ja'afar Hospital, Seremban",
       "systemId": "nurse-call",
       "distributorId": "austco",
@@ -1769,12 +2411,17 @@
       "sector": "commercial",
       "tag": "Nurse Call",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/tuanku-ja-afar-hospital-seremban/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/tuanku-ja-afar-hospital-seremban/1.jpg",
+        "/assets/projects/tuanku-ja-afar-hospital-seremban/2.jpg"
+      ],
       "completionDate": "On-going"
     },
     {
       "id": "avant-warehouse",
+      "slug": "avant-warehouse",
       "name": "Avant Warehouse",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1782,8 +2429,11 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/avant-warehouse/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/avant-warehouse/1.jpg"
+      ],
       "completionDate": "On-going",
       "additionalSystems": [
         "public-address"
@@ -1791,6 +2441,7 @@
     },
     {
       "id": "pusat-latihan-unit-tindakhas-semenyih",
+      "slug": "pusat-latihan-unit-tindakhas-semenyih",
       "name": "Pusat Latihan Unit Tindakhas Semenyih",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1807,6 +2458,7 @@
     },
     {
       "id": "pusat-latihan-unit-tindakhas-semenyih-av-intercom",
+      "slug": "pusat-latihan-unit-tindakhas-semenyih",
       "name": "Pusat Latihan Unit Tindakhas Semenyih",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1820,6 +2472,7 @@
     },
     {
       "id": "princess-cove-phase-1",
+      "slug": "princess-cove-phase-1",
       "name": "Princess cove phase 1",
       "systemId": "smatv",
       "distributorId": "fagor",
@@ -1827,11 +2480,15 @@
       "sector": "commercial",
       "tag": "SMATV",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
-      "source": "xlsx"
+      "image": "/assets/projects/princess-cove-phase-1/1.jpg",
+      "source": "xlsx",
+      "images": [
+        "/assets/projects/princess-cove-phase-1/1.jpg"
+      ]
     },
     {
       "id": "masjid-bukit-rahman",
+      "slug": "masjid-bukit-rahman",
       "name": "Masjid Bukit Rahman",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1839,8 +2496,12 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/masjid-bukit-rahman/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/masjid-bukit-rahman/1.jpg",
+        "/assets/projects/masjid-bukit-rahman/2.jpg"
+      ],
       "completionDate": "2024",
       "additionalSystems": [
         "public-address"
@@ -1848,6 +2509,7 @@
     },
     {
       "id": "cidb-office",
+      "slug": "cidb-office",
       "name": "CIDB office",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -1855,12 +2517,16 @@
       "sector": "commercial",
       "tag": "Public Address",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/cidb-office/1.jpg",
       "source": "xlsx",
+      "images": [
+        "/assets/projects/cidb-office/1.jpg"
+      ],
       "completionDate": "2024"
     },
     {
       "id": "sultan-iskandar-immigration",
+      "slug": "sultan-iskandar-immigration",
       "name": "Sultan Iskandar Immigration",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1877,6 +2543,7 @@
     },
     {
       "id": "oku-school",
+      "slug": "oku-school",
       "name": "OKU School",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1893,6 +2560,7 @@
     },
     {
       "id": "university-hospital-malaya",
+      "slug": "university-hospital-malaya",
       "name": "University Hospital Malaya",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1909,6 +2577,7 @@
     },
     {
       "id": "hospital-kuala-lumpur",
+      "slug": "hospital-kuala-lumpur",
       "name": "Hospital Kuala Lumpur",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1925,6 +2594,7 @@
     },
     {
       "id": "iium",
+      "slug": "iium",
       "name": "Iium",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1941,6 +2611,7 @@
     },
     {
       "id": "spice-stadium",
+      "slug": "spice-stadium",
       "name": "Spice Stadium",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1957,6 +2628,7 @@
     },
     {
       "id": "pengerang-power",
+      "slug": "pengerang-power",
       "name": "Pengerang Power",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1973,6 +2645,7 @@
     },
     {
       "id": "kesas-highway",
+      "slug": "kesas-highway",
       "name": "Kesas Highway",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -1989,6 +2662,7 @@
     },
     {
       "id": "genting-carpark",
+      "slug": "genting-carpark",
       "name": "Genting Carpark",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2005,6 +2679,7 @@
     },
     {
       "id": "central-plaza-aeon-nilai",
+      "slug": "central-plaza-aeon-nilai",
       "name": "Central Plaza, Aeon Nilai",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2021,6 +2696,7 @@
     },
     {
       "id": "gce-highway",
+      "slug": "gce-highway",
       "name": "GCE Highway",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2037,6 +2713,7 @@
     },
     {
       "id": "pnb-118",
+      "slug": "pnb-118",
       "name": "Pnb 118",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2053,6 +2730,7 @@
     },
     {
       "id": "hospital-baling-1",
+      "slug": "hospital-baling",
       "name": "Hospital Baling",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2060,15 +2738,20 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-baling/1.jpg",
       "source": "aiphone-q4",
       "completionDate": "2021",
       "unitCount": 10,
       "intercomType": "AUDIO INTERCOM",
-      "location": "KEDAH"
+      "location": "KEDAH",
+      "images": [
+        "/assets/projects/hospital-baling/1.jpg",
+        "/assets/projects/hospital-baling/2.jpg"
+      ]
     },
     {
       "id": "dash-highway",
+      "slug": "dash-highway",
       "name": "Dash Highway",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2085,6 +2768,7 @@
     },
     {
       "id": "klcc-1",
+      "slug": "klcc",
       "name": "Klcc",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2101,6 +2785,7 @@
     },
     {
       "id": "k2-data-centre-1",
+      "slug": "k2-data-centre",
       "name": "K2 Data Centre",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2108,15 +2793,19 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/k2-data-centre/1.jpg",
       "source": "aiphone-q4",
       "completionDate": "2024",
       "unitCount": 22,
       "intercomType": "AUDIO VIDEO INTERCOM",
-      "location": "JB"
+      "location": "JB",
+      "images": [
+        "/assets/projects/k2-data-centre/1.jpg"
+      ]
     },
     {
       "id": "pjs-highway-1",
+      "slug": "pjs-highway",
       "name": "PJS Highway",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2133,6 +2822,7 @@
     },
     {
       "id": "pnb-office-1",
+      "slug": "pnb-office",
       "name": "PNB Office",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2140,15 +2830,20 @@
       "sector": "commercial",
       "tag": "AV Intercom",
       "featured": true,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/pnb-office/1.jpg",
       "source": "aiphone-q4",
       "completionDate": "2024",
       "unitCount": 82,
       "intercomType": "AUDIO VIDEO INTERCOM",
-      "location": "KL"
+      "location": "KL",
+      "images": [
+        "/assets/projects/pnb-office/1.jpg",
+        "/assets/projects/pnb-office/2.jpg"
+      ]
     },
     {
       "id": "hospital-segamat-johor",
+      "slug": "hospital-segamat-johor",
       "name": "Hospital Segamat, Johor",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2163,6 +2858,7 @@
     },
     {
       "id": "hospital-baling-kedah",
+      "slug": "hospital-baling-kedah",
       "name": "Hospital Baling, Kedah",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2170,13 +2866,18 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-baling/1.jpg",
       "source": "bodet-pdf",
       "completionDate": "2021",
-      "contractAmount": "RM 18,000"
+      "contractAmount": "RM 18,000",
+      "images": [
+        "/assets/projects/hospital-baling/1.jpg",
+        "/assets/projects/hospital-baling/2.jpg"
+      ]
     },
     {
       "id": "hospital-sultanah-aminah-hsa-johor",
+      "slug": "hospital-sultanah-aminah-hsa-johor",
       "name": "Hospital Sultanah Aminah (HSA), Johor",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2191,6 +2892,7 @@
     },
     {
       "id": "hospital-seri-manjung-perak",
+      "slug": "hospital-seri-manjung-perak",
       "name": "Hospital Seri Manjung, Perak",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2198,13 +2900,17 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-seri-manjung/1.jpg",
       "source": "bodet-pdf",
       "completionDate": "2024",
-      "contractAmount": "RM 23,000"
+      "contractAmount": "RM 23,000",
+      "images": [
+        "/assets/projects/hospital-seri-manjung/1.jpg"
+      ]
     },
     {
       "id": "gleneagles-hospital-penang",
+      "slug": "gleneagles-hospital-penang",
       "name": "Gleneagles Hospital Penang",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2219,6 +2925,7 @@
     },
     {
       "id": "mahkamah-pengerang-johor",
+      "slug": "mahkamah-pengerang-johor",
       "name": "Mahkamah Pengerang, Johor",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2233,6 +2940,7 @@
     },
     {
       "id": "beacon-hospital-selangor",
+      "slug": "beacon-hospital-selangor",
       "name": "Beacon Hospital, Selangor",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2247,6 +2955,7 @@
     },
     {
       "id": "hospital-alor-gajah-melaka",
+      "slug": "hospital-alor-gajah-melaka",
       "name": "Hospital Alor Gajah, Melaka",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2254,13 +2963,17 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/hospital-alor-gajah/1.jpg",
       "source": "bodet-pdf",
       "completionDate": "2026",
-      "contractAmount": "RM 13,000"
+      "contractAmount": "RM 13,000",
+      "images": [
+        "/assets/projects/hospital-alor-gajah/1.jpg"
+      ]
     },
     {
       "id": "k2-data-centre-johor",
+      "slug": "k2-data-centre-johor",
       "name": "K2 Data Centre, Johor",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2268,13 +2981,17 @@
       "sector": "commercial",
       "tag": "Master Clock",
       "featured": false,
-      "image": "/assets/projects/placeholder-commercial.jpg",
+      "image": "/assets/projects/k2-data-centre/1.jpg",
       "source": "bodet-pdf",
       "completionDate": "2026",
-      "contractAmount": "RM 33,000"
+      "contractAmount": "RM 33,000",
+      "images": [
+        "/assets/projects/k2-data-centre/1.jpg"
+      ]
     },
     {
       "id": "pantai-hospital-ayer-keroh-melaka",
+      "slug": "pantai-hospital-ayer-keroh-melaka",
       "name": "Pantai Hospital Ayer Keroh, Melaka",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2289,6 +3006,7 @@
     },
     {
       "id": "pantai-hospital-penang",
+      "slug": "pantai-hospital-penang",
       "name": "Pantai Hospital Penang",
       "systemId": "master-clock",
       "distributorId": "bodet",
@@ -2303,6 +3021,7 @@
     },
     {
       "id": "40-units-apartments-1",
+      "slug": "40-units-apartments",
       "name": "40 units apartments",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2318,6 +3037,7 @@
     },
     {
       "id": "audio-intercom-850",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2331,6 +3051,7 @@
     },
     {
       "id": "b-w-video-intercom-35",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2344,6 +3065,7 @@
     },
     {
       "id": "b-w-video-intercom-25",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2357,6 +3079,7 @@
     },
     {
       "id": "audio-intercom-9",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2370,6 +3093,7 @@
     },
     {
       "id": "audio-intercom-46",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2383,6 +3107,7 @@
     },
     {
       "id": "audio-intercom-132",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2396,6 +3121,7 @@
     },
     {
       "id": "audio-intercom-33",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2409,6 +3135,7 @@
     },
     {
       "id": "audio-intercom-146",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2422,6 +3149,7 @@
     },
     {
       "id": "12-2005",
+      "slug": "12",
       "name": "12",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2429,11 +3157,16 @@
       "sector": "residential",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-residential.jpg",
-      "source": "aiphone-q3"
+      "image": "/assets/projects/121-residence/1.jpg",
+      "source": "aiphone-q3",
+      "images": [
+        "/assets/projects/121-residence/1.jpg",
+        "/assets/projects/121-residence/2.jpg"
+      ]
     },
     {
       "id": "b-w-video-intercom-78",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2447,6 +3180,7 @@
     },
     {
       "id": "audio-intercom-220",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2460,6 +3194,7 @@
     },
     {
       "id": "b-w-video-intercom-248",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2473,6 +3208,7 @@
     },
     {
       "id": "color-video-intercom-30",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2488,6 +3224,7 @@
     },
     {
       "id": "b-w-video-intercom-15",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2501,6 +3238,7 @@
     },
     {
       "id": "audio-intercom-685",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2514,6 +3252,7 @@
     },
     {
       "id": "b-w-video-intercom-90",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2527,6 +3266,7 @@
     },
     {
       "id": "color-video-intercom-180",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2540,6 +3280,7 @@
     },
     {
       "id": "color-video-intercom-56",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2553,6 +3294,7 @@
     },
     {
       "id": "color-video-intercom-160",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2566,6 +3308,7 @@
     },
     {
       "id": "audio-intercom-600",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2579,6 +3322,7 @@
     },
     {
       "id": "audio-intercom-420",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2594,6 +3338,7 @@
     },
     {
       "id": "kl-24",
+      "slug": "kl",
       "name": "KL",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2601,11 +3346,16 @@
       "sector": "residential",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-residential.jpg",
-      "source": "aiphone-q3"
+      "image": "/assets/projects/four-seasons-kl/1.jpg",
+      "source": "aiphone-q3",
+      "images": [
+        "/assets/projects/four-seasons-kl/1.jpg",
+        "/assets/projects/four-seasons-kl/2.jpg"
+      ]
     },
     {
       "id": "kl-plaza-rah-kampung-baru-25",
+      "slug": "kl-plaza-rah-kampung-baru",
       "name": "KL Plaza RAH,Kampung Baru",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2622,6 +3372,7 @@
     },
     {
       "id": "color-video-intercom-42",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2635,6 +3386,7 @@
     },
     {
       "id": "audio-intercom-272",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2648,6 +3400,7 @@
     },
     {
       "id": "color-video-intercom-368",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2661,6 +3414,7 @@
     },
     {
       "id": "audio-intercom-300",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2674,6 +3428,7 @@
     },
     {
       "id": "audio-intercom-612",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2687,6 +3442,7 @@
     },
     {
       "id": "audio-intercom-194",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2700,6 +3456,7 @@
     },
     {
       "id": "audio-intercom-26",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2713,6 +3470,7 @@
     },
     {
       "id": "audio-intercom-28",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2726,6 +3484,7 @@
     },
     {
       "id": "audio-intercom-181",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2739,6 +3498,7 @@
     },
     {
       "id": "audio-intercom-78",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2752,6 +3512,7 @@
     },
     {
       "id": "audio-intercom-187",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2765,6 +3526,7 @@
     },
     {
       "id": "audio-intercom-197",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2778,6 +3540,7 @@
     },
     {
       "id": "b-w-video-intercom-197",
+      "slug": "b-w-video-intercom",
       "name": "B/W Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2791,6 +3554,7 @@
     },
     {
       "id": "audio-intercom-536",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2804,6 +3568,7 @@
     },
     {
       "id": "color-video-intercom-110",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2817,6 +3582,7 @@
     },
     {
       "id": "color-video-intercom-88",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2830,6 +3596,7 @@
     },
     {
       "id": "audio-intercom-386",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2843,6 +3610,7 @@
     },
     {
       "id": "audio-intercom-179",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2856,6 +3624,7 @@
     },
     {
       "id": "audio-intercom-378",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2869,6 +3638,7 @@
     },
     {
       "id": "audio-intercom-312",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2882,6 +3652,7 @@
     },
     {
       "id": "audio-intercom-389",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2895,6 +3666,7 @@
     },
     {
       "id": "tujuh-residences-see-hoy-chan-49",
+      "slug": "tujuh-residences-see-hoy-chan",
       "name": "Tujuh residences, See Hoy Chan",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2911,6 +3683,7 @@
     },
     {
       "id": "audio-intercom-180",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2924,6 +3697,7 @@
     },
     {
       "id": "audio-intercom-182",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2937,6 +3711,7 @@
     },
     {
       "id": "color-video-intercom-58",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2950,6 +3725,7 @@
     },
     {
       "id": "audio-intercom-166",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2963,6 +3739,7 @@
     },
     {
       "id": "audio-intercom-60",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2976,6 +3753,7 @@
     },
     {
       "id": "color-video-intercom-390",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -2989,6 +3767,7 @@
     },
     {
       "id": "audio-intercom-284",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3002,6 +3781,7 @@
     },
     {
       "id": "audio-intercom-230",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3015,6 +3795,7 @@
     },
     {
       "id": "color-video-intercom-76",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3028,6 +3809,7 @@
     },
     {
       "id": "color-video-intercom-216",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3041,6 +3823,7 @@
     },
     {
       "id": "color-video-intercom-140",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3054,6 +3837,7 @@
     },
     {
       "id": "audio-intercom-225",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3067,6 +3851,7 @@
     },
     {
       "id": "audio-intercom-308",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3080,6 +3865,7 @@
     },
     {
       "id": "audio-intercom-82",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3093,6 +3879,7 @@
     },
     {
       "id": "68-2013",
+      "slug": "68",
       "name": "68",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3105,6 +3892,7 @@
     },
     {
       "id": "color-video-intercom-48",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3118,6 +3906,7 @@
     },
     {
       "id": "audio-intercom-468",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3131,6 +3920,7 @@
     },
     {
       "id": "audio-intercom-80",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3144,6 +3934,7 @@
     },
     {
       "id": "color-video-intercom-322",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3157,6 +3948,7 @@
     },
     {
       "id": "audio-intercom-266",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3170,6 +3962,7 @@
     },
     {
       "id": "audio-intercom-120",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3183,6 +3976,7 @@
     },
     {
       "id": "sky-garden-taman-setia-tropica-74",
+      "slug": "sky-garden-taman-setia-tropica",
       "name": "Sky Garden, Taman Setia Tropica",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3199,6 +3993,7 @@
     },
     {
       "id": "audio-intercom-1053",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3212,6 +4007,7 @@
     },
     {
       "id": "audio-intercom-778",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3225,6 +4021,7 @@
     },
     {
       "id": "audio-intercom-2394",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3238,6 +4035,7 @@
     },
     {
       "id": "audio-intercom-601",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3251,6 +4049,7 @@
     },
     {
       "id": "audio-intercom-1152",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3264,6 +4063,7 @@
     },
     {
       "id": "audio-intercom-548",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3277,6 +4077,7 @@
     },
     {
       "id": "audio-intercom-264",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3290,6 +4091,7 @@
     },
     {
       "id": "audio-intercom-258",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3303,6 +4105,7 @@
     },
     {
       "id": "audio-intercom-986",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3316,6 +4119,7 @@
     },
     {
       "id": "audio-intercom-408",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3329,6 +4133,7 @@
     },
     {
       "id": "color-video-intercom-291",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3342,6 +4147,7 @@
     },
     {
       "id": "audio-intercom-174",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3355,6 +4161,7 @@
     },
     {
       "id": "audio-intercom-360",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3368,6 +4175,7 @@
     },
     {
       "id": "color-video-intercom-149",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3381,6 +4189,7 @@
     },
     {
       "id": "audio-intercom-250",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3394,6 +4203,7 @@
     },
     {
       "id": "audio-intercom-354",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3407,6 +4217,7 @@
     },
     {
       "id": "audio-intercom-434",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3420,6 +4231,7 @@
     },
     {
       "id": "color-video-intercom-114",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3432,6 +4244,7 @@
     },
     {
       "id": "89-1-emerald-avenue-soho-selayang-2014",
+      "slug": "89-1-emerald-avenue-soho-selayang",
       "name": "89.1 Emerald Avenue SOHO @ Selayang",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3447,6 +4260,7 @@
     },
     {
       "id": "audio-intercom-126",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3460,6 +4274,7 @@
     },
     {
       "id": "audio-intercom-259",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3473,6 +4288,7 @@
     },
     {
       "id": "audio-intercom-283",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3486,6 +4302,7 @@
     },
     {
       "id": "sierra-residency-apartment-94",
+      "slug": "sierra-residency-apartment",
       "name": "Sierra Residency Apartment",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3502,6 +4319,7 @@
     },
     {
       "id": "audio-intercom-520",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3515,6 +4333,7 @@
     },
     {
       "id": "audio-intercom-470",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3528,6 +4347,7 @@
     },
     {
       "id": "color-video-intercom-52",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3541,6 +4361,7 @@
     },
     {
       "id": "menara-u2-99",
+      "slug": "menara-u2",
       "name": "Menara U2",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3557,6 +4378,7 @@
     },
     {
       "id": "color-video-intercom-260",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3570,6 +4392,7 @@
     },
     {
       "id": "color-video-intercom-441",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3583,6 +4406,7 @@
     },
     {
       "id": "color-video-intercom-166",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3596,6 +4420,7 @@
     },
     {
       "id": "audio-intercom-190",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3609,6 +4434,7 @@
     },
     {
       "id": "audio-intercom-700",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3622,6 +4448,7 @@
     },
     {
       "id": "audio-intercom-154",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3635,6 +4462,7 @@
     },
     {
       "id": "audio-intercom-210",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3648,6 +4476,7 @@
     },
     {
       "id": "audio-intercom-413",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3661,6 +4490,7 @@
     },
     {
       "id": "audio-intercom-90",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3674,6 +4504,7 @@
     },
     {
       "id": "audio-intercom-188",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3687,6 +4518,7 @@
     },
     {
       "id": "audio-intercom-723",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3700,6 +4532,7 @@
     },
     {
       "id": "audio-intercom-888",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3713,6 +4546,7 @@
     },
     {
       "id": "color-video-intercom-23",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3726,6 +4560,7 @@
     },
     {
       "id": "suria-stonor-115",
+      "slug": "suria-stonor",
       "name": "Suria Stonor",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3742,6 +4577,7 @@
     },
     {
       "id": "harvard-residence-116",
+      "slug": "harvard-residence",
       "name": "Harvard Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3758,6 +4594,7 @@
     },
     {
       "id": "park-seven-residence-117",
+      "slug": "park-seven-residence",
       "name": "Park Seven Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3774,6 +4611,7 @@
     },
     {
       "id": "reflection-residence-118",
+      "slug": "reflection-residence",
       "name": "Reflection Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3790,6 +4628,7 @@
     },
     {
       "id": "audio-intercom-236",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3803,6 +4642,7 @@
     },
     {
       "id": "audio-intercom-415",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3816,6 +4656,7 @@
     },
     {
       "id": "audio-intercom-430",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3829,6 +4670,7 @@
     },
     {
       "id": "audio-intercom-280",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3841,6 +4683,7 @@
     },
     {
       "id": "dua-manjarala-124",
+      "slug": "dua-manjarala",
       "name": "Dua Manjarala",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3857,6 +4700,7 @@
     },
     {
       "id": "audio-intercom-47",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3870,6 +4714,7 @@
     },
     {
       "id": "audio-intercom-20",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3883,6 +4728,7 @@
     },
     {
       "id": "audio-intercom-208",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3896,6 +4742,7 @@
     },
     {
       "id": "color-video-intercom-250",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3909,6 +4756,7 @@
     },
     {
       "id": "color-video-intercom-576",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3922,6 +4770,7 @@
     },
     {
       "id": "audio-intercom-763",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3935,6 +4784,7 @@
     },
     {
       "id": "audio-intercom-491",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3948,6 +4798,7 @@
     },
     {
       "id": "audio-intercom-178",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3961,6 +4812,7 @@
     },
     {
       "id": "color-video-intercom-275",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3974,6 +4826,7 @@
     },
     {
       "id": "koi-prima-136",
+      "slug": "koi-prima",
       "name": "Koi Prima",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -3990,6 +4843,7 @@
     },
     {
       "id": "audio-intercom-745",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4003,6 +4857,7 @@
     },
     {
       "id": "audio-intercom-109",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4016,6 +4871,7 @@
     },
     {
       "id": "audio-intercom-461",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4029,6 +4885,7 @@
     },
     {
       "id": "audio-intercom-459",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4042,6 +4899,7 @@
     },
     {
       "id": "audio-intercom-545",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4055,6 +4913,7 @@
     },
     {
       "id": "audio-intercom-539",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4068,6 +4927,7 @@
     },
     {
       "id": "audio-intercom-808",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4081,6 +4941,7 @@
     },
     {
       "id": "audio-intercom-482",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4094,6 +4955,7 @@
     },
     {
       "id": "audio-intercom-531",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4107,6 +4969,7 @@
     },
     {
       "id": "color-video-intercom-102",
+      "slug": "color-video-intercom",
       "name": "Color Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4120,6 +4983,7 @@
     },
     {
       "id": "audio-intercom-265",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4133,6 +4997,7 @@
     },
     {
       "id": "audio-intercom-547",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4146,6 +5011,7 @@
     },
     {
       "id": "audio-intercom-402",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4159,6 +5025,7 @@
     },
     {
       "id": "audio-intercom-492",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4172,6 +5039,7 @@
     },
     {
       "id": "audio-intercom-1281",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4185,6 +5053,7 @@
     },
     {
       "id": "audio-intercom-345",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4198,6 +5067,7 @@
     },
     {
       "id": "audio-intercom-714",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4211,6 +5081,7 @@
     },
     {
       "id": "ip-audio-intercom-89",
+      "slug": "ip-audio-intercom",
       "name": "IP Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4224,6 +5095,7 @@
     },
     {
       "id": "audio-intercom-304",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4237,6 +5109,7 @@
     },
     {
       "id": "laguna-biru-kelana-jaya-158",
+      "slug": "laguna-biru-kelana-jaya",
       "name": "laguna Biru, Kelana Jaya",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4253,6 +5126,7 @@
     },
     {
       "id": "audio-intercom-307",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4266,6 +5140,7 @@
     },
     {
       "id": "audio-intercom-471",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4279,6 +5154,7 @@
     },
     {
       "id": "audio-intercom-894",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4292,6 +5168,7 @@
     },
     {
       "id": "audio-intercom-477",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4305,6 +5182,7 @@
     },
     {
       "id": "audio-intercom-400",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4318,6 +5196,7 @@
     },
     {
       "id": "audio-intercom-638",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4331,6 +5210,7 @@
     },
     {
       "id": "audio-intercom-922",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4344,6 +5224,7 @@
     },
     {
       "id": "audio-intercom-462",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4357,6 +5238,7 @@
     },
     {
       "id": "audio-intercom-206",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4370,6 +5252,7 @@
     },
     {
       "id": "audio-intercom-196",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4383,6 +5266,7 @@
     },
     {
       "id": "audio-intercom-21",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4396,6 +5280,7 @@
     },
     {
       "id": "audio-intercom-780",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4409,6 +5294,7 @@
     },
     {
       "id": "audio-intercom-646",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4422,6 +5308,7 @@
     },
     {
       "id": "audio-intercom-416",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4436,6 +5323,7 @@
     },
     {
       "id": "ip-audio-intercom-19",
+      "slug": "ip-audio-intercom",
       "name": "IP Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4449,6 +5337,7 @@
     },
     {
       "id": "audio-intercom-1260",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4462,6 +5351,7 @@
     },
     {
       "id": "audio-intercom-422",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4475,6 +5365,7 @@
     },
     {
       "id": "audio-intercom-183",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4488,6 +5379,7 @@
     },
     {
       "id": "audio-intercom-502",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4501,6 +5393,7 @@
     },
     {
       "id": "bbcc-residence-181",
+      "slug": "bbcc-residence",
       "name": "BBCC Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4517,6 +5410,7 @@
     },
     {
       "id": "audio-intercom-200",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4530,6 +5424,7 @@
     },
     {
       "id": "audio-intercom-716",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4543,6 +5438,7 @@
     },
     {
       "id": "ip-audio-intercom-135",
+      "slug": "ip-audio-intercom",
       "name": "IP Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4556,6 +5452,7 @@
     },
     {
       "id": "ip-audio-intercom-396",
+      "slug": "ip-audio-intercom",
       "name": "IP Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4569,6 +5466,7 @@
     },
     {
       "id": "audio-intercom-564",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4582,6 +5480,7 @@
     },
     {
       "id": "audio-intercom-22",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4595,6 +5494,7 @@
     },
     {
       "id": "audio-intercom-320",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4608,6 +5508,7 @@
     },
     {
       "id": "audio-intercom-498",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4621,6 +5522,7 @@
     },
     {
       "id": "audio-intercom-217",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4634,6 +5536,7 @@
     },
     {
       "id": "audio-intercom-96",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4647,6 +5550,7 @@
     },
     {
       "id": "audio-intercom-653",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4660,6 +5564,7 @@
     },
     {
       "id": "audio-intercom-242",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4673,6 +5578,7 @@
     },
     {
       "id": "ip-video-intercom-280",
+      "slug": "ip-video-intercom",
       "name": "IP Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4686,6 +5592,7 @@
     },
     {
       "id": "audio-intercom-496",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4699,6 +5606,7 @@
     },
     {
       "id": "audio-intercom-296",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4712,6 +5620,7 @@
     },
     {
       "id": "audio-intercom-622",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4725,6 +5634,7 @@
     },
     {
       "id": "ip-video-intercom-82",
+      "slug": "ip-video-intercom",
       "name": "IP Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4738,6 +5648,7 @@
     },
     {
       "id": "ip-video-intercom-22",
+      "slug": "ip-video-intercom",
       "name": "IP Video Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4751,6 +5662,7 @@
     },
     {
       "id": "audio-intercom-834",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4764,6 +5676,7 @@
     },
     {
       "id": "the-seed-refurbishment-total-1230-1",
+      "slug": "the-seed-refurbishment-total-1230",
       "name": "The Seed (Refurbishment) -Total 1230",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4771,14 +5684,18 @@
       "sector": "residential",
       "tag": "AV Intercom",
       "featured": false,
-      "image": "/assets/projects/placeholder-residential.jpg",
+      "image": "/assets/projects/the-seed/1.jpg",
       "source": "aiphone-q3",
       "unitCount": 1230,
       "intercomType": "Audio Intercom",
-      "location": "KL"
+      "location": "KL",
+      "images": [
+        "/assets/projects/the-seed/1.jpg"
+      ]
     },
     {
       "id": "ava-residence-2",
+      "slug": "ava-residence",
       "name": "Ava Residence",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4795,6 +5712,7 @@
     },
     {
       "id": "audio-intercom-684",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4808,6 +5726,7 @@
     },
     {
       "id": "audio-intercom-384",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4821,6 +5740,7 @@
     },
     {
       "id": "audio-intercom-568",
+      "slug": "audio-intercom",
       "name": "Audio Intercom",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4834,6 +5754,7 @@
     },
     {
       "id": "color-video-intercm-108",
+      "slug": "color-video-intercm",
       "name": "Color Video Intercm",
       "systemId": "av-intercom",
       "distributorId": "aiphone",
@@ -4847,6 +5768,7 @@
     },
     {
       "id": "min-of-agri-moa-malaysia-government-public-0",
+      "slug": "min-of-agri-moa-malaysia",
       "name": "Min of Agri ( MOA ) Malaysia",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4861,6 +5783,7 @@
     },
     {
       "id": "wisma-putra-putrajaya-government-public-1",
+      "slug": "wisma-putra-putrajaya",
       "name": "Wisma Putra (Putrajaya)",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4875,6 +5798,7 @@
     },
     {
       "id": "mof-car-park-complex-kuwait-government-public-2",
+      "slug": "mof-car-park-complex-kuwait",
       "name": "MOF Car Park Complex, Kuwait",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4889,6 +5813,7 @@
     },
     {
       "id": "custom-complex-lahad-datu-government-public-3",
+      "slug": "custom-complex-lahad-datu",
       "name": "Custom Complex, Lahad Datu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4903,6 +5828,7 @@
     },
     {
       "id": "lhdn-office-kota-bharu-government-public-4",
+      "slug": "lhdn-office-kota-bharu",
       "name": "LHDN Office Kota Bharu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4917,6 +5843,7 @@
     },
     {
       "id": "mrsm-sugar-factory-pasir-gudang-ip-pa-government-public-5",
+      "slug": "mrsm-sugar-factory-pasir-gudang-ip-pa",
       "name": "MRSM - Sugar Factory Pasir Gudang ( IP - PA )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4931,6 +5858,7 @@
     },
     {
       "id": "outershelft-of-submarine-government-public-6",
+      "slug": "outershelft-of-submarine",
       "name": "Outershelft of Submarine",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4945,6 +5873,7 @@
     },
     {
       "id": "perak-transit-kampar-government-public-7",
+      "slug": "perak-transit-kampar",
       "name": "Perak Transit, Kampar",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4959,6 +5888,7 @@
     },
     {
       "id": "wisma-putra-ip-paging-government-public-8",
+      "slug": "wisma-putra-ip-paging",
       "name": "Wisma Putra IP Paging",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4973,6 +5903,7 @@
     },
     {
       "id": "ministry-of-agriculture-moa-ip-retrofit-government-public-9",
+      "slug": "ministry-of-agriculture-moa-ip-retrofit",
       "name": "Ministry of Agriculture ( MOA ) IP retrofit",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -4987,6 +5918,7 @@
     },
     {
       "id": "kl-botanic-garden-wireless-ip-government-public-10",
+      "slug": "kl-botanic-garden-wireless-ip",
       "name": "KL Botanic Garden ( wireless IP )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5001,6 +5933,7 @@
     },
     {
       "id": "jabatan-audit-terengganu-government-public-11",
+      "slug": "jabatan-audit-terengganu",
       "name": "Jabatan Audit Terengganu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5015,6 +5948,7 @@
     },
     {
       "id": "mahkamah-tapah-government-public-12",
+      "slug": "mahkamah-tapah",
       "name": "Mahkamah Tapah",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5029,6 +5963,7 @@
     },
     {
       "id": "naval-base-tuas-ip-system-government-public-13",
+      "slug": "naval-base-tuas-ip-system",
       "name": "Naval Base, Tuas ( IP System )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5043,6 +5978,7 @@
     },
     {
       "id": "air-traffic-atc-dca-office-sepang-office-towers-0",
+      "slug": "air-traffic-atc-dca-office-sepang",
       "name": "Air Traffic - ATC ( DCA ) Office, Sepang",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5057,6 +5993,7 @@
     },
     {
       "id": "daniat-makkah-office-towers-1",
+      "slug": "daniat-makkah",
       "name": "Daniat Makkah",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5071,6 +6008,7 @@
     },
     {
       "id": "pj-innovation-city-ip-system-office-towers-2",
+      "slug": "pj-innovation-city-ip-system",
       "name": "PJ Innovation City ( IP System )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5085,6 +6023,7 @@
     },
     {
       "id": "kl-gateway-bangsar-south-office-towers-3",
+      "slug": "kl-gateway-bangsar-south",
       "name": "KL Gateway, Bangsar South",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5099,6 +6038,7 @@
     },
     {
       "id": "wisma-tnb-jalan-timur-ip-system-pet-jaya-office-towers-4",
+      "slug": "wisma-tnb-jalan-timur-ip-system-pet-jaya",
       "name": "Wisma TNB Jalan Timur ( IP System ), Pet Jaya",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5113,6 +6053,7 @@
     },
     {
       "id": "the-vertical-bangsar-south-office-towers-5",
+      "slug": "the-vertical-bangsar-south",
       "name": "The Vertical Bangsar South",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5127,6 +6068,7 @@
     },
     {
       "id": "mimos-technology-park-office-towers-6",
+      "slug": "mimos-technology-park",
       "name": "MIMOS Technology Park",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5141,6 +6083,7 @@
     },
     {
       "id": "menara-axia-office-towers-7",
+      "slug": "menara-axia",
       "name": "Menara Axia",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5155,6 +6098,7 @@
     },
     {
       "id": "naza-ttdi-klcc-phase-2-office-towers-8",
+      "slug": "naza-ttdi-klcc-phase-2",
       "name": "Naza TTDI, KLCC Phase 2",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5169,6 +6113,7 @@
     },
     {
       "id": "tropicana-avenue-office-towers-9",
+      "slug": "tropicana-avenue",
       "name": "Tropicana Avenue",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5183,6 +6128,7 @@
     },
     {
       "id": "tropicana-rt4-office-towers-10",
+      "slug": "tropicana-rt4",
       "name": "Tropicana RT4",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5196,6 +6142,7 @@
     },
     {
       "id": "updated-as-at-nov-2020-hotels-resorts-0",
+      "slug": "updated-as-at-nov-2020",
       "name": "Updated as at Nov 2020",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5210,6 +6157,7 @@
     },
     {
       "id": "2014-2023-hotels-resorts-1",
+      "slug": "2014-2023",
       "name": "2014 - 2023",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5224,6 +6172,7 @@
     },
     {
       "id": "genting-theme-park-hotel-hotels-resorts-2",
+      "slug": "genting-theme-park-hotel",
       "name": "Genting Theme Park Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5238,6 +6187,7 @@
     },
     {
       "id": "hilton-kota-kinabalu-hotels-resorts-3",
+      "slug": "hilton-kota-kinabalu",
       "name": "Hilton Kota Kinabalu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5252,6 +6202,7 @@
     },
     {
       "id": "fourpoints-hotel-hotels-resorts-4",
+      "slug": "fourpoints-hotel",
       "name": "Fourpoints Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5266,6 +6217,7 @@
     },
     {
       "id": "verona-hotel-hotels-resorts-5",
+      "slug": "verona-hotel",
       "name": "Verona Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5280,6 +6232,7 @@
     },
     {
       "id": "anantara-hotel-desaru-hotels-resorts-6",
+      "slug": "anantara-hotel-desaru",
       "name": "Anantara Hotel Desaru",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5294,6 +6247,7 @@
     },
     {
       "id": "fourpoints-hotel-hotels-resorts-7",
+      "slug": "fourpoints-hotel",
       "name": "Fourpoints Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5308,6 +6262,7 @@
     },
     {
       "id": "colmar-resort-bukit-tinggi-hotels-resorts-8",
+      "slug": "colmar-resort-bukit-tinggi",
       "name": "Colmar Resort, Bukit Tinggi",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5322,6 +6277,7 @@
     },
     {
       "id": "hotel-teluk-bahang-hotels-resorts-9",
+      "slug": "hotel-teluk-bahang",
       "name": "Hotel Teluk Bahang",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5336,6 +6292,7 @@
     },
     {
       "id": "tanjung-rhu-hotel-retrofit-hotels-resorts-10",
+      "slug": "tanjung-rhu-hotel-retrofit",
       "name": "Tanjung Rhu Hotel ( Retrofit )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5350,6 +6307,7 @@
     },
     {
       "id": "quay-hotel-hotels-resorts-11",
+      "slug": "quay-hotel",
       "name": "Quay Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5364,6 +6322,7 @@
     },
     {
       "id": "m101-hotels-resorts-12",
+      "slug": "m101",
       "name": "M101",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5378,6 +6337,7 @@
     },
     {
       "id": "hilton-hotel-hotels-resorts-13",
+      "slug": "hilton-hotel",
       "name": "Hilton Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5392,6 +6352,7 @@
     },
     {
       "id": "genting-theme-park-hotel-hotels-resorts-14",
+      "slug": "genting-theme-park-hotel",
       "name": "Genting Theme Park Hotel",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5406,6 +6367,7 @@
     },
     {
       "id": "m-tree-hotel-puchong-hotels-resorts-15",
+      "slug": "m-tree-hotel-puchong",
       "name": "M Tree Hotel Puchong",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5420,6 +6382,7 @@
     },
     {
       "id": "hilton-johor-bahru-hotels-resorts-16",
+      "slug": "hilton-johor-bahru",
       "name": "Hilton Johor Bahru",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5434,6 +6397,7 @@
     },
     {
       "id": "hilton-kota-kinabalu-hotels-resorts-17",
+      "slug": "hilton-kota-kinabalu",
       "name": "Hilton Kota Kinabalu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5448,6 +6412,7 @@
     },
     {
       "id": "amansari-hotel-desaru-hotels-resorts-18",
+      "slug": "amansari-hotel-desaru",
       "name": "Amansari Hotel Desaru",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5462,6 +6427,7 @@
     },
     {
       "id": "ibis-hotel-kota-kinabalu-hotels-resorts-19",
+      "slug": "ibis-hotel-kota-kinabalu",
       "name": "Ibis Hotel Kota Kinabalu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5476,6 +6442,7 @@
     },
     {
       "id": "dorsett-service-apartment-hotels-resorts-20",
+      "slug": "dorsett-service-apartment",
       "name": "Dorsett Service Apartment",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5490,6 +6457,7 @@
     },
     {
       "id": "hotel-malaya-hotels-resorts-21",
+      "slug": "hotel-malaya",
       "name": "Hotel Malaya",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5504,6 +6472,7 @@
     },
     {
       "id": "tune-hotel-jalan-putra-hotels-resorts-22",
+      "slug": "tune-hotel-jalan-putra",
       "name": "Tune Hotel Jalan Putra",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5518,6 +6487,7 @@
     },
     {
       "id": "tanjung-rhu-resort-langkawi-ip-pa-hotels-resorts-23",
+      "slug": "tanjung-rhu-resort-langkawi-ip-pa",
       "name": "Tanjung Rhu Resort, Langkawi ( IP PA )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5532,6 +6502,7 @@
     },
     {
       "id": "highland-hotel-monte-carlo-genting-hotels-resorts-24",
+      "slug": "highland-hotel-monte-carlo-genting",
       "name": "Highland Hotel Monte Carlo, Genting",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5546,6 +6517,7 @@
     },
     {
       "id": "hotel-rembia-hotels-resorts-25",
+      "slug": "hotel-rembia",
       "name": "Hotel Rembia",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5560,6 +6532,7 @@
     },
     {
       "id": "updated-as-at-nov-2020-education-training-0",
+      "slug": "updated-as-at-nov-2020",
       "name": "Updated as at Nov 2020",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5574,6 +6547,7 @@
     },
     {
       "id": "2014-2023-education-training-1",
+      "slug": "2014-2023",
       "name": "2014 - 2023",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5588,6 +6562,7 @@
     },
     {
       "id": "uitm-shah-alam-faculty-engineering-education-training-2",
+      "slug": "uitm-shah-alam-faculty-engineering",
       "name": "UITM Shah Alam ( Faculty Engineering )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5602,6 +6577,7 @@
     },
     {
       "id": "kdu-batu-kawan-penang-education-training-3",
+      "slug": "kdu-batu-kawan-penang",
       "name": "KDU Batu Kawan, Penang",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5616,6 +6592,7 @@
     },
     {
       "id": "politeknik-hulu-terengganu-education-training-4",
+      "slug": "politeknik-hulu-terengganu",
       "name": "Politeknik Hulu Terengganu",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5630,6 +6607,7 @@
     },
     {
       "id": "univ-malaysia-kelantan-umk-admin-library-education-training-5",
+      "slug": "univ-malaysia-kelantan-umk-admin-library",
       "name": "Univ. Malaysia Kelantan ( UMK ): Admin / Library",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5644,6 +6622,7 @@
     },
     {
       "id": "univ-malaysia-pahang-ump-science-faculty-education-training-6",
+      "slug": "univ-malaysia-pahang-ump-science-faculty",
       "name": "Univ. Malaysia Pahang ( UMP ): Science Faculty",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5658,6 +6637,7 @@
     },
     {
       "id": "mdis-iskandar-johor-bahru-education-training-7",
+      "slug": "mdis-iskandar-johor-bahru",
       "name": "MDIS, Iskandar Johor Bahru",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5672,6 +6652,7 @@
     },
     {
       "id": "ucam-drb-pekan-education-training-8",
+      "slug": "ucam-drb-pekan",
       "name": "UCAM DRB, Pekan",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5686,6 +6667,7 @@
     },
     {
       "id": "hans-study-melaka-education-training-9",
+      "slug": "hans-study-melaka",
       "name": "Hans Study, Melaka",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5700,6 +6682,7 @@
     },
     {
       "id": "rajamangala-university-chiang-mai-ip-pa-education-training-10",
+      "slug": "rajamangala-university-chiang-mai-ip-pa",
       "name": "Rajamangala University, Chiang Mai ( IP PA )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5714,6 +6697,7 @@
     },
     {
       "id": "uniten-bandar-muazam-shah-kuantan-ip-pa-education-training-11",
+      "slug": "uniten-bandar-muazam-shah-kuantan-ip-pa",
       "name": "Uniten Bandar Muazam Shah, Kuantan ( IP PA )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5728,6 +6712,7 @@
     },
     {
       "id": "help-university-subang-bestari-education-training-12",
+      "slug": "help-university-subang-bestari",
       "name": "Help University Subang Bestari",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5742,6 +6727,7 @@
     },
     {
       "id": "kolej-agama-islam-johor-education-training-13",
+      "slug": "kolej-agama-islam-johor",
       "name": "Kolej Agama Islam Johor",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5756,6 +6742,7 @@
     },
     {
       "id": "uitm-puncak-alam-education-training-14",
+      "slug": "uitm-puncak-alam",
       "name": "UITM Puncak Alam",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5770,6 +6757,7 @@
     },
     {
       "id": "city-campus-putrajaya-education-training-15",
+      "slug": "city-campus-putrajaya",
       "name": "City Campus, Putrajaya",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5783,6 +6771,7 @@
     },
     {
       "id": "taylor-international-school-schools-0",
+      "slug": "taylor-international-school",
       "name": "Taylor International School",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5797,6 +6786,7 @@
     },
     {
       "id": "acs-barker-road-middle-school-schools-1",
+      "slug": "acs-barker-road-middle-school",
       "name": "ACS (Barker Road) - Middle School",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5811,6 +6801,7 @@
     },
     {
       "id": "smk-titingan-schools-2",
+      "slug": "smk-titingan",
       "name": "SMK Titingan",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5825,6 +6816,7 @@
     },
     {
       "id": "taylor-international-school-ph-i-and-ii-schools-3",
+      "slug": "taylor-international-school-ph-i-and-ii",
       "name": "Taylor International School Ph I and II",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5839,6 +6831,7 @@
     },
     {
       "id": "sek-ren-agama-damansara-sunway-schools-4",
+      "slug": "sek-ren-agama-damansara-sunway",
       "name": "Sek Ren Agama Damansara Sunway",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5853,6 +6846,7 @@
     },
     {
       "id": "international-school-iskandar-schools-5",
+      "slug": "international-school-iskandar",
       "name": "International School, Iskandar",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5867,6 +6861,7 @@
     },
     {
       "id": "junction-city-yangon-entertainment-shoppi-0",
+      "slug": "junction-city-yangon",
       "name": "Junction City, Yangon",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5881,6 +6876,7 @@
     },
     {
       "id": "gravit-8-klang-entertainment-shoppi-1",
+      "slug": "gravit-8-klang",
       "name": "Gravit 8, Klang",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5895,6 +6891,7 @@
     },
     {
       "id": "the-list-comprises-of-systems-installed-with-amperes-either-entertainment-shoppi-2",
+      "slug": "the-list-comprises-of-systems-installed-with-amperes-either",
       "name": "The list comprises of systems installed with Amperes, either full or partial systems, inclusive of new and retrofits.",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5909,6 +6906,7 @@
     },
     {
       "id": "year-of-installation-may-include-final-handover-of-systems-entertainment-shoppi-3",
+      "slug": "year-of-installation-may-include-final-handover-of-systems",
       "name": "Year of installation may include final handover of systems.",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5923,6 +6921,7 @@
     },
     {
       "id": "source-system-integrators-dealers-and-distributors-amperes-e-entertainment-shoppi-4",
+      "slug": "source-system-integrators-dealers-and-distributors-amperes-e",
       "name": "Source: System Integrators, dealers and distributors. Amperes Electronics shall be indemnified against any wrong information provided by its dealers and shall at all time, try to provide best possible data from time to time.",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5937,6 +6936,7 @@
     },
     {
       "id": "older-references-prior-to-2014-had-been-omitted-entertainment-shoppi-5",
+      "slug": "older-references-prior-to-2014-had-been-omitted",
       "name": "Older references prior to 2014 had been omitted.",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5951,6 +6951,7 @@
     },
     {
       "id": "providing-dedicated-public-address-system-since-1999-entertainment-shoppi-6",
+      "slug": "providing-dedicated-public-address-system-since-1999",
       "name": "Providing dedicated Public Address System since 1999",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5965,6 +6966,7 @@
     },
     {
       "id": "amperes-electronics-sdn-bhd-entertainment-shoppi-7",
+      "slug": "amperes-electronics-sdn-bhd",
       "name": "amperes electronics sdn bhd",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5979,6 +6981,7 @@
     },
     {
       "id": "www-ampereselectronics-com-entertainment-shoppi-8",
+      "slug": "www-ampereselectronics-com",
       "name": "www.ampereselectronics.com",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -5993,6 +6996,7 @@
     },
     {
       "id": "lebuhraya-pantai-barat-ongoing-security-0",
+      "slug": "lebuhraya-pantai-barat-ongoing",
       "name": "Lebuhraya Pantai Barat ( Ongoing )",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -6007,6 +7011,7 @@
     },
     {
       "id": "subang-airport-sapura-hangar-security-1",
+      "slug": "subang-airport-sapura-hangar",
       "name": "Subang Airport, Sapura Hangar",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -6021,6 +7026,7 @@
     },
     {
       "id": "lankan-railways-security-2",
+      "slug": "lankan-railways",
       "name": "Lankan Railways",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -6035,6 +7041,7 @@
     },
     {
       "id": "penang-sentral-butterworth-security-3",
+      "slug": "penang-sentral-butterworth",
       "name": "Penang Sentral, Butterworth",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -6049,6 +7056,7 @@
     },
     {
       "id": "penang-hill-tram-security-4",
+      "slug": "penang-hill-tram",
       "name": "Penang Hill Tram",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -6063,6 +7071,7 @@
     },
     {
       "id": "putrajaya-bus-depot-security-5",
+      "slug": "putrajaya-bus-depot",
       "name": "Putrajaya Bus Depot",
       "systemId": "public-address",
       "distributorId": "amperes",
@@ -6077,6 +7086,7 @@
     },
     {
       "id": "noi-bai-airport-security-6",
+      "slug": "noi-bai-airport",
       "name": "Noi Bai Airport",
       "systemId": "public-address",
       "distributorId": "amperes",

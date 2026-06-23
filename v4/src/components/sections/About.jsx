@@ -4,10 +4,10 @@ import SectionHeader from '../ui/SectionHeader';
 import { publicPath } from '../../utils/publicPath';
 
 const CAPABILITIES = [
-  { icon: 'fa-drafting-compass', label: 'System Design' },
-  { icon: 'fa-truck', label: 'Supply & Installation' },
+  { icon: 'fa-drafting-compass', label: 'Design' },
+  { icon: 'fa-truck', label: 'Supply' },
+  { icon: 'fa-screwdriver-wrench', label: 'Installation' },
   { icon: 'fa-flask', label: 'Testing & Commissioning' },
-  { icon: 'fa-microchip', label: 'Programming' },
   { icon: 'fa-wrench', label: 'Maintenance' },
   { icon: 'fa-graduation-cap', label: 'Training' },
 ];
@@ -15,9 +15,9 @@ const CAPABILITIES = [
 export default function About() {
   const { data } = useCatalog();
   const company = data?.company;
-  const years = company?.yearsExperience ?? 31;
-  const staff = company?.staffCount ?? 50;
-  const brandCount = data?.distributors?.length ?? 8;
+  const staff = company?.staffCount ?? 30;
+  const systems = company?.systemsOffered ?? 10;
+  const brands = company?.authorizedBrandCount ?? 5;
 
   return (
     <section id="about" className="section blueprint-bg">
@@ -25,7 +25,7 @@ export default function About() {
         <SectionHeader
           eyebrow="01 — Who We Are"
           title="About Us"
-          desc="Three decades of precision engineering and system integration across Malaysia's most demanding environments."
+          desc="An experienced ELV contractor and authorised distributor serving Malaysia since 1995."
         />
 
         <Reveal className="about-intro-bar">
@@ -34,16 +34,20 @@ export default function About() {
           </div>
           <div className="about-stats-row">
             <div>
-              <div className="about-stat-num">{years}<span>+</span></div>
-              <div className="about-stat-lbl">Years</div>
-            </div>
-            <div>
               <div className="about-stat-num">{staff}<span>+</span></div>
-              <div className="about-stat-lbl">Staff</div>
+              <div className="about-stat-lbl">Team Members</div>
             </div>
             <div>
-              <div className="about-stat-num">{brandCount}</div>
-              <div className="about-stat-lbl">Brands</div>
+              <div className="about-stat-num">{systems}<span>+</span></div>
+              <div className="about-stat-lbl">Systems</div>
+            </div>
+            <div>
+              <div className="about-stat-num">{company?.founded ?? 1995}</div>
+              <div className="about-stat-lbl">Since</div>
+            </div>
+            <div>
+              <div className="about-stat-num">{brands}<span>+</span></div>
+              <div className="about-stat-lbl">Authorised Brands</div>
             </div>
           </div>
         </Reveal>
@@ -51,13 +55,13 @@ export default function About() {
         <div className="about-grid about-grid--slim">
           <Reveal variant="left">
             <p>
-              <b className="blue">HYPER ADVANCE SDN BHD</b> has grown since 1995 from a one-person operation into a group of more than {staff} professionals — recognised today as a leading ELV integrator for commercial, residential, hospitality, and healthcare developments across Malaysia.
+              <b className="blue">HYPER ADVANCE SDN BHD</b> has grown since 1995 from a one-person operation into a team of more than {staff} professionals — recognised as a leading ELV contractor and authorised distributor for commercial, residential, hospitality, and healthcare developments across Malaysia.
             </p>
             <p className="about-quote">
               <b className="red">&quot;IF IT WEREN&apos;T FOR YOU, WE WOULDN&apos;T BE HERE.&quot;</b>
             </p>
             <p>
-              Our mission is to deliver state-of-the-art solutions that create a win-win-win outcome for our principals, partners, and end-users. We are authorised distributors for Aiphone, AJB, Fagor, Amperes, Lutron, Austco, Esa Grimma, and Bodet.
+              We deliver complete ELV solutions — design, supply, installation, programming, commissioning, maintenance, and training — as the authorised distributor for Aiphone, Austco, Amperes, Lutron, and Fagor, with additional brands across access control, CCTV, conferencing, and more.
             </p>
           </Reveal>
 
@@ -73,13 +77,6 @@ export default function About() {
             </Reveal>
           </Reveal>
         </div>
-
-        <Reveal className="ha-meditech-card ha-meditech-card--inline">
-          <h3><i className="fa-solid fa-hospital" /> HA Meditech Sdn Bhd</h3>
-          <p>
-            Our healthcare specialist division — backed by Hyper Advance resources and 25+ years of clinical ELV experience — delivering nurse call, IPS, and hospital communication systems with precision.
-          </p>
-        </Reveal>
       </div>
     </section>
   );

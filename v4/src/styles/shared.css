@@ -138,9 +138,12 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
   color: var(--teal); margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem;
 }
 .detail-hero h1 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 510; color: var(--text-dark); margin-bottom: 1rem; letter-spacing: -.02em; }
-.detail-lead { font-size: 16px; line-height: 1.65; color: var(--text); margin-bottom: 1.5rem; }
+.detail-lead { font-size: 16px; line-height: 1.65; color: var(--text); margin-bottom: 1rem; }
+.detail-note { font-size: 14px; line-height: 1.55; color: #666; margin: -.25rem 0 1rem; }
+.detail-note i { color: var(--teal); margin-right: .35rem; }
 .detail-actions { display: flex; flex-wrap: wrap; gap: .65rem; }
 .detail-dist-logo { max-height: 72px; max-width: 220px; margin-bottom: 1rem; object-fit: contain; }
+.detail-legacy-image { max-width: 100%; max-height: 160px; margin: 0 0 1rem; object-fit: contain; border-radius: var(--radius); border: 1px solid var(--border); }
 .detail-side-card {
   background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
   padding: 1.75rem; text-align: center;
@@ -184,9 +187,11 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .partner-item span { font-size: 12px; color: #888; }
 .ref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .ref-card {
+  display: block; text-decoration: none; color: inherit;
   border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
   transition: var(--transition);
 }
+.ref-card-link { cursor: pointer; }
 .ref-card:hover { border-color: var(--teal); box-shadow: var(--shadow); }
 .ref-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
 .ref-card-body { padding: 1rem; }
@@ -320,6 +325,59 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
   text-align: center; font-size: 12px; color: #666;
 }
 .site-footer a { color: var(--teal-dark); }
+
+.detail-hero--project { padding: 88px 0 1.25rem; }
+.detail-hero--project .breadcrumb { margin-bottom: .5rem; }
+.detail-hero--project .detail-lead { margin-bottom: 0; font-size: 14px; line-height: 1.45; }
+.detail-hero--project .detail-actions { margin-top: .65rem; gap: .5rem; }
+.detail-hero--project .detail-eyebrow { margin-bottom: .25rem; }
+
+.project-detail { display: flex; flex-direction: column; gap: .75rem; max-width: 960px; }
+.project-detail-head h1 {
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 510;
+  color: var(--text-dark);
+  margin: 0 0 .2rem;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+.project-detail-gallery { display: flex; flex-direction: column; gap: .35rem; }
+.project-detail-main {
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  max-height: 320px;
+  background: var(--gray-bg);
+  border: 1px solid var(--border, #e8e8e8);
+}
+.project-detail-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-detail-thumbs { display: flex; gap: .35rem; flex-wrap: wrap; }
+.project-detail-thumb {
+  width: 52px; height: 40px; padding: 0; border: 2px solid transparent;
+  border-radius: 5px; overflow: hidden; cursor: pointer; background: none; opacity: .75;
+}
+.project-detail-thumb.active, .project-detail-thumb:hover { border-color: var(--teal); opacity: 1; }
+.project-detail-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-detail-foot { display: flex; flex-direction: column; gap: .35rem; }
+.project-detail-foot .proj-meta { margin: 0; gap: .15rem; }
+.project-detail-location { margin: 0; color: #666; font-size: 13px; }
+.project-detail-tags { margin: 0; }
+
+@media (min-width: 768px) {
+  .project-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "head gallery"
+      "foot gallery";
+    gap: .75rem 1.25rem;
+    max-width: none;
+  }
+  .project-detail-head { grid-area: head; }
+  .project-detail-gallery { grid-area: gallery; }
+  .project-detail-foot { grid-area: foot; }
+  .project-detail-main { max-height: 400px; aspect-ratio: 4/3; }
+}
 
 @media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }

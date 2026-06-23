@@ -5,6 +5,7 @@ import ScrollProgress from '../components/layout/ScrollProgress';
 import About from '../components/sections/About';
 import CatalogSection from '../components/sections/CatalogSection';
 import KeyDistributorship from '../components/sections/KeyDistributorship';
+import HaMeditech from '../components/sections/HaMeditech';
 import Contact from '../components/sections/Contact';
 import Hero from '../components/sections/Hero';
 import Industries from '../components/sections/Industries';
@@ -13,10 +14,8 @@ import OfficeShowcase from '../components/sections/OfficeShowcase';
 import ProjectsPreview from '../components/sections/ProjectsPreview';
 import SuccessStories from '../components/sections/SuccessStories';
 import Services from '../components/sections/Services';
-import Working from '../components/sections/Working';
 
-export default function HomePage() {
-  return (
+export default function HomePage() {  return (
     <>
       <ScrollProgress />
       <Navbar />
@@ -25,8 +24,8 @@ export default function HomePage() {
       <About />
       <KeyDistributorship />
       <CatalogSection />
+      <HaMeditech />
       <Services />
-      <Working />
       <OfficeShowcase />
       <Industries />
       <SuccessStories />

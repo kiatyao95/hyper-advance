@@ -15,6 +15,7 @@ function projectScore(project) {
   if (project.source === 'xlsx') score += 30;
   if (project.completionDate) score += 10;
   if (project.unitCount) score += 5;
+  if (project.images?.length) score += 20;
   if (project.image && !project.image.includes('placeholder')) score += 5;
   return score;
 }

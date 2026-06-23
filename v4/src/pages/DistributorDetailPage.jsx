@@ -47,6 +47,12 @@ export default function DistributorDetailPage() {
               <span className="detail-eyebrow">{dist.country} · Since {dist.since}</span>
               <h1>{dist.fullName}</h1>
               <p className="detail-lead">{dist.description}</p>
+              {dist.mergerNote && (
+                <p className="detail-note"><i className="fa-solid fa-circle-info" /> {dist.mergerNote}</p>
+              )}
+              {dist.legacyImage && (
+                <img src={publicPath(dist.legacyImage)} alt="Ikusi SMATV systems" className="detail-legacy-image" />
+              )}
               <div className="detail-actions">
                 <Button to={`/system/${sys.id}`}>
                   <i className="fa-solid fa-layer-group" /> Related System — {sys.name}
@@ -90,7 +96,7 @@ export default function DistributorDetailPage() {
           <ProjectListPaginated
             projects={projects}
             renderCard={(p) => (
-              <div key={p.id} className="ref-card">
+              <Link key={p.id} to={`/project/${p.slug || p.id}`} className="ref-card ref-card-link">
                 <img src={publicPath(p.image)} alt={p.name} loading="lazy" />
                 <div className="ref-card-body">
                   <h4>{p.name}</h4>
@@ -105,7 +111,7 @@ export default function DistributorDetailPage() {
                     <div className="ref-meta-row"><dt>Completed</dt><dd>{p.completionDate || '—'}</dd></div>
                   </dl>
                 </div>
-              </div>
+              </Link>
             )}
           />
         </Reveal>
