@@ -822,7 +822,9 @@ def enrich_distributors(distributors: list[dict]) -> list[dict]:
     for d in distributors:
         rec = dict(d)
         if rec["id"] == "fagor":
-            rec["logo"] = "/assets/logos/fagor.svg"
+            # fagor.svg is light grey (#b5b3b3) and invisible on white cards
+            rec["logo"] = "/assets/logos/fagor-dark.svg"
+            rec.pop("logoAlt", None)
             rec["description"] = FAGOR_MERGER_NOTE
             rec["mergerNote"] = "Ikusi is now part of the Fagor Group. Hyper Advance supports both Fagor and legacy Ikusi SMATV deployments."
             rec["legacyImage"] = "/assets/logos/fagor.jpg"
