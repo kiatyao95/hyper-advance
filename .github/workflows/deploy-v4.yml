@@ -28,15 +28,13 @@ jobs:
         run: npm ci --prefix v4
 
       - name: Build v4 for GitHub Pages
-        run: npm run build --prefix v4
+        run: npm run build:pages --prefix v4
         env:
           GITHUB_PAGES: true
           BASE_PATH: /hyper-advance/docs/
 
       - name: Add SPA fallback for GitHub Pages
-        run: |
-          cp v4/dist/index.html v4/dist/404.html
-          touch v4/dist/.nojekyll
+        run: touch v4/dist/.nojekyll
 
       - name: Publish built site to docs/
         uses: JamesIves/github-pages-deploy-action@v4
