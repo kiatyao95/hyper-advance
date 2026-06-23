@@ -434,7 +434,7 @@
       "name": "Fagor",
       "fullName": "Fagor Multimedia Solutions",
       "systemId": "smatv",
-      "logo": "/assets/logos/fagor.svg",
+      "logo": "/assets/logos/fagor-dark.svg",
       "website": "https://www.ikusi.tv/en",
       "country": "Spain",
       "since": "2021",
@@ -466,7 +466,6 @@
           "description": "4K receiver for IPTV/coax distribution networks."
         }
       ],
-      "logoAlt": "/assets/logos/fagor-ikusi.png",
       "mergerNote": "Ikusi is now part of the Fagor Group. Hyper Advance supports both Fagor and legacy Ikusi SMATV deployments.",
       "legacyImage": "/assets/logos/fagor.jpg"
     },
