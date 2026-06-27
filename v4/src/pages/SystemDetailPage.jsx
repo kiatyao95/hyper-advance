@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useCatalog } from '../context/CatalogContext';
 import ProjectListPaginated from '../components/catalog/ProjectListPaginated';
@@ -14,10 +13,6 @@ export default function SystemDetailPage() {
   const sys = getSystem(id);
   const dist = sys ? getDistributor(sys.distributorId) : null;
   const projects = sys ? getProjectsForSystem(sys.id) : [];
-
-  useEffect(() => {
-    document.title = sys ? `${sys.name} | Hyper Advance` : 'System | Hyper Advance';
-  }, [sys]);
 
   if (loading) return <div className="container" style={{ padding: '8rem 0' }}>Loading…</div>;
 

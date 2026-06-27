@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useCatalog } from '../context/CatalogContext';
 import ProjectListPaginated from '../components/catalog/ProjectListPaginated';
@@ -15,10 +14,6 @@ export default function DistributorDetailPage() {
   const sys = dist ? getSystem(dist.systemId) : null;
   const projects = dist ? getProjectsForDistributor(dist.id) : [];
   const refDocs = (data?.referenceDocuments || []).filter((d) => d.distributorId === id);
-
-  useEffect(() => {
-    document.title = dist ? `${dist.name} | Hyper Advance` : 'Distributor | Hyper Advance';
-  }, [dist]);
 
   if (loading) return <div className="container" style={{ padding: '8rem 0' }}>Loading…</div>;
 

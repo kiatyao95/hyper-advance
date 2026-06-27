@@ -23,7 +23,7 @@ export default function ProjectCard({ project, distributor, hero = false, delay 
           </div>
           <div className="proj-card-info">
             <h3 className="proj-card-title">{project.name}</h3>
-            <p className="proj-card-sys">{distributor?.name || ''}</p>
+            <p className="proj-card-sys">{project.systemsCovered?.join(' · ') || distributor?.name || project.tag}</p>
             <ProjectMeta project={project} />
             <motion.span
               className="proj-card-arrow"

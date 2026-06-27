@@ -34,7 +34,7 @@ export default function ProjectsPreview() {
         <SectionHeader
           eyebrow="06 — Portfolio"
           title="Our Projects"
-          desc="Each reference includes contract value, model deployed, and completion date — browse the full portfolio for details."
+          desc="Browse selected ELV project references — intercom, nurse call, PA system, CCTV, card access, and more across Malaysia."
         />
 
         <Reveal className="proj-stats" stagger>

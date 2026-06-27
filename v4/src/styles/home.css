@@ -606,7 +606,7 @@
 
     .nav-logo { display: flex; align-items: center; gap: .75rem; }
 
-    .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo img { height: 48px; width: auto; object-fit: contain; }
 
     .nav-logo-text strong {
 
@@ -1932,9 +1932,11 @@
 
     .proj-card-sys {
 
-      grid-column: 1; font-size: 12px; font-weight: 510;
+      grid-column: 1; font-size: 13px; font-weight: 510;
 
-      color: var(--teal); margin: 0; letter-spacing: -0.13px;
+      color: var(--teal-dark); margin: 0; letter-spacing: -0.13px;
+
+      line-height: 1.45;
 
     }
 
@@ -1950,8 +1952,26 @@
 
       display: flex; align-items: baseline; justify-content: space-between;
 
-      gap: .75rem; font-size: 11px; line-height: 1.35;
+      gap: .75rem; font-size: 13px; line-height: 1.4;
 
+    }
+
+    .proj-meta-systems {
+      grid-column: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-top: .45rem;
+    }
+
+    .proj-meta-system-tag {
+      font-size: 11px;
+      font-weight: 510;
+      color: var(--teal-dark);
+      background: rgba(15, 118, 110, 0.08);
+      border: 1px solid rgba(15, 118, 110, 0.15);
+      border-radius: 999px;
+      padding: .2rem .55rem;
     }
 
     .proj-meta-row dt {
@@ -2598,7 +2618,7 @@
       transition: var(--transition);
     }
     .client-logos-item:hover { background: rgba(255,255,255,.18); color: #fff; }
-    .client-logos-item img { max-height: 22px; max-width: 90px; object-fit: contain; filter: brightness(0) invert(1); opacity: .9; }
+    .client-logos-item img { max-height: 22px; max-width: 90px; object-fit: contain; opacity: .95; background: rgba(255,255,255,.92); border-radius: 4px; padding: 2px 6px; }
     .client-logos--compact .client-logos-row { gap: .35rem; }
 
     .service-cap-grid {
@@ -2644,6 +2664,84 @@
     .ha-meditech-card p { font-size: 14px; line-height: 1.55; color: var(--text); margin: 0 0 .75rem; }
     .ha-meditech-link { font-size: 13px; color: var(--teal-dark); font-weight: 510; }
     .ha-meditech-link:hover { color: var(--teal); }
+
+    .ha-meditech-intro { margin-bottom: 2rem; }
+    .ha-meditech-projects-header { margin-bottom: 1rem; }
+    .ha-meditech-projects-header h3 { font-size: 18px; font-weight: 590; color: var(--text-dark); margin: 0 0 .25rem; }
+    .ha-meditech-projects-header p { font-size: 13px; color: var(--teal-dark); margin: 0; }
+    .ha-meditech-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .ha-meditech-project-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .ha-meditech-project-media {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    .ha-meditech-project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ha-meditech-project-tag {
+      position: absolute;
+      left: .65rem;
+      bottom: .65rem;
+      font-size: 10px;
+      font-weight: 590;
+      color: #fff;
+      background: rgba(15, 118, 110, 0.92);
+      border-radius: 999px;
+      padding: .25rem .6rem;
+    }
+    .ha-meditech-project-info { padding: .85rem 1rem 1rem; }
+    .ha-meditech-project-info h4 { font-size: 14px; font-weight: 590; color: var(--text-dark); margin: 0 0 .25rem; }
+    .ha-meditech-project-loc { font-size: 12px; color: #666; margin: 0; }
+
+    .client-marquee-wrap {
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: .85rem 0 1rem;
+    }
+    .client-marquee-label {
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.5);
+      margin: 0 0 .65rem;
+    }
+    .infinite-card-logo {
+      display: block;
+      max-height: 36px;
+      max-width: 130px;
+      object-fit: contain;
+    }
+
+    .key-dist-brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a3d6e;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .key-dist-brand-name:hover {
+      color: var(--teal-dark);
+    }
+
+    .systems-offer-brands-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: .35rem; }
+    .systems-offer-logos { display: flex; flex-wrap: wrap; gap: .35rem; justify-content: flex-end; }
+    .systems-offer-logos img { max-height: 28px; max-width: 72px; object-fit: contain; }
 
     .key-dist-grid--top {
       grid-template-columns: repeat(4, 1fr);
@@ -2721,8 +2819,8 @@
     .key-dist-logo-link:hover { opacity: 0.8; transform: scale(1.04); }
 
     .key-dist-logo-link img {
-      max-height: 48px;
-      max-width: 130px;
+      max-height: 64px;
+      max-width: 160px;
       object-fit: contain;
     }
 
@@ -2747,7 +2845,7 @@
       text-align: left;
     }
 
-    .about-logo-frame--compact img { max-height: 64px; }
+    .about-logo-frame--compact img { max-height: 88px; }
 
     .about-intro-bar .about-stats-row {
       margin: 0;
@@ -3047,6 +3145,60 @@
 
     .supporting-brand-item span { color: var(--text); font-size: 12px; }
 
+    .seo-solutions-section { background: var(--gray-bg); }
+    .seo-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding-bottom: 2rem;
+    }
+    .seo-solutions-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.25rem;
+    }
+    .seo-solutions-card h3 {
+      font-size: 15px;
+      font-weight: 590;
+      color: var(--text-dark);
+      margin: 0 0 .45rem;
+    }
+    .seo-solutions-keywords {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--teal-dark);
+      margin: 0 0 .5rem;
+      font-weight: 510;
+    }
+    .seo-solutions-brands {
+      font-size: 12px;
+      color: #666;
+      margin: 0 0 .65rem;
+      line-height: 1.45;
+    }
+    .seo-solutions-brands i { color: var(--teal); margin-right: .25rem; }
+    .seo-solutions-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem .6rem;
+    }
+    .seo-solutions-links a {
+      font-size: 12px;
+      font-weight: 510;
+      color: var(--teal-dark);
+      text-transform: capitalize;
+    }
+    .seo-solutions-links a:hover { color: var(--teal); text-decoration: underline; }
+
+    .project-detail-seo {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+      margin: .75rem 0 0;
+      max-width: 52rem;
+    }
+
     @media (max-width: 900px) {
       .about-intro-bar { flex-direction: column; text-align: center; }
       .about-logo-frame--compact { text-align: center; }
@@ -3057,6 +3209,8 @@
       .key-dist-grid--top { grid-template-columns: repeat(2, 1fr); }
       .key-dist-grid--bottom { grid-template-columns: repeat(2, 1fr); max-width: none; }
       .supporting-brands-grid { grid-template-columns: repeat(2, 1fr); }
+      .ha-meditech-projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .seo-solutions-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
@@ -3067,6 +3221,8 @@
       .key-dist-grid--bottom { grid-template-columns: 1fr; }
       .service-cap-grid { grid-template-columns: 1fr; }
       .ha-meditech-grid { grid-template-columns: 1fr; }
+      .ha-meditech-projects-grid { grid-template-columns: 1fr; }
+      .seo-solutions-grid { grid-template-columns: 1fr; }
       .supporting-brands-grid { grid-template-columns: 1fr; }
     }
 

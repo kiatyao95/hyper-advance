@@ -16,9 +16,13 @@ const DISTRIBUTORS = [
 ];
 
 const SERVICE_LINKS = [
-  'Public Address System', 'Nurse Call System', 'Intercom System', 'SMATV',
-  'Master Clock System', 'Lighting Control', 'Audio Visual System',
-  'CCTV & Access Control', 'Isolated Power Supply',
+  { id: 'design', label: 'Design' },
+  { id: 'supply', label: 'Supply' },
+  { id: 'installation', label: 'Installation' },
+  { id: 'maintenance', label: 'Maintenance' },
+  { id: 'programming', label: 'Programming' },
+  { id: 'testing', label: 'Testing & Commissioning' },
+  { id: 'training', label: 'Training' },
 ];
 
 export default function Navbar({ activeKey = '' }) {
@@ -77,7 +81,7 @@ export default function Navbar({ activeKey = '' }) {
                 </Link>
                 <div className="dropdown">
                   {SERVICE_LINKS.map((s) => (
-                    <Link key={s} to="/#services" className="dropdown-item">{s}</Link>
+                    <Link key={s.id} to="/#services" className="dropdown-item">{s.label}</Link>
                   ))}
                 </div>
               </li>
@@ -133,7 +137,7 @@ export default function Navbar({ activeKey = '' }) {
             <Link to="/#about" className="mob-link" onClick={() => setMobileOpen(false)}>About Us</Link>
             <div className="mob-sublabel">Services</div>
             {SERVICE_LINKS.map((s) => (
-              <Link key={s} to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>{s}</Link>
+              <Link key={s.id} to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>{s.label}</Link>
             ))}
             <Link to="/#systems-list" className="mob-link" onClick={() => setMobileOpen(false)}>Systems</Link>
             <div className="mob-sublabel">Distributors</div>

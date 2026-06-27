@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useCatalog } from '../../context/CatalogContext';
 import Reveal from '../ui/Reveal';
 import SectionHeader from '../ui/SectionHeader';
+import { publicPath } from '../../utils/publicPath';
 
 function projectName(projects, slug) {
   return projects.find((p) => (p.slug || p.id) === slug)?.name || slug;
@@ -28,7 +29,16 @@ export default function CatalogSection() {
             <Reveal key={offer.id} delay={i * 0.04} className="systems-offer-card">
               <div className="systems-offer-head">
                 <h3>{offer.name}</h3>
-                <p className="systems-offer-brands"><i className="fa-solid fa-tags" /> {offer.brands}</p>
+                <div className="systems-offer-brands-wrap">
+                  {offer.brandLogos?.length > 0 && (
+                    <div className="systems-offer-logos">
+                      {offer.brandLogos.map((logo) => (
+                        <img key={logo} src={publicPath(logo)} alt="" loading="lazy" />
+                      ))}
+                    </div>
+                  )}
+                  <p className="systems-offer-brands"><i className="fa-solid fa-tags" /> {offer.brands}</p>
+                </div>
               </div>
               <p className="systems-offer-desc">{offer.description}</p>
               {offer.projectSlugs?.length > 0 && (

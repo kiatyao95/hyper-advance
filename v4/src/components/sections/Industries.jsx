@@ -15,9 +15,11 @@ const TABS = [
 const PANELS = {
   healthcare: {
     title: 'Healthcare Environments',
-    desc: 'Through our specialist division HA Meditech Sdn Bhd, we bring 25+ years of focused healthcare ELV expertise. We understand the life-critical nature of hospital systems and deliver solutions that meet the highest standards of safety and reliability.',
+    desc: 'Through our specialist division HA Meditech Sdn Bhd for IPS systems, and Hyper Advance for broader hospital ELV — we deliver life-critical infrastructure with the highest standards of safety and reliability.',
     services: [
       'Nurse Call & Clinical Communication', 'Isolated Power Supply (IPS) for OTs',
+      'Audio Visual & OT Tie Line for teaching', 'Intercom & Image Speak Through',
+      'Digital Call', 'SMATV', 'Intruder Alarm for drug stores',
       'Master Clock for Operation Theatres', 'Public Address & Emergency PA',
       'Fireman Intercom Systems', 'CCTV & Access Control',
     ],
@@ -41,10 +43,10 @@ const PANELS = {
   },
   residential: {
     title: 'Residential Environments',
-    desc: 'From luxury condominiums to gated communities — we deliver seamless communication, security, SMATV, and building intercom systems that elevate modern residential living.',
+    desc: 'From luxury condominiums to gated communities — we deliver seamless communication, security, SMATV, and intercom systems that elevate modern residential living.',
     services: [
       'Audio & Video Intercom Entry', 'SMATV Entertainment Distribution',
-      'Building Intercom Entry', 'Card Access & Perimeter Security',
+      'Card Access & Perimeter Security',
       'Lighting Control & Dimming', 'CCTV & Surveillance',
     ],
   },

@@ -25,7 +25,6 @@ export default function SuccessStories() {
               <p className="success-story-sys">{story.system}</p>
               <p className="success-story-detail">{story.detail}</p>
               <div className="success-story-meta">
-                {story.contractAmount && <span><i className="fa-solid fa-file-contract" /> {story.contractAmount}</span>}
                 {story.completionDate && <span><i className="fa-solid fa-calendar-check" /> {story.completionDate}</span>}
               </div>
               {story.systemId && (

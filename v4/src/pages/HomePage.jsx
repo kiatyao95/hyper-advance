@@ -14,23 +14,27 @@ import OfficeShowcase from '../components/sections/OfficeShowcase';
 import ProjectsPreview from '../components/sections/ProjectsPreview';
 import SuccessStories from '../components/sections/SuccessStories';
 import Services from '../components/sections/Services';
+import SeoSolutions from '../components/sections/SeoSolutions';
 
 export default function HomePage() {  return (
     <>
       <ScrollProgress />
       <Navbar />
+      <main id="main-content">
       <Hero />
       <Marquee />
       <About />
+      <HaMeditech />
       <KeyDistributorship />
       <CatalogSection />
-      <HaMeditech />
+      <SeoSolutions />
       <Services />
       <OfficeShowcase />
       <Industries />
       <SuccessStories />
       <ProjectsPreview />
       <Contact />
+      </main>
       <Footer />
       <BackToTop />
     </>

@@ -37,13 +37,21 @@ export default function InfiniteMovingCards({
       <ul ref={scrollerRef} className="infinite-cards-track">
         {items.map((item, idx) => (
           <li key={`${item.name}-${idx}`} className="infinite-card">
-            <blockquote>
-              <span className="infinite-card-icon"><i className="fa-solid fa-circle" /></span>
-              <span className="infinite-card-quote">{item.quote}</span>
-              <footer>
-                <span className="infinite-card-name">{item.name}</span>
-                <span className="infinite-card-title">{item.title}</span>
-              </footer>
+            <blockquote className={item.logo ? 'infinite-card--logo' : undefined}>
+              {item.logo ? (
+                <span className="infinite-card-logo-wrap">
+                  <img src={item.logo} alt={item.quote} className="infinite-card-logo" loading="lazy" />
+                </span>
+              ) : (
+                <>
+                  <span className="infinite-card-icon"><i className="fa-solid fa-circle" /></span>
+                  <span className="infinite-card-quote">{item.quote}</span>
+                  <footer>
+                    <span className="infinite-card-name">{item.name}</span>
+                    <span className="infinite-card-title">{item.title}</span>
+                  </footer>
+                </>
+              )}
             </blockquote>
           </li>
         ))}

@@ -24,10 +24,6 @@ export default function ProjectDetailPage() {
   }, [project]);
 
   useEffect(() => {
-    document.title = project ? `${project.name} | Hyper Advance` : 'Project | Hyper Advance';
-  }, [project]);
-
-  useEffect(() => {
     setActiveImage(0);
   }, [slug]);
 
@@ -62,6 +58,11 @@ export default function ProjectDetailPage() {
               {sys?.shortName || project.tag}
               {dist ? ` · ${dist.name}` : ''}
             </p>
+            {project.systemsCovered?.length > 0 && (
+              <p className="project-detail-seo">
+                ELV systems at {project.name}: {project.systemsCovered.join(', ')}. Installed and maintained by Hyper Advance, Malaysia&apos;s ELV contractor.
+              </p>
+            )}
           </div>
 
           <div className="project-detail-gallery">

@@ -85,7 +85,36 @@
 
 .infinite-card {
   flex-shrink: 0;
-  width: 220px;
+  width: 180px;
+}
+
+.infinite-card--logo blockquote,
+blockquote.infinite-card--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0.65rem 1rem;
+}
+
+.infinite-card-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  min-width: 120px;
+  min-height: 40px;
+}
+
+.infinite-card-logo {
+  display: block;
+  max-height: 36px;
+  max-width: 130px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .infinite-card blockquote {

@@ -9,10 +9,8 @@ import { publicPath } from '../../utils/publicPath';
 
 const SLIDES = [
   'https://www.hyper-advance.com/assets/img/slider/Lutron.jpg',
-  'https://www.hyper-advance.com/assets/img/slider/AJB.png',
   'https://www.hyper-advance.com/assets/img/slider/Aiphone.jpg',
   'https://www.hyper-advance.com/assets/img/slider/Austco.jpg',
-  'https://www.hyper-advance.com/assets/img/slider/Ikusi.jpg',
   'https://www.hyper-advance.com/assets/img/slider/Amperes.jpg',
 ];
 
@@ -67,10 +65,10 @@ export default function Hero() {
               Authorised ELV Distributor · Est. {company?.founded ?? 1995}
             </motion.div>
             <motion.h1 className="hero-title" variants={item}>
-              Experienced ELV Contractor &amp;<br /><Highlight>Authorised Distributor</Highlight><br />Across Malaysia
+              Malaysia&apos;s Leading<br /><Highlight>ELV Contractor</Highlight> &amp;<br />Authorised Distributor
             </motion.h1>
             <motion.p className="hero-sub" variants={item}>
-              From design and supply to installation, commissioning, and maintenance — Hyper Advance delivers complete extra-low-voltage solutions for Malaysia&apos;s most demanding developments.
+              Extra low voltage (ELV) specialist since 1995 — CCTV, card access, Aiphone intercom, Austco nurse call, Amperes PA system, Lutron lighting control, Fagor SMATV, AV systems, and ELV maintenance across Malaysia.
             </motion.p>
 
             {brandIds.length > 0 && (

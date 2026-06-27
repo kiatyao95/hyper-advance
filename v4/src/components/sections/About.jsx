@@ -25,7 +25,7 @@ export default function About() {
         <SectionHeader
           eyebrow="01 — Who We Are"
           title="About Us"
-          desc="An experienced ELV contractor and authorised distributor serving Malaysia since 1995."
+          desc="An experienced ELV contractor and authorised distributor for CCTV, intercom, nurse call, PA system, SMATV, and security systems across Malaysia since 1995."
         />
 
         <Reveal className="about-intro-bar">
@@ -61,7 +61,7 @@ export default function About() {
               <b className="red">&quot;IF IT WEREN&apos;T FOR YOU, WE WOULDN&apos;T BE HERE.&quot;</b>
             </p>
             <p>
-              We deliver complete ELV solutions — design, supply, installation, programming, commissioning, maintenance, and training — as the authorised distributor for Aiphone, Austco, Amperes, Lutron, and Fagor, with additional brands across access control, CCTV, conferencing, and more.
+              We deliver complete extra low voltage solutions — design, supply, installation, programming, commissioning, <strong>ELV maintenance</strong>, and training — as the authorised distributor for <strong>Aiphone</strong> intercom, <strong>Austco</strong> nurse call, <strong>Amperes</strong> public address, <strong>Lutron</strong> lighting control, and <strong>Fagor</strong> SMATV, with supporting brands including <strong>Dahua</strong>, <strong>HIKVision</strong>, <strong>ZKTeco</strong>, <strong>Bosch</strong>, <strong>Paradox</strong>, <strong>AMX</strong>, <strong>Bodet</strong>, and more.
             </p>
           </Reveal>
 

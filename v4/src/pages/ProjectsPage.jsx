@@ -42,8 +42,8 @@ export default function ProjectsPage() {
       <div className="page-hero">
         <Reveal className="container">
           <span className="page-eyebrow">Portfolio</span>
-          <h1>Our Projects</h1>
-          <p>{uniqueProjects.length} unique sites across Malaysia — contract value, model used, and completion date for every reference.</p>
+          <h1>ELV Project References Malaysia</h1>
+          <p>{uniqueProjects.length} ELV project references across Malaysia — intercom, nurse call, PA system, CCTV, card access, SMATV, lighting control, and audio visual installations.</p>
         </Reveal>
       </div>
       <div className="container">

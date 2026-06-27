@@ -8,6 +8,7 @@ import SystemDetailPage from './pages/SystemDetailPage';
 import DistributorsPage from './pages/DistributorsPage';
 import DistributorDetailPage from './pages/DistributorDetailPage';
 import LegacyRedirect from './components/LegacyRedirect';
+import PageSeo from './components/seo/PageSeo';
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
@@ -28,6 +29,7 @@ function ScrollToHash() {
 export default function App() {
   return (
     <>
+      <PageSeo />
       <ScrollToHash />
       <LegacyRedirect />
       <Routes>

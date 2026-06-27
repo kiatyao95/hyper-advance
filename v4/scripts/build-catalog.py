@@ -20,8 +20,12 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parents[2]
 REFS = ROOT / "References"
-DATA_DIR = ROOT / "23-06-2026"
-PROJECT_DETAILS = DATA_DIR / "project details"
+DATA_DIR = ROOT / "27-06-2026"
+LEGACY_DATA_DIR = ROOT / "23-06-2026"
+PROJECT_DETAILS = LEGACY_DATA_DIR / "project details"
+HA_MEDITECH_DIR = DATA_DIR / "HA MEDITECH PROJECT REFERENCE"
+RESOURCES_DIR = DATA_DIR / "resources" / "resources"
+PROJECT_PICS_DIR = RESOURCES_DIR / "project pics"
 V4 = ROOT / "v4"
 OUT = V4 / "public" / "data" / "catalog.json"
 ASSETS = V4 / "public" / "assets"
@@ -80,12 +84,20 @@ EXISTING_IMAGES = {
 SYSTEM_TAG = {
     "nurse-call": "Nurse Call",
     "public-address": "Public Address",
-    "av-intercom": "AV Intercom",
-    "building-intercom": "Building Intercom",
+    "av-intercom": "Intercom",
     "lighting-control": "Lighting Control",
     "smatv": "SMATV",
     "master-clock": "Master Clock",
     "ips": "IPS System",
+    "card-access": "Card Access",
+    "cctv": "CCTV",
+    "audio-visual-system": "Audio Visual",
+    "ot-tie-line": "OT Tie Line",
+    "digital-call": "Digital Call",
+    "fireman-intercom": "Fireman Intercom",
+    "panic-button": "Panic Button",
+    "intruder-alarm": "Intruder Alarm",
+    "image-speak-through": "Image Speak Through",
 }
 
 BRAND_TO_DIST = {
@@ -98,25 +110,103 @@ BRAND_TO_DIST = {
     "bodet": ("bodet", "master-clock"),
     "esa grimma": ("esa-grimma", "ips"),
     "bsa grimma": ("esa-grimma", "ips"),
-    "entrypass": ("amperes", "public-address"),
-    "falco": ("amperes", "public-address"),
+    "entrypass": ("amperes", "card-access"),
+    "falco": ("amperes", "card-access"),
 }
 
-SYSTEM_KEYWORDS = [
-    ("nurse call", "nurse-call", "austco"),
-    ("nurse-call", "nurse-call", "austco"),
-    ("public address", "public-address", "amperes"),
-    ("pa system", "public-address", "amperes"),
-    ("pa &", "public-address", "amperes"),
-    ("smatv", "smatv", "fagor"),
-    ("master clock", "master-clock", "bodet"),
-    ("lutron", "lighting-control", "lutron"),
-    ("lighting", "lighting-control", "lutron"),
-    ("intercom", "av-intercom", "aiphone"),
-    ("card access", "public-address", "amperes"),
-    ("cctv", "public-address", "amperes"),
-    ("ips", "ips", "esa-grimma"),
+SYSTEM_PATTERNS = [
+    (re.compile(r"nurse\s*call", re.I), "nurse-call", "austco", "Nurse Call"),
+    (re.compile(r"intercom", re.I), "av-intercom", "aiphone", "Intercom"),
+    (re.compile(r"public address|pa system|pa &", re.I), "public-address", "amperes", "Public Address"),
+    (re.compile(r"smatv", re.I), "smatv", "fagor", "SMATV"),
+    (re.compile(r"lighting control|lutron", re.I), "lighting-control", "lutron", "Lighting Control"),
+    (re.compile(r"card acces|card access", re.I), "card-access", None, "Card Access"),
+    (re.compile(r"cctv", re.I), "cctv", None, "CCTV"),
+    (re.compile(r"audio visual|\bav system\b|\bav\b", re.I), "audio-visual-system", None, "Audio Visual"),
+    (re.compile(r"ot tie line", re.I), "ot-tie-line", None, "OT Tie Line"),
+    (re.compile(r"digital call", re.I), "digital-call", None, "Digital Call"),
+    (re.compile(r"master clock", re.I), "master-clock", "bodet", "Master Clock"),
+    (re.compile(r"fireman intercom", re.I), "fireman-intercom", None, "Fireman Intercom"),
+    (re.compile(r"panic button", re.I), "panic-button", None, "Panic Button"),
+    (re.compile(r"intruder alarm", re.I), "intruder-alarm", None, "Intruder Alarm"),
+    (re.compile(r"image speak through", re.I), "image-speak-through", "amperes", "Image Speak Through"),
+    (re.compile(r"conference|video conference", re.I), "audio-visual-system", None, "Audio Visual"),
 ]
+
+SECTOR_MAP = {
+    "healthcare environments": "healthcare",
+    "commercial": "commercial",
+    "hospitality": "hospitality",
+    "residential": "residential",
+}
+
+EXCLUDED_SYSTEM_IDS = {"building-intercom", "ips"}
+
+SYSTEM_OFFER_PROJECTS = {
+    "nurse-call-system": [
+        "sunway-medical-centre-velocity",
+        "prince-court-medical-centre",
+        "sunway-medical-centre-damansara",
+        "hospital-tunku-ampuan-najihah",
+    ],
+    "intercom": [
+        "klcc",
+        "pjs-highway",
+        "pnb-office",
+        "k2-data-centre",
+    ],
+    "public-address": [
+        "kl-wellness-city",
+        "ioi-mall-damansara",
+        "gardens-mall",
+        "menara-tan-tan",
+        "menara-hampshire",
+    ],
+    "smatv": [
+        "princess-cove-phase-1",
+        "kl-wellness-city",
+        "hospital-jengka",
+        "hospital-sultanah-maliha",
+        "pusat-latihan-unit-tindakhas-semenyih",
+    ],
+    "lighting-control": [
+        "w-hotel",
+        "four-seasons-kl",
+        "istana-syarqiyyah",
+        "sunway-resort-hotel",
+    ],
+    "card-access": [
+        "assunta-hospital",
+        "menara-southpoint",
+        "gardens-south-tower",
+        "prince-court-medical-centre",
+        "atwater-office",
+    ],
+    "cctv": [
+        "masjid-bukit-rahman",
+        "avant-warehouse",
+        "lai-meng-school",
+        "park-city-medical-centre",
+        "prince-court-medical-centre",
+    ],
+    "audio-visual-system": [
+        "cidb-office",
+        "pusat-latihan-unit-tindakhas-semenyih",
+    ],
+}
+
+CLIENT_LOGO_FILES = {
+    "Sunway": "client logo/sunway healthcare.webp",
+    "Park City Medical Centre": "client logo/park city.png",
+    "KPJ": "client logo/kpj.jpg",
+    "Gleneagles": "client logo/gleneagles.webp",
+    "IOI": "client logo/ioi.svg",
+    "KLCC": "client logo/klcc.png",
+    "PNB": "client logo/pnb.png",
+    "IGB": "client logo/igb.png",
+    "JKR": "client logo/JKR_Malaysia_logo.png",
+    "KKM": "client logo/kkm.jpg",
+}
 
 
 def norm(s: str) -> str:
@@ -181,20 +271,21 @@ def find_project_folder(name: str, folders: dict[str, Path]) -> Path | None:
     return None
 
 
-def copy_project_images() -> dict[str, list[str]]:
-    """Copy 23-06-2026/project details images; return norm(name) -> public paths."""
-    projects_dir = ASSETS / "projects"
-    projects_dir.mkdir(parents=True, exist_ok=True)
+def copy_ha_meditech_images() -> list[dict]:
+    """Copy HA Meditech IPS project photos; return project records for haMeditech section."""
+    dest_root = ASSETS / "projects" / "ha-meditech"
+    dest_root.mkdir(parents=True, exist_ok=True)
+    projects: list[dict] = []
 
-    if not PROJECT_DETAILS.exists():
-        return {}
+    if not HA_MEDITECH_DIR.exists():
+        return projects
 
-    folders = {norm(d.name): d for d in PROJECT_DETAILS.iterdir() if d.is_dir()}
-    image_map: dict[str, list[str]] = {}
+    for folder in sorted(HA_MEDITECH_DIR.iterdir()):
+        if not folder.is_dir():
+            continue
 
-    for folder_key, folder in folders.items():
         slug = slugify(folder.name)
-        dest_dir = projects_dir / slug
+        dest_dir = dest_root / slug
         dest_dir.mkdir(parents=True, exist_ok=True)
 
         sources = sorted(
@@ -218,10 +309,192 @@ def copy_project_images() -> dict[str, list[str]]:
                     im.save(dest, "JPEG", quality=82, optimize=True)
             else:
                 shutil.copy2(src, dest)
-            paths.append(f"/assets/projects/{slug}/{i}.jpg")
+            paths.append(f"/assets/projects/ha-meditech/{slug}/{i}.jpg")
 
+        # Extract location from folder name (after comma)
+        location = ""
+        if "," in folder.name:
+            location = folder.name.split(",", 1)[1].strip()
+
+        display_name = folder.name.split(",")[0].strip().title()
+        projects.append({
+            "id": slug,
+            "slug": slug,
+            "name": display_name,
+            "systemId": "ips",
+            "distributorId": "esa-grimma",
+            "tag": "IPS System",
+            "location": location,
+            "image": paths[0] if paths else "/assets/projects/placeholder-healthcare.jpg",
+            "images": paths,
+            "systemsCovered": ["IPS System"],
+            "sector": "healthcare",
+            "source": "ha-meditech",
+        })
+
+    return projects
+
+
+def copy_client_logos() -> dict[str, str]:
+    """Copy client logos from 27-06-2026 resources; return name -> public path."""
+    dest_dir = ASSETS / "clients"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    logo_map: dict[str, str] = {}
+
+    for name, rel in CLIENT_LOGO_FILES.items():
+        src = RESOURCES_DIR / rel
+        if not src.exists():
+            continue
+        ext = src.suffix.lower()
+        dest_name = f"{slugify(name)}{ext}"
+        dest = dest_dir / dest_name
+        if ext in {".jpg", ".jpeg", ".png", ".webp"} and Image:
+            with Image.open(src) as im:
+                im = im.convert("RGBA" if im.mode in ("RGBA", "P") else "RGB")
+                if im.mode == "RGBA":
+                    im.save(dest, "PNG", optimize=True)
+                else:
+                    im.save(dest.with_suffix(".jpg"), "JPEG", quality=85, optimize=True)
+                    dest = dest.with_suffix(".jpg")
+        else:
+            shutil.copy2(src, dest)
+        logo_map[name] = f"/assets/clients/{dest.name}"
+
+    return logo_map
+
+
+def copy_supporting_brand_logos() -> dict[str, str]:
+    """Copy supporting brand logos; return normalized brand token -> public path."""
+    dest_dir = ASSETS / "logos" / "supporting"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    logo_map: dict[str, str] = {}
+
+    brand_dir = RESOURCES_DIR / "brand logo"
+    if not brand_dir.exists():
+        return logo_map
+
+    for src in brand_dir.iterdir():
+        if not src.is_file():
+            continue
+        key = norm(src.stem)
+        dest = dest_dir / src.name.lower().replace(" ", "-")
+        shutil.copy2(src, dest)
+        logo_map[key] = f"/assets/logos/supporting/{dest.name}"
+
+    return logo_map
+
+
+def brand_logos_for_text(brands_text: str, supporting: dict[str, str]) -> list[str]:
+    logos: list[str] = []
+    seen: set[str] = set()
+
+    main_logos = {
+        "aiphone": "/assets/logos/aiphone.png",
+        "austco": "/assets/logos/austco.png",
+        "amperes": "/assets/logos/amperes.png",
+        "lutron": "/assets/logos/lutron.png",
+        "fagor": "/assets/logos/fagor-brand.jpg",
+        "bodet": "/assets/logos/bodet-header.svg",
+        "zkteco": "/assets/logos/supporting/zkteco.png",
+        "entrypass": "/assets/logos/supporting/entrypass.jpg",
+        "bosch": "/assets/logos/supporting/bosch.png",
+        "dahua": "/assets/logos/supporting/dahua.jpg",
+        "hikvision": "/assets/logos/supporting/hikvision.jpg",
+        "paradox": "/assets/logos/supporting/paradox.png",
+        "yamaha": "/assets/logos/supporting/yamaha.png",
+        "extron": "/assets/logos/supporting/extron.jpg",
+        "aten": "/assets/logos/supporting/aten.png",
+        "abtus": "/assets/logos/supporting/abtus.jpg",
+        "amx": "/assets/logos/supporting/amx_logo.svg",
+        "gms": "/assets/logos/supporting/gms.jpg",
+        "myq": "/assets/logos/supporting/myq.jpg",
+        "mictron": "/assets/logos/supporting/mictron.png",
+    }
+
+    for token in re.split(r"[,/&]+", brands_text or ""):
+        key = norm(token.strip())
+        if not key or key in seen:
+            continue
+        if key in main_logos:
+            seen.add(key)
+            logos.append(main_logos[key])
+            continue
+        for logo_key, path in supporting.items():
+            if key in logo_key or logo_key in key:
+                seen.add(key)
+                logos.append(path)
+                break
+    return logos
+
+
+def copy_folder_images(folder: Path, slug: str, projects_dir: Path) -> list[str]:
+    """Copy image files from a folder into assets/projects/{slug}/."""
+    dest_dir = projects_dir / slug
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    sources = sorted(
+        [p for p in folder.iterdir() if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}],
+        key=lambda p: (
+            0 if p.stem.isdigit() else 1,
+            int(p.stem) if p.stem.isdigit() else 0,
+            p.stem.lower(),
+        ),
+    )
+
+    paths: list[str] = []
+    for i, src in enumerate(sources, 1):
+        dest = dest_dir / f"{i}.jpg"
+        if Image:
+            with Image.open(src) as im:
+                im = im.convert("RGB")
+                w, h = im.size
+                if w > 1600:
+                    im = im.resize((1600, int(h * 1600 / w)), Image.Resampling.LANCZOS)
+                im.save(dest, "JPEG", quality=82, optimize=True)
+        else:
+            shutil.copy2(src, dest)
+        paths.append(f"/assets/projects/{slug}/{i}.jpg")
+
+    return paths
+
+
+def copy_resource_project_images() -> dict[str, list[str]]:
+    """Copy 27-06-2026/resources project pics; return norm(name) -> public paths."""
+    projects_dir = ASSETS / "projects"
+    projects_dir.mkdir(parents=True, exist_ok=True)
+    image_map: dict[str, list[str]] = {}
+
+    if not PROJECT_PICS_DIR.exists():
+        return image_map
+
+    for folder in PROJECT_PICS_DIR.iterdir():
+        if not folder.is_dir():
+            continue
+        slug = slugify(folder.name)
+        paths = copy_folder_images(folder, slug, projects_dir)
         if paths:
-            image_map[folder_key] = paths
+            image_map[norm(folder.name)] = paths
+
+    return image_map
+
+
+def copy_project_images() -> dict[str, list[str]]:
+    """Copy 23-06-2026/project details images; return norm(name) -> public paths."""
+    projects_dir = ASSETS / "projects"
+    projects_dir.mkdir(parents=True, exist_ok=True)
+    image_map: dict[str, list[str]] = {}
+
+    if PROJECT_DETAILS.exists():
+        folders = {norm(d.name): d for d in PROJECT_DETAILS.iterdir() if d.is_dir()}
+        for folder_key, folder in folders.items():
+            slug = slugify(folder.name)
+            paths = copy_folder_images(folder, slug, projects_dir)
+            if paths:
+                image_map[folder_key] = paths
+
+    # Supplement / override from 27-06-2026 resource project pics (e.g. KLCC)
+    for folder_key, paths in copy_resource_project_images().items():
+        image_map[folder_key] = paths
 
     return image_map
 
@@ -250,14 +523,38 @@ def resolve_images(name: str, image_map: dict[str, list[str]] | None = None) -> 
     return []
 
 
-def parse_systems_text(text: str) -> list[tuple[str, str, str]]:
-    """Return list of (systemId, distributorId, label) from xlsx systems column."""
-    out = []
-    t = (text or "").lower()
-    for kw, sid, did in SYSTEM_KEYWORDS:
-        if kw in t:
-            out.append((sid, did, kw))
+def parse_systems_text(text: str) -> list[tuple[str, str | None, str]]:
+    """Return list of (systemId, distributorId, label) from systems column."""
+    out: list[tuple[str, str | None, str]] = []
+    seen: set[str] = set()
+    for pattern, sid, did, label in SYSTEM_PATTERNS:
+        if pattern.search(text or "") and sid not in seen:
+            seen.add(sid)
+            out.append((sid, did, label))
     return out
+
+
+def sector_from_label(label: str) -> str:
+    return SECTOR_MAP.get(norm(label), "commercial")
+
+
+def normalize_completion(completion) -> str:
+    if completion is None or str(completion).strip() == "":
+        return "On-going / Maintenance"
+    comp = str(completion).strip()
+    if comp.lower() in ("on-going", "ongoing"):
+        return "On-going"
+    if isinstance(completion, (int, float)):
+        return str(int(completion))
+    return comp
+
+
+def model_for_project(system_id: str, model: str) -> str:
+    if not model or str(model).strip().lower() in ("none", ""):
+        return ""
+    if system_id in ("nurse-call", "av-intercom"):
+        return str(model).strip()
+    return ""
 
 
 def project_record(
@@ -275,6 +572,8 @@ def project_record(
     source: str = "",
     featured: bool = False,
     additional_systems: list[str] | None = None,
+    systems_covered: list[str] | None = None,
+    client: str = "",
     suffix: str = "",
     image_map: dict[str, list[str]] | None = None,
 ) -> dict:
@@ -308,6 +607,10 @@ def project_record(
         rec["location"] = location
     if additional_systems:
         rec["additionalSystems"] = additional_systems
+    if systems_covered:
+        rec["systemsCovered"] = systems_covered
+    if client:
+        rec["client"] = client
     return rec
 
 
@@ -545,61 +848,87 @@ def parse_amperes() -> list[dict]:
 
 
 def parse_xlsx(image_map: dict[str, list[str]] | None = None) -> list[dict]:
-    xlsx_path = DATA_DIR / "Project Details.xlsx"
+    xlsx_path = DATA_DIR / "Project Details (1).xlsx"
+    if not xlsx_path.exists():
+        xlsx_path = DATA_DIR / "Project Details.xlsx"
+    if not xlsx_path.exists():
+        xlsx_path = LEGACY_DATA_DIR / "Project Details.xlsx"
     if not xlsx_path.exists():
         xlsx_path = REFS / "Project Details.xlsx"
+
     wb = load_workbook(xlsx_path, data_only=True)
     ws = wb["Project reference"]
     projects = []
+
     for row in ws.iter_rows(min_row=2, values_only=True):
         if not row[0]:
             continue
+
         name = str(row[0]).strip()
-        model = str(row[1] or "").strip()
-        brand = str(row[2] or "").strip().lower()
-        systems_text = str(row[3] or "")
-        completion = str(row[4] or "").strip()
+        client = str(row[1] or "").strip()
+        sector_label = str(row[2] or "").strip()
+        model = str(row[3] or "").strip()
+        brand = str(row[4] or "").strip().lower()
+        systems_text = str(row[5] or "")
+        completion = row[6]
 
+        parsed = parse_systems_text(systems_text)
         brand_key = brand.replace(" ", "")
-        dist_id, sys_id = BRAND_TO_DIST.get(brand, (None, None))
-        if not dist_id:
-            parsed = parse_systems_text(systems_text)
-            if parsed:
-                sys_id, dist_id, _ = parsed[0]
-            else:
-                sys_id, dist_id = "public-address", "amperes"
+        dist_id, sys_id = BRAND_TO_DIST.get(brand_key, (None, None))
+        if not dist_id and parsed:
+            sys_id, dist_id, _ = parsed[0]
+            dist_id = dist_id or "amperes"
+            sys_id = sys_id or "public-address"
+        elif not dist_id:
+            sys_id, dist_id = "public-address", "amperes"
 
-        additional = [s[0] for s in parse_systems_text(systems_text)[1:]]
+        if sys_id in EXCLUDED_SYSTEM_IDS:
+            if parsed:
+                for sid, did, _ in parsed:
+                    if sid not in EXCLUDED_SYSTEM_IDS:
+                        sys_id, dist_id = sid, did or dist_id
+                        break
+
+        additional = [s[0] for s in parsed if s[0] != sys_id]
+        systems_covered = [s[2] for s in parsed] or [SYSTEM_TAG.get(sys_id, sys_id)]
+        sector = sector_from_label(sector_label) if sector_label else sector_for(name)
         n = norm(name)
-        amount = VERIFIED_AMOUNTS.get(n)
+        completion_str = normalize_completion(completion)
+        model_str = model_for_project(sys_id, model)
+
         projects.append(project_record(
             name.title() if name.isupper() else name,
             system_id=sys_id,
             distributor_id=dist_id,
-            model=model,
-            sector=sector_for(name),
-            completion=completion,
-            amount=amount,
+            model=model_str,
+            sector=sector,
+            completion=completion_str,
             source="xlsx",
             featured=n in FEATURED_NAMES,
             additional_systems=additional or None,
+            systems_covered=systems_covered,
+            client=client,
             image_map=image_map,
         ))
 
-        # secondary entries for filter accuracy
-        for sid, did, _ in parse_systems_text(systems_text)[1:4]:
+        for sid, did, _ in parsed:
+            if sid == sys_id or sid in EXCLUDED_SYSTEM_IDS:
+                continue
             projects.append(project_record(
                 name.title() if name.isupper() else name,
                 system_id=sid,
-                distributor_id=did,
-                model=model,
-                sector=sector_for(name),
-                completion=completion,
+                distributor_id=did or dist_id,
+                model=model_for_project(sid, model),
+                sector=sector,
+                completion=completion_str,
                 source="xlsx-secondary",
                 featured=False,
+                systems_covered=systems_covered,
+                client=client,
                 suffix=sid,
                 image_map=image_map,
             ))
+
     return projects
 
 
@@ -628,19 +957,16 @@ def merge_projects(sources: list[list[dict]]) -> list[dict]:
                 if p.get("source") == "xlsx":
                     existing["source"] = "xlsx"
 
-    # apply verified amounts / featured overrides
+    # featured overrides (no contract amounts)
     for p in merged.values():
+        p.pop("contractAmount", None)
         n = norm(p["name"])
-        if n in VERIFIED_AMOUNTS:
-            p["contractAmount"] = VERIFIED_AMOUNTS[n]
         if n in FEATURED_NAMES:
             p["featured"] = True
-        if n == "four seasons kl" or n == "four seasons hotel kl":
-            p["contractAmount"] = "RM 4.4M"
+        if n in ("four seasons kl", "four seasons hotel kl"):
             p["completionDate"] = "2017"
             p["featured"] = True
-        if "klcc" == n:
-            p["unitCount"] = 280
+        if n == "klcc":
             p["completionDate"] = "2023"
             p["featured"] = True
 
@@ -659,35 +985,48 @@ def apply_local_images(projects: list[dict], image_map: dict[str, list[str]]) ->
 
 def build_industry_projects(projects: list[dict]) -> dict:
     sectors = ["healthcare", "hospitality", "commercial", "residential"]
-    out = {s: [] for s in sectors}
-    seen = {s: set() for s in sectors}
+    out: dict[str, list] = {s: [] for s in sectors}
+    seen: dict[str, set[str]] = {s: set() for s in sectors}
 
-    # priority featured first
-    sorted_projects = sorted(projects, key=lambda p: (not p.get("featured"), p["name"]))
+    dist_by_system: dict[str, str] = {}
+    for _, sid, did, _ in SYSTEM_PATTERNS:
+        if did:
+            dist_by_system[sid] = did
+    for _, (did, sid) in BRAND_TO_DIST.items():
+        dist_by_system[sid] = did
+
+    primary = [p for p in projects if p.get("source") == "xlsx"]
+    sorted_projects = sorted(primary, key=lambda p: (not p.get("featured"), p["name"]))
 
     for p in sorted_projects:
         sec = p.get("sector", "commercial")
         if sec not in out:
             sec = "commercial"
-        if p["id"] in seen[sec]:
+        nkey = norm(p["name"])
+        if nkey in seen[sec] or len(out[sec]) >= 15:
             continue
-        if len(out[sec]) >= 12:
-            continue
-        out[sec].append({"projectId": p["id"]})
-        seen[sec].add(p["id"])
+
+        links = [{"systemId": p["systemId"], "distributorId": p["distributorId"]}]
+        for sid in p.get("additionalSystems") or []:
+            if sid in EXCLUDED_SYSTEM_IDS:
+                continue
+            did = dist_by_system.get(sid) or p["distributorId"]
+            if not any(l["systemId"] == sid for l in links):
+                links.append({"systemId": sid, "distributorId": did})
+
+        out[sec].append({"name": p["name"], "links": links})
+        seen[sec].add(nkey)
 
     return out
 
 
-def parse_systems_we_offer(xlsx_projects: list[dict]) -> list[dict]:
-    """Build systems-we-offer list from Excel with matched project slugs."""
-    xlsx_path = DATA_DIR / "Project Details.xlsx"
+def parse_systems_we_offer(supporting_logos: dict[str, str]) -> list[dict]:
+    """Build systems-we-offer list from Excel with curated project slugs."""
+    xlsx_path = DATA_DIR / "Project Details (1).xlsx"
     if not xlsx_path.exists():
-        xlsx_path = REFS / "Project Details.xlsx"
+        xlsx_path = DATA_DIR / "Project Details.xlsx"
     wb = load_workbook(xlsx_path, data_only=True)
     ws = wb["Systems we offer "]
-
-    slug_by_name = {norm(p["name"]): p.get("slug", p["id"]) for p in xlsx_projects if p.get("source") == "xlsx"}
 
     offers = []
     for row in ws.iter_rows(min_row=2, values_only=True):
@@ -699,31 +1038,20 @@ def parse_systems_we_offer(xlsx_projects: list[dict]) -> list[dict]:
         if not description:
             continue
 
-        key = norm(name)
-        tokens = [t for t in key.split() if len(t) > 2]
-        matched_slugs: list[str] = []
-        seen_slugs: set[str] = set()
+        offer_id = slugify(name)
+        matched_slugs = SYSTEM_OFFER_PROJECTS.get(offer_id, [])
 
-        wb2 = load_workbook(xlsx_path, data_only=True)
-        proj_ws = wb2["Project reference"]
-        for prow in proj_ws.iter_rows(min_row=2, values_only=True):
-            if not prow[0]:
-                continue
-            pname = str(prow[0]).strip()
-            systems_text = norm(str(prow[3] or ""))
-            if not any(t in systems_text or t in norm(pname) for t in tokens):
-                continue
-            slug = slug_by_name.get(norm(pname)) or slugify(pname)
-            if slug not in seen_slugs:
-                seen_slugs.add(slug)
-                matched_slugs.append(slug)
+        # Intercom brands: Aiphone only (remove AJB per notes)
+        if offer_id == "intercom":
+            brands = "Aiphone"
 
         offers.append({
-            "id": slugify(name),
+            "id": offer_id,
             "name": name.strip().rstrip(","),
             "brands": brands,
             "description": description,
-            "projectSlugs": matched_slugs[:6],
+            "projectSlugs": matched_slugs,
+            "brandLogos": brand_logos_for_text(brands, supporting_logos),
         })
 
     return offers
@@ -733,13 +1061,13 @@ CLIENT_REFERENCES = [
     {"name": "Sunway", "projectSlugs": ["sunway-resort-hotel", "sunway-medical-centre-damansara", "sunway-medical-centre-velocity"]},
     {"name": "Park City Medical Centre", "projectSlugs": ["park-city-medical-centre"]},
     {"name": "KPJ", "projectSlugs": ["kpj-ampang", "kpj-rawang"]},
-    {"name": "Gleneagles", "projectSlugs": ["gleneagles-hospital-penang"]},
+    {"name": "Gleneagles", "projectSlugs": []},
     {"name": "IOI", "projectSlugs": ["ioi-mall-damansara"]},
     {"name": "KLCC", "projectSlugs": ["klcc"]},
     {"name": "PNB", "projectSlugs": ["pnb-office"]},
-    {"name": "IGB", "projectSlugs": []},
+    {"name": "IGB", "projectSlugs": ["gardens-mall", "menara-tan-tan", "menara-hampshire", "menara-southpoint", "gardens-south-tower", "midvalley-centrepoint-north-south"]},
     {"name": "JKR", "projectSlugs": []},
-    {"name": "KKM", "projectSlugs": []},
+    {"name": "KKM", "projectSlugs": ["hospital-tunku-ampuan-najihah", "hospital-seri-manjung", "hospital-baling"]},
 ]
 
 AUTHORIZED_BRAND_IDS = ["aiphone", "austco", "amperes", "lutron", "fagor"]
@@ -791,7 +1119,11 @@ SERVICE_CAPABILITIES = [
 
 HA_MEDITECH = {
     "title": "HA Meditech Sdn Bhd",
-    "description": "Hyper Advance's healthcare specialist division — backed by group resources and more than 25 years of clinical ELV experience in hospital environments.",
+    "description": (
+        "Sister company of Hyper Advance specialising solely in IPS systems for hospitals. "
+        "Sole distributor of Esa Grimma — a trusted German brand. "
+        "Led by an experienced engineer with more than 30 years in the field. Established in 2011."
+    ),
     "systems": [
         {
             "name": "Isolated Power Supply (IPS)",
@@ -800,14 +1132,8 @@ HA_MEDITECH = {
             "systemId": "ips",
             "description": "Medical-grade isolated power systems for operating theatres, critical care zones, and hospital infrastructure.",
         },
-        {
-            "name": "Nurse Call & Clinical Communication",
-            "brands": "Austco",
-            "distributorId": "austco",
-            "systemId": "nurse-call",
-            "description": "Nurse call and healthcare communication systems for wards, clinics, and aged-care facilities.",
-        },
     ],
+    "projects": [],
 }
 
 FAGOR_MERGER_NOTE = (
@@ -822,8 +1148,7 @@ def enrich_distributors(distributors: list[dict]) -> list[dict]:
     for d in distributors:
         rec = dict(d)
         if rec["id"] == "fagor":
-            # fagor.svg is light grey (#b5b3b3) and invisible on white cards
-            rec["logo"] = "/assets/logos/fagor-dark.svg"
+            rec["logo"] = "/assets/logos/fagor-brand.jpg"
             rec.pop("logoAlt", None)
             rec["description"] = FAGOR_MERGER_NOTE
             rec["mergerNote"] = "Ikusi is now part of the Fagor Group. Hyper Advance supports both Fagor and legacy Ikusi SMATV deployments."
@@ -854,6 +1179,10 @@ def copy_assets() -> list[str]:
     logo_src = REFS / "HYPER TRANSPARENT LOGO WITH NAME.png"
     if logo_src.exists():
         shutil.copy2(logo_src, brand_dir / "hyper-advance-logo.png")
+
+    fagor_src = RESOURCES_DIR / "brand logo" / "fagor.jpg"
+    if fagor_src.exists():
+        shutil.copy2(fagor_src, ASSETS / "logos" / "fagor-brand.jpg")
 
     # office photos
     gallery = []
@@ -896,17 +1225,26 @@ def main():
 
     gallery = copy_assets()
     image_map = copy_project_images()
+    ha_meditech_projects = copy_ha_meditech_images()
+    client_logos = copy_client_logos()
+    supporting_logos = copy_supporting_brand_logos()
 
-    aiphone_q3 = parse_aiphone_q3()
-    aiphone_q4 = parse_aiphone_q4()
-    bodet = parse_bodet()
-    amperes = parse_amperes()
     xlsx = parse_xlsx(image_map)
-
-    projects = merge_projects([xlsx, aiphone_q4, bodet, aiphone_q3, amperes])
+    projects = merge_projects([xlsx])
     apply_local_images(projects, image_map)
-    systems_we_offer = parse_systems_we_offer(projects)
+    systems_we_offer = parse_systems_we_offer(supporting_logos)
     distributors = enrich_distributors(base["distributors"])
+    systems = [s for s in base["systems"] if s["id"] not in EXCLUDED_SYSTEM_IDS]
+
+    client_refs = []
+    for ref in CLIENT_REFERENCES:
+        rec = dict(ref)
+        if ref["name"] in client_logos:
+            rec["logo"] = client_logos[ref["name"]]
+        client_refs.append(rec)
+
+    ha_meditech = dict(HA_MEDITECH)
+    ha_meditech["projects"] = ha_meditech_projects
 
     # ensure unique ids
     used_ids: set[str] = set()
@@ -921,17 +1259,17 @@ def main():
     catalog = {
         "meta": {
             "company": "Hyper Advance Sdn Bhd",
-            "version": "2.0",
+            "version": "2.1",
             "updated": date.today().isoformat(),
             "projectCount": len(projects),
         },
-        "systems": base["systems"],
+        "systems": systems,
         "distributors": distributors,
         "authorizedBrandIds": AUTHORIZED_BRAND_IDS,
-        "clientReferences": CLIENT_REFERENCES,
+        "clientReferences": client_refs,
         "systemsWeOffer": systems_we_offer,
         "serviceCapabilities": SERVICE_CAPABILITIES,
-        "haMeditech": HA_MEDITECH,
+        "haMeditech": ha_meditech,
         "keyDistributorship": [
             {"id": "intercom", "title": "INTERCOM SYSTEM", "icon": "fa-video", "brandIds": ["aiphone"]},
             {"id": "nurse-call", "title": "NURSE CALL SYSTEM", "icon": "fa-user-nurse", "brandIds": ["austco"]},
@@ -949,7 +1287,6 @@ def main():
                 {
                     "name": "Four Seasons Hotel Kuala Lumpur",
                     "system": "Lutron Lighting & Curtain Control",
-                    "contractAmount": "RM 4.4M",
                     "completionDate": "2017",
                     "detail": "209 luxurious guest rooms",
                     "distributorId": "lutron",
@@ -958,7 +1295,6 @@ def main():
                 {
                     "name": "KLCC Twin Towers",
                     "system": "Aiphone IX Intercom",
-                    "contractAmount": None,
                     "completionDate": "2023",
                     "detail": "280 IP video door stations for emergency access across both towers",
                     "distributorId": "aiphone",
@@ -967,7 +1303,6 @@ def main():
                 {
                     "name": "Hospital UTAR",
                     "system": "Full ELV — Nurse Call, CCTV, Card Access, PA",
-                    "contractAmount": "RM 3.3M",
                     "completionDate": "2022",
                     "detail": "250-bed teaching hospital",
                     "distributorId": "austco",
@@ -1014,6 +1349,8 @@ def main():
     print(f"Wrote {len(projects)} projects to {OUT}")
     print(f"Office gallery: {len(gallery)} images")
     print(f"Project image folders: {len(image_map)}")
+    print(f"HA Meditech IPS projects: {len(ha_meditech_projects)}")
+    print(f"Client logos: {len(client_logos)}")
 
 
 if __name__ == "__main__":
