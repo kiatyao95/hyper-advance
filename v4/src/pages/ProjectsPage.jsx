@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCatalog } from '../context/CatalogContext';
 import ProjectCard from '../components/catalog/ProjectCard';
 import Footer from '../components/layout/Footer';
@@ -9,10 +10,11 @@ import { motion } from 'motion/react';
 const PAGE_SIZE = 24;
 
 export default function ProjectsPage() {
-  const { data, loading, uniqueProjects, getDistributor } = useCatalog();
+  const { data, loading, uniqueProjects, getDistributor, getSystem } = useCatalog();
   const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [view, setView] = useState('grid');
 
   const filters = useMemo(() => {
     if (!data) return [];
@@ -48,45 +50,107 @@ export default function ProjectsPage() {
       </div>
       <div className="container">
         <Reveal className="proj-toolbar">
-          <div className="proj-tabs">
-            {filters.map((f) => (
+          <div className="proj-toolbar-top">
+            <div className="proj-tabs">
+              {filters.map((f) => (
+                <button
+                  key={f.id}
+                  type="button"
+                  className={`proj-tab${filter === f.id ? ' active' : ''}`}
+                  onClick={() => { setFilter(f.id); setPage(1); }}
+                  style={{ position: 'relative' }}
+                >
+                  {filter === f.id && (
+                    <motion.span
+                      layoutId="proj-tab-indicator"
+                      style={{ position: 'absolute', left: 0, right: 0, bottom: -1, height: 2, background: 'var(--teal)' }}
+                    />
+                  )}
+                  {f.label}
+                </button>
+              ))}
+            </div>
+            <div className="proj-view-toggle">
               <button
-                key={f.id}
                 type="button"
-                className={`proj-tab${filter === f.id ? ' active' : ''}`}
-                onClick={() => { setFilter(f.id); setPage(1); }}
-                style={{ position: 'relative' }}
+                className={`proj-view-btn${view === 'grid' ? ' active' : ''}`}
+                onClick={() => setView('grid')}
               >
-                {filter === f.id && (
-                  <motion.span
-                    layoutId="proj-tab-indicator"
-                    style={{ position: 'absolute', left: 0, right: 0, bottom: -1, height: 2, background: 'var(--teal)' }}
-                  />
-                )}
-                {f.label}
+                <i className="fa-solid fa-grip" /> Grid
               </button>
+              <button
+                type="button"
+                className={`proj-view-btn${view === 'table' ? ' active' : ''}`}
+                onClick={() => setView('table')}
+              >
+                <i className="fa-solid fa-table" /> Table
+              </button>
+            </div>
+          </div>
+          <div className="proj-toolbar-bottom">
+            <input
+              type="search"
+              className="proj-search"
+              placeholder="Search projects…"
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+            />
+            <span className="proj-count">{filtered.length} {filtered.length === 1 ? 'site' : 'sites'}</span>
+          </div>
+        </Reveal>
+
+        {view === 'grid' ? (
+          <div className="projects-grid">
+            {paged.map((p, i) => (
+              <ProjectCard
+                key={p.id}
+                project={p}
+                distributor={getDistributor(p.distributorId)}
+                hero={p.featured && filter === 'all' && safePage === 1 && i < 2}
+                delay={i * 0.04}
+              />
             ))}
           </div>
-          <input
-            type="search"
-            className="proj-search"
-            placeholder="Search projects…"
-            value={search}
-            onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-          />
-          <span className="proj-count">{filtered.length} {filtered.length === 1 ? 'site' : 'sites'}</span>
-        </Reveal>
-        <div className="projects-grid">
-          {paged.map((p, i) => (
-            <ProjectCard
-              key={p.id}
-              project={p}
-              distributor={getDistributor(p.distributorId)}
-              hero={p.featured && filter === 'all' && safePage === 1 && i < 2}
-              delay={i * 0.04}
-            />
-          ))}
-        </div>
+        ) : (
+          <div className="proj-table-wrap">
+            <table className="proj-table">
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Sector</th>
+                  <th>Systems</th>
+                  <th>Completed</th>
+                  <th className="proj-table-right">Contract</th>
+                </tr>
+              </thead>
+              <tbody>
+                {paged.map((p) => {
+                  const sys = getSystem(p.systemId);
+                  return (
+                    <tr key={p.id}>
+                      <td>
+                        <Link to={`/project/${p.slug || p.id}`} className="proj-table-link">
+                          {p.name}
+                        </Link>
+                      </td>
+                      <td className="proj-table-muted">{p.sector || '—'}</td>
+                      <td>
+                        <div className="proj-table-tags">
+                          {(p.systemsCovered || [sys?.shortName]).filter(Boolean).map((s) => (
+                            <span key={s} className="tag tag-brand">{s}</span>
+                          ))}
+                        </div>
+                      </td>
+                      <td className="proj-table-muted">{p.completionDate || '—'}</td>
+                      <td className="proj-table-right proj-table-muted">{p.contractAmount || '—'}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+
         {totalPages > 1 && (
           <div className="proj-pagination">
             <button type="button" className="proj-page-btn" disabled={safePage <= 1} onClick={() => setPage((p) => p - 1)}>

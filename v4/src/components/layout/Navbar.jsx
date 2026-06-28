@@ -15,16 +15,6 @@ const DISTRIBUTORS = [
   { id: 'esa-grimma', label: 'Esa Grimma' },
 ];
 
-const SERVICE_LINKS = [
-  { id: 'design', label: 'Design' },
-  { id: 'supply', label: 'Supply' },
-  { id: 'installation', label: 'Installation' },
-  { id: 'maintenance', label: 'Maintenance' },
-  { id: 'programming', label: 'Programming' },
-  { id: 'testing', label: 'Testing & Commissioning' },
-  { id: 'training', label: 'Training' },
-];
-
 export default function Navbar({ activeKey = '' }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
@@ -76,20 +66,13 @@ export default function Navbar({ activeKey = '' }) {
                 <Link to="/#about" className={navClass('about', '#about')}>About</Link>
               </li>
               <li className="nav-item">
-                <Link to="/#services" className={navClass('services', '#services')}>
-                  Services <i className="fa-solid fa-chevron-down" />
-                </Link>
-                <div className="dropdown">
-                  {SERVICE_LINKS.map((s) => (
-                    <Link key={s.id} to="/#services" className="dropdown-item">{s.label}</Link>
-                  ))}
-                </div>
+                <Link to="/#services" className={navClass('services', '#services')}>Services</Link>
               </li>
               <li className="nav-item">
-                <Link to="/#systems-list" className={navClass('systems', '#systems-list')}>Systems</Link>
+                <Link to="/systems" className={navClass('systems')}>Systems</Link>
               </li>
               <li className="nav-item">
-                <Link to="/#distributors-list" className={navClass('distributors', '#distributors-list')}>
+                <Link to="/distributors" className={navClass('distributors')}>
                   Distributors <i className="fa-solid fa-chevron-down" />
                 </Link>
                 <div className="dropdown dropdown--right">
@@ -135,12 +118,10 @@ export default function Navbar({ activeKey = '' }) {
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
           >
             <Link to="/#about" className="mob-link" onClick={() => setMobileOpen(false)}>About Us</Link>
-            <div className="mob-sublabel">Services</div>
-            {SERVICE_LINKS.map((s) => (
-              <Link key={s.id} to="/#services" className="mob-sublink" onClick={() => setMobileOpen(false)}>{s.label}</Link>
-            ))}
-            <Link to="/#systems-list" className="mob-link" onClick={() => setMobileOpen(false)}>Systems</Link>
+            <Link to="/#services" className="mob-link" onClick={() => setMobileOpen(false)}>Services</Link>
+            <Link to="/systems" className="mob-link" onClick={() => setMobileOpen(false)}>Systems</Link>
             <div className="mob-sublabel">Distributors</div>
+            <Link to="/distributors" className="mob-sublink" onClick={() => setMobileOpen(false)}>All Brand Partners</Link>
             {DISTRIBUTORS.map((d) => (
               <Link key={d.id} to={`/distributor/${d.id}`} className="mob-sublink" onClick={() => setMobileOpen(false)}>{d.label}</Link>
             ))}

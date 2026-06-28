@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCatalog } from '../../context/CatalogContext';
+import { projectSlug } from '../../utils/projectSlug';
+import { publicPath } from '../../utils/publicPath';
 import Reveal, { RevealItem } from '../ui/Reveal';
 import SectionHeader from '../ui/SectionHeader';
 
@@ -17,46 +19,46 @@ const PANELS = {
     title: 'Healthcare Environments',
     desc: 'Through our specialist division HA Meditech Sdn Bhd for IPS systems, and Hyper Advance for broader hospital ELV — we deliver life-critical infrastructure with the highest standards of safety and reliability.',
     services: [
-      'Nurse Call & Clinical Communication', 'Isolated Power Supply (IPS) for OTs',
-      'Audio Visual & OT Tie Line for teaching', 'Intercom & Image Speak Through',
-      'Digital Call', 'SMATV', 'Intruder Alarm for drug stores',
-      'Master Clock for Operation Theatres', 'Public Address & Emergency PA',
-      'Fireman Intercom Systems', 'CCTV & Access Control',
+      'Nurse Call', 'Intercom', 'Public Address', 'SMATV', 'Card Access', 'CCTV',
+      'Audio Visual', 'OT Tie Line', 'Digital Call', 'Master Clock', 'Fireman Intercom',
+      'Intruder Alarm', 'Image Speak Through',
     ],
   },
   hospitality: {
     title: 'Hospitality Environments',
     desc: 'From 5-star hotels to convention centres and resorts — we deliver bespoke ELV solutions that enhance the guest experience through intelligent room management, lighting automation, and seamless AV infrastructure.',
     services: [
-      'Lighting Control & Scene Management', 'SMATV for In-Room Entertainment',
-      'Public Address & Background Music', 'Audio Visual & Conference Systems', 'CCTV & Security Systems',
+      'Lighting Control', 'SMATV', 'Public Address', 'Audio Visual', 'CCTV',
     ],
   },
   commercial: {
     title: 'Commercial Environments',
     desc: 'Shopping malls, office towers, universities, and government buildings — we provide comprehensive ELV integration tailored to the operational needs of every commercial environment in Malaysia.',
     services: [
-      'Public Address & Emergency PA', 'Card Access & Security Systems',
-      'Lighting Control & Energy Management', 'Audio Visual & Digital Signage',
-      'Fireman Intercom & CCTV', 'Master Clock Systems',
+      'Public Address', 'Card Access', 'Lighting Control', 'Audio Visual',
+      'Fireman Intercom', 'CCTV', 'Master Clock',
     ],
   },
   residential: {
     title: 'Residential Environments',
     desc: 'From luxury condominiums to gated communities — we deliver seamless communication, security, SMATV, and intercom systems that elevate modern residential living.',
     services: [
-      'Audio & Video Intercom Entry', 'SMATV Entertainment Distribution',
-      'Card Access & Perimeter Security',
-      'Lighting Control & Dimming', 'CCTV & Surveillance',
+      'Intercom', 'SMATV', 'Card Access', 'Lighting Control', 'CCTV',
     ],
   },
 };
 
 export default function Industries() {
   const [active, setActive] = useState('healthcare');
-  const { getIndustryProjects, getSystem, getDistributor } = useCatalog();
+  const { getIndustryProjects, getSystem, getDistributor, uniqueProjects } = useCatalog();
   const panel = PANELS[active];
   const projects = getIndustryProjects(active);
+
+  const slugByName = useMemo(() => {
+    const map = new Map();
+    uniqueProjects.forEach((p) => map.set(p.name, p.slug || projectSlug(p.name)));
+    return map;
+  }, [uniqueProjects]);
 
   return (
     <section id="industries" className="section">
@@ -104,32 +106,42 @@ export default function Industries() {
             <div className="ind-panel-text">
               <h3>{panel.title}</h3>
               <p>{panel.desc}</p>
-              <ul className="ind-services">
+              <div className="ind-services ind-services--pills">
                 {panel.services.map((s) => (
-                  <li key={s}><i className="fa-solid fa-check" /> {s}</li>
+                  <span key={s} className="ind-service-pill">{s}</span>
                 ))}
-              </ul>
+              </div>
               <div className="ind-projects-title">Notable {TABS.find((t) => t.id === active)?.label} Projects</div>
               <div className="ind-proj-grid">
-                {projects.map((item) => (
-                  <div key={item.name} className="ind-proj-item">
-                    <div className="ind-proj-name">{item.name}</div>
-                    <div className="ind-proj-links">
-                      {item.links.map((link, i) => (
-                        <span key={i}>
-                          {i > 0 && <span className="ind-proj-sep">|</span>}
-                          <Link to={`/system/${link.systemId}`} className="ind-proj-link">
-                            {getSystem(link.systemId)?.shortName || ''}
-                          </Link>
-                          <span className="ind-proj-sep">·</span>
-                          <Link to={`/distributor/${link.distributorId}`} className="ind-proj-link">
-                            {getDistributor(link.distributorId)?.name || ''}
-                          </Link>
-                        </span>
-                      ))}
+                {projects.map((item) => {
+                  const slug = slugByName.get(item.name) || projectSlug(item.name);
+                  return (
+                    <div key={item.name} className="ind-proj-item">
+                      <Link to={`/project/${slug}`} className="ind-proj-name">
+                        {item.name}
+                      </Link>
+                      <div className="ind-proj-models">
+                        {item.links.map((link, i) => {
+                          const system = getSystem(link.systemId);
+                          const distributor = getDistributor(link.distributorId);
+                          if (!system || !distributor) return null;
+                          return (
+                            <div key={`${link.systemId}-${link.distributorId}-${i}`} className="ind-model-chip">
+                              <Link to={`/system/${link.systemId}`} className="ind-model-chip__system">
+                                <i className={`fa-solid ${system.icon || 'fa-layer-group'}`} />
+                                {system.shortName}
+                              </Link>
+                              <Link to={`/distributor/${link.distributorId}`} className="ind-model-chip__brand">
+                                <img src={publicPath(distributor.logo)} alt="" loading="lazy" />
+                                {distributor.name}
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </motion.div>

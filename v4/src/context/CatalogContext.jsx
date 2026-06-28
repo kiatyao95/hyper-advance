@@ -26,8 +26,33 @@ export function CatalogProvider({ children }) {
       });
   }, []);
 
+  const allProjects = useMemo(
+    () => [...(data?.projects || []), ...(data?.haMeditech?.projects || [])],
+    [data],
+  );
+
   const getSystem = useCallback(
-    (id) => data?.systems.find((s) => s.id === id) || null,
+    (id) => {
+      if (!id || !data) return null;
+      const main = data.systems.find((s) => s.id === id);
+      if (main) return main;
+
+      const meditech = data.haMeditech?.systems?.find((s) => s.systemId === id);
+      if (!meditech) return null;
+
+      return {
+        id: meditech.systemId,
+        name: meditech.name,
+        shortName: 'IPS',
+        category: 'Healthcare ELV',
+        icon: 'fa-bolt',
+        distributorId: meditech.distributorId,
+        description: meditech.description,
+        brands: [meditech.brands],
+        models: [],
+        partners: [],
+      };
+    },
     [data],
   );
 
@@ -37,25 +62,25 @@ export function CatalogProvider({ children }) {
   );
 
   const uniqueProjects = useMemo(
-    () => uniqueProjectsBySite(data?.projects || []),
-    [data],
+    () => uniqueProjectsBySite(allProjects),
+    [allProjects],
   );
 
   const getProjectsForSystem = useCallback(
-    (systemId) => uniqueProjectsBySite(data?.projects.filter((p) => p.systemId === systemId) || []),
-    [data],
+    (systemId) => uniqueProjectsBySite(allProjects.filter((p) => p.systemId === systemId)),
+    [allProjects],
   );
 
   const getProjectsForDistributor = useCallback(
-    (distId) => uniqueProjectsBySite(data?.projects.filter((p) => p.distributorId === distId) || []),
-    [data],
+    (distId) => uniqueProjectsBySite(allProjects.filter((p) => p.distributorId === distId)),
+    [allProjects],
   );
 
   const resolveIndustryEntry = useCallback(
     (entry) => {
       if (!data) return null;
       if (entry.projectId) {
-        const p = data.projects.find((x) => x.id === entry.projectId);
+        const p = allProjects.find((x) => x.id === entry.projectId);
         if (!p) return null;
         return { name: p.name, links: [{ systemId: p.systemId, distributorId: p.distributorId }] };
       }
@@ -65,7 +90,7 @@ export function CatalogProvider({ children }) {
       }
       return null;
     },
-    [data],
+    [data, allProjects],
   );
 
   const getIndustryProjects = useCallback(
@@ -73,18 +98,17 @@ export function CatalogProvider({ children }) {
       const entries = data?.industryProjects?.[sector] || [];
       return entries.map(resolveIndustryEntry).filter(Boolean);
     },
-    [data, resolveIndustryEntry],
+    [data, allProjects, resolveIndustryEntry],
   );
 
   const getProjectBySlug = useCallback(
     (slug) => {
-      if (!slug || !data?.projects) return null;
-      const match = uniqueProjectsBySite(data.projects).find(
+      if (!slug || !allProjects.length) return null;
+      return uniqueProjectsBySite(allProjects).find(
         (p) => (p.slug || projectSlug(p.name)) === slug,
-      );
-      return match || null;
+      ) || null;
     },
-    [data],
+    [allProjects],
   );
 
   const value = useMemo(

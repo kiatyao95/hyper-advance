@@ -11,7 +11,9 @@ export default function DistributorDetailPage() {
   const { id } = useParams();
   const { data, getDistributor, getSystem, getProjectsForDistributor, loading } = useCatalog();
   const dist = getDistributor(id);
-  const sys = dist ? getSystem(dist.systemId) : null;
+  const sys = dist
+    ? getSystem(dist.systemId) || data?.systems.find((s) => s.distributorId === dist.id) || null
+    : null;
   const projects = dist ? getProjectsForDistributor(dist.id) : [];
   const refDocs = (data?.referenceDocuments || []).filter((d) => d.distributorId === id);
 
@@ -49,9 +51,11 @@ export default function DistributorDetailPage() {
                 <img src={publicPath(dist.legacyImage)} alt="Ikusi SMATV systems" className="detail-legacy-image" />
               )}
               <div className="detail-actions">
-                <Button to={`/system/${sys.id}`}>
-                  <i className="fa-solid fa-layer-group" /> Related System — {sys.name}
-                </Button>
+                {sys && (
+                  <Button to={`/system/${sys.id}`}>
+                    <i className="fa-solid fa-layer-group" /> Related System — {sys.name}
+                  </Button>
+                )}
                 {dist.website && (
                   <Button href={dist.website} variant="ghost">
                     <i className="fa-solid fa-external-link" /> Official Website
@@ -64,12 +68,14 @@ export default function DistributorDetailPage() {
                 ))}
               </div>
             </div>
-            <div className="detail-side-card">
-              <div className="detail-side-icon"><i className={`fa-solid ${sys.icon}`} /></div>
-              <h4>Linked System</h4>
-              <p><strong>{sys.name}</strong></p>
-              <p className="detail-side-note">Each distributor maps to exactly one ELV system. Click above to view full system specifications and project references.</p>
-            </div>
+            {sys && (
+              <div className="detail-side-card">
+                <div className="detail-side-icon"><i className={`fa-solid ${sys.icon}`} /></div>
+                <h4>Linked System</h4>
+                <p><strong>{sys.name}</strong></p>
+                <p className="detail-side-note">Each distributor maps to exactly one ELV system. Click above to view full system specifications and project references.</p>
+              </div>
+            )}
           </Reveal>
         </div>
       </div>

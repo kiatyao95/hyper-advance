@@ -14,16 +14,25 @@ export default function DistributorsPage() {
       <Navbar activeKey="distributors" />
       <div className="page-hero">
         <Reveal className="container">
-          <span className="page-eyebrow">Authorised Brands</span>
-          <h1>Our Distributors</h1>
-          <p>Each distributor has a 1:1 relationship with one ELV system. Click any brand to view its product range and linked system specifications.</p>
+          <span className="page-eyebrow">Authorised Distributors</span>
+          <h1>Brand Partners</h1>
+          <p>Hyper Advance holds 1:1 authorised distributorship agreements for core ELV system categories in Malaysia.</p>
         </Reveal>
       </div>
       <div className="container">
         <div className="catalog-grid">
           {data.distributors.map((dist, i) => {
-            const sys = data.systems.find((s) => s.id === dist.systemId);
-            return <DistributorCard key={dist.id} distributor={dist} system={sys} delay={i * 0.05} />;
+            const sys = data.systems.find((s) => s.distributorId === dist.id);
+            const projCount = data.projects.filter((p) => p.distributorId === dist.id).length;
+            return (
+              <DistributorCard
+                key={dist.id}
+                distributor={dist}
+                systemName={sys?.shortName}
+                projectCount={projCount}
+                delay={i * 0.05}
+              />
+            );
           })}
         </div>
       </div>
