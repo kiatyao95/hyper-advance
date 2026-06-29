@@ -1,18 +1,20 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCatalog } from '../../context/CatalogContext';
 import { HeroHighlight, Highlight } from '../21st/HeroHighlight';
 import Button from '../ui/Button';
-import ClientLogos from './ClientLogos';
 import { publicPath } from '../../utils/publicPath';
 
-const SLIDES = [
+const BRAND_SLIDES = [
   'https://www.hyper-advance.com/assets/img/slider/Lutron.jpg',
   'https://www.hyper-advance.com/assets/img/slider/Aiphone.jpg',
   'https://www.hyper-advance.com/assets/img/slider/Austco.jpg',
   'https://www.hyper-advance.com/assets/img/slider/Amperes.jpg',
 ];
+
+/** 1-based office gallery indices to exclude from hero slideshow (3,4,5,6,7,8,9,18) */
+const EXCLUDED_OFFICE_SLIDE_INDICES = new Set([3, 4, 5, 6, 7, 8, 9, 18]);
 
 const container = {
   hidden: {},
@@ -31,10 +33,22 @@ export default function Hero() {
   const company = data?.company;
   const brandIds = data?.authorizedBrandIds || [];
 
+  const slides = useMemo(() => {
+    const officeSlides = (company?.officeGallery || [])
+      .filter((_, index) => !EXCLUDED_OFFICE_SLIDE_INDICES.has(index + 1))
+      .map((path) => publicPath(path));
+    return [...BRAND_SLIDES, ...officeSlides];
+  }, [company?.officeGallery]);
+
   useEffect(() => {
-    const t = setInterval(() => setCurrent((c) => (c + 1) % SLIDES.length), 5000);
+    if (!slides.length) return undefined;
+    const t = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 5000);
     return () => clearInterval(t);
-  }, []);
+  }, [slides.length]);
+
+  useEffect(() => {
+    if (current >= slides.length) setCurrent(0);
+  }, [slides.length, current]);
 
   return (
     <section id="hero">
@@ -43,7 +57,7 @@ export default function Hero() {
           <motion.div
             key={current}
             className="hero-slide active"
-            style={{ backgroundImage: `url('${SLIDES[current]}')` }}
+            style={{ backgroundImage: `url('${slides[current]}')` }}
             initial={{ opacity: 0, scale: 1.08 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -88,10 +102,6 @@ export default function Hero() {
               </motion.div>
             )}
 
-            <motion.div variants={item}>
-              <ClientLogos compact />
-            </motion.div>
-
             <motion.div className="hero-btns" variants={item}>
               <Button href="#services"><i className="fa-solid fa-layer-group" /> Our Services</Button>
               <Button href="#projects" variant="outline-white"><i className="fa-solid fa-building" /> Our Projects</Button>
@@ -124,7 +134,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div className="hero-dots" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.95 }}>
-        {SLIDES.map((_, i) => (
+        {slides.map((_, i) => (
           <motion.button
             key={i}
             type="button"

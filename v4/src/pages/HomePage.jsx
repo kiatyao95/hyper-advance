@@ -10,11 +10,9 @@ import Contact from '../components/sections/Contact';
 import Hero from '../components/sections/Hero';
 import Industries from '../components/sections/Industries';
 import Marquee from '../components/sections/Marquee';
-import OfficeShowcase from '../components/sections/OfficeShowcase';
 import ProjectsPreview from '../components/sections/ProjectsPreview';
 import SuccessStories from '../components/sections/SuccessStories';
 import Services from '../components/sections/Services';
-import SeoSolutions from '../components/sections/SeoSolutions';
 
 export default function HomePage() {  return (
     <>
@@ -27,9 +25,7 @@ export default function HomePage() {  return (
       <HaMeditech />
       <KeyDistributorship />
       <CatalogSection />
-      <SeoSolutions />
       <Services />
-      <OfficeShowcase />
       <Industries />
       <SuccessStories />
       <ProjectsPreview />

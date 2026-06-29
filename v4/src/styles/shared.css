@@ -21,7 +21,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
-  font-size: 16px; color: var(--text);
+  font-size: 17px; color: var(--text);
   background: var(--white); line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }

@@ -120,25 +120,27 @@ export default function Industries() {
                       <Link to={`/project/${slug}`} className="ind-proj-name">
                         {item.name}
                       </Link>
-                      <div className="ind-proj-models">
-                        {item.links.map((link, i) => {
-                          const system = getSystem(link.systemId);
-                          const distributor = getDistributor(link.distributorId);
-                          if (!system || !distributor) return null;
-                          return (
-                            <div key={`${link.systemId}-${link.distributorId}-${i}`} className="ind-model-chip">
-                              <Link to={`/system/${link.systemId}`} className="ind-model-chip__system">
-                                <i className={`fa-solid ${system.icon || 'fa-layer-group'}`} />
-                                {system.shortName}
-                              </Link>
-                              <Link to={`/distributor/${link.distributorId}`} className="ind-model-chip__brand">
-                                <img src={publicPath(distributor.logo)} alt="" loading="lazy" />
-                                {distributor.name}
-                              </Link>
-                            </div>
-                          );
-                        })}
-                      </div>
+                      {active !== 'healthcare' && (
+                        <div className="ind-proj-models">
+                          {item.links.map((link, i) => {
+                            const system = getSystem(link.systemId);
+                            const distributor = getDistributor(link.distributorId);
+                            if (!system || !distributor) return null;
+                            return (
+                              <div key={`${link.systemId}-${link.distributorId}-${i}`} className="ind-model-chip">
+                                <Link to={`/system/${link.systemId}`} className="ind-model-chip__system">
+                                  <i className={`fa-solid ${system.icon || 'fa-layer-group'}`} />
+                                  {system.shortName}
+                                </Link>
+                                <Link to={`/distributor/${link.distributorId}`} className="ind-model-chip__brand">
+                                  <img src={publicPath(distributor.logo)} alt="" loading="lazy" />
+                                  {distributor.name}
+                                </Link>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   );
                 })}

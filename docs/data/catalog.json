@@ -811,6 +811,18 @@
       "description": "Comprehensive and non-comprehensive maintenance programmes to keep every ELV system running smoothly."
     },
     {
+      "id": "repair",
+      "icon": "fa-screwdriver",
+      "title": "Repair",
+      "description": "Diagnosis and repair of ELV equipments including, CCTV, Intercom, Public address and more by our trusted engineers."
+    },
+    {
+      "id": "troubleshoot",
+      "icon": "fa-magnifying-glass-chart",
+      "title": "Troubleshoot",
+      "description": "Troubleshoot and diagnose issues of all types of ELV systems. Will resolve issue on the spot if possible and advise on how to maintain system properly."
+    },
+    {
       "id": "programming",
       "icon": "fa-microchip",
       "title": "Programming",

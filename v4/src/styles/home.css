@@ -122,7 +122,7 @@
 
       font-feature-settings: "cv01", "ss03";
 
-      font-size: 16px; font-weight: 400;
+      font-size: 17px; font-weight: 400;
 
       color: var(--text);
 
@@ -194,7 +194,7 @@
 
     .section-eyebrow {
 
-      font-size: 11px; font-weight: 510;
+      font-size: 12px; font-weight: 510;
 
       letter-spacing: -0.15px;
 
@@ -238,7 +238,7 @@
 
       max-width: 520px; margin: 1.25rem auto 0;
 
-      font-size: 18px; font-weight: 400;
+      font-size: 19px; font-weight: 400;
 
       color: var(--text);
 
@@ -2669,16 +2669,16 @@
       grid-template-columns: repeat(5, 1fr);
     }
 
-    .hero-brands { margin: 1rem 0 .75rem; }
-    .hero-brands-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.55); margin-bottom: .5rem; }
-    .hero-brands-row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; }
+    .hero-brands { margin: 1.25rem 0 .75rem; }
+    .hero-brands-label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.55); margin-bottom: .65rem; }
+    .hero-brands-row { display: flex; flex-wrap: wrap; gap: .85rem; align-items: center; }
     .hero-brand-link {
       display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.92); border-radius: 8px; padding: .45rem .65rem;
-      min-width: 72px; min-height: 44px; transition: var(--transition);
+      background: rgba(255,255,255,.92); border-radius: 8px; padding: .55rem .85rem;
+      min-width: 88px; min-height: 56px; transition: var(--transition);
     }
     .hero-brand-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
-    .hero-brand-link img { max-height: 28px; max-width: 88px; object-fit: contain; }
+    .hero-brand-link img { max-height: 42px; max-width: 120px; object-fit: contain; }
 
     .client-logos { margin: .75rem 0; }
     .client-logos-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.55); margin-bottom: .45rem; }
@@ -2706,8 +2706,8 @@
       background: var(--light-blue); color: var(--teal-dark);
       display: flex; align-items: center; justify-content: center; margin-bottom: .75rem;
     }
-    .service-cap-card h3 { font-size: 15px; font-weight: 590; color: var(--text-dark); margin-bottom: .4rem; }
-    .service-cap-card p { font-size: 13px; line-height: 1.55; color: var(--text); margin: 0; }
+    .service-cap-card h3 { font-size: 16px; font-weight: 590; color: var(--text-dark); margin-bottom: .4rem; }
+    .service-cap-card p { font-size: 14px; line-height: 1.55; color: var(--text); margin: 0; }
 
     .systems-offer-list { display: grid; gap: 1rem; padding: 1rem 0 3rem; }
     .systems-offer-card {
@@ -2715,13 +2715,13 @@
       padding: 1.25rem 1.35rem;
     }
     .systems-offer-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; }
-    .systems-offer-head h3 { font-size: 16px; font-weight: 590; color: var(--text-dark); margin: 0; }
-    .systems-offer-brands { font-size: 12px; color: var(--teal-dark); margin: 0; }
+    .systems-offer-head h3 { font-size: 18px; font-weight: 590; color: var(--text-dark); margin: 0; }
+    .systems-offer-brands { font-size: 13px; color: var(--teal-dark); margin: 0; }
     .systems-offer-brands i { color: var(--teal); margin-right: .25rem; }
-    .systems-offer-desc { font-size: 14px; line-height: 1.6; color: var(--text); margin: 0 0 .75rem; }
-    .systems-offer-projects-label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: #888; margin-bottom: .35rem; }
+    .systems-offer-desc { font-size: 15px; line-height: 1.6; color: var(--text); margin: 0 0 .75rem; }
+    .systems-offer-projects-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #888; margin-bottom: .35rem; }
     .systems-offer-project-links { display: flex; flex-wrap: wrap; gap: .35rem .65rem; }
-    .systems-offer-project-links a { font-size: 12px; color: var(--teal-dark); font-weight: 510; }
+    .systems-offer-project-links a { font-size: 13px; color: var(--teal-dark); font-weight: 510; }
     .systems-offer-project-links a:hover { color: var(--teal); text-decoration: underline; }
 
     .ha-meditech-section { background: var(--gray-bg); }
@@ -2739,9 +2739,36 @@
     .ha-meditech-link:hover { color: var(--teal); }
 
     .ha-meditech-intro { margin-bottom: 2rem; }
-    .ha-meditech-projects-header { margin-bottom: 1rem; }
-    .ha-meditech-projects-header h3 { font-size: 18px; font-weight: 590; color: var(--text-dark); margin: 0 0 .25rem; }
-    .ha-meditech-projects-header p { font-size: 13px; color: var(--teal-dark); margin: 0; }
+    .ha-meditech-projects { margin-top: 2rem; }
+    .ha-meditech-projects-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      text-align: left;
+      transition: var(--transition);
+    }
+    .ha-meditech-projects-toggle:hover,
+    .ha-meditech-projects-toggle.is-open {
+      border-color: var(--teal);
+      box-shadow: 0 4px 16px rgba(62, 193, 213, 0.12);
+    }
+    .ha-meditech-projects-toggle i {
+      color: var(--teal);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .ha-meditech-projects-panel { overflow: hidden; }
+    .ha-meditech-projects-panel .ha-meditech-projects-grid { margin-top: 1rem; }
+    .ha-meditech-projects-header { margin-bottom: 0; }
+    .ha-meditech-projects-header h3 { font-size: 19px; font-weight: 590; color: var(--text-dark); margin: 0 0 .25rem; }
+    .ha-meditech-projects-header p { font-size: 14px; color: var(--teal-dark); margin: 0; }
     .ha-meditech-projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -2786,16 +2813,16 @@
     }
     .client-marquee-label {
       text-align: center;
-      font-size: 11px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: rgba(255,255,255,.5);
-      margin: 0 0 .65rem;
+      color: rgba(255,255,255,.55);
+      margin: 0 0 .75rem;
     }
     .infinite-card-logo {
       display: block;
-      max-height: 36px;
-      max-width: 130px;
+      max-height: 48px;
+      max-width: 160px;
       object-fit: contain;
     }
 
@@ -2813,8 +2840,8 @@
     }
 
     .systems-offer-brands-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: .35rem; }
-    .systems-offer-logos { display: flex; flex-wrap: wrap; gap: .35rem; justify-content: flex-end; }
-    .systems-offer-logos img { max-height: 28px; max-width: 72px; object-fit: contain; }
+    .systems-offer-logos { display: flex; flex-wrap: wrap; gap: .65rem; justify-content: flex-end; align-items: center; }
+    .systems-offer-logos img { max-height: 80px; max-width: 200px; object-fit: contain; }
 
     .key-dist-grid--top {
       grid-template-columns: repeat(4, 1fr);
