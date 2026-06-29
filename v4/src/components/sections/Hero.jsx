@@ -6,13 +6,6 @@ import { HeroHighlight, Highlight } from '../21st/HeroHighlight';
 import Button from '../ui/Button';
 import { publicPath } from '../../utils/publicPath';
 
-const BRAND_SLIDES = [
-  'https://www.hyper-advance.com/assets/img/slider/Lutron.jpg',
-  'https://www.hyper-advance.com/assets/img/slider/Aiphone.jpg',
-  'https://www.hyper-advance.com/assets/img/slider/Austco.jpg',
-  'https://www.hyper-advance.com/assets/img/slider/Amperes.jpg',
-];
-
 /** 1-based office gallery indices to exclude from hero slideshow (3,4,5,6,7,8,9,18) */
 const EXCLUDED_OFFICE_SLIDE_INDICES = new Set([3, 4, 5, 6, 7, 8, 9, 18]);
 
@@ -37,7 +30,7 @@ export default function Hero() {
     const officeSlides = (company?.officeGallery || [])
       .filter((_, index) => !EXCLUDED_OFFICE_SLIDE_INDICES.has(index + 1))
       .map((path) => publicPath(path));
-    return [...BRAND_SLIDES, ...officeSlides];
+    return officeSlides;
   }, [company?.officeGallery]);
 
   useEffect(() => {
@@ -123,7 +116,7 @@ export default function Hero() {
             <div className="hero-stat-lbl">Established<br />Since</div>
           </motion.div>
           <motion.div className="hero-stat" variants={item}>
-            <div className="hero-stat-num">{company?.authorizedBrandCount ?? 5}<span>+</span></div>
+            <div className="hero-stat-num">{brandIds.length || company?.authorizedBrandCount || 8}<span>+</span></div>
             <div className="hero-stat-lbl">Authorised<br />Brands</div>
           </motion.div>
         </motion.div>

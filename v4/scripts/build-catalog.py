@@ -1070,7 +1070,7 @@ CLIENT_REFERENCES = [
     {"name": "KKM", "projectSlugs": ["hospital-tunku-ampuan-najihah", "hospital-seri-manjung", "hospital-baling"]},
 ]
 
-AUTHORIZED_BRAND_IDS = ["aiphone", "austco", "amperes", "lutron", "fagor"]
+AUTHORIZED_BRAND_IDS = ["aiphone", "austco", "amperes", "lutron", "fagor", "bodet", "esa-grimma", "ajb"]
 
 SERVICE_CAPABILITIES = [
     {
@@ -1293,7 +1293,7 @@ def main():
             "founded": 1995,
             "staffCount": 30,
             "systemsOffered": 10,
-            "authorizedBrandCount": 5,
+            "authorizedBrandCount": len(AUTHORIZED_BRAND_IDS),
             "yearsExperience": date.today().year - 1995,
             "successStories": [
                 {

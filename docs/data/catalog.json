@@ -483,7 +483,10 @@
     "austco",
     "amperes",
     "lutron",
-    "fagor"
+    "fagor",
+    "bodet",
+    "esa-grimma",
+    "ajb"
   ],
   "clientReferences": [
     {
@@ -1089,7 +1092,7 @@
     "founded": 1995,
     "staffCount": 30,
     "systemsOffered": 10,
-    "authorizedBrandCount": 5,
+    "authorizedBrandCount": 8,
     "yearsExperience": 31,
     "successStories": [
       {

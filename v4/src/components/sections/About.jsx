@@ -17,7 +17,7 @@ export default function About() {
   const company = data?.company;
   const staff = company?.staffCount ?? 30;
   const systems = company?.systemsOffered ?? 10;
-  const brands = company?.authorizedBrandCount ?? 5;
+  const brands = company?.authorizedBrandCount ?? data?.authorizedBrandIds?.length ?? 8;
 
   return (
     <section id="about" className="section blueprint-bg">

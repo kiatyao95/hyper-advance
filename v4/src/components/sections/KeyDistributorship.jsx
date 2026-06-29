@@ -17,7 +17,7 @@ export default function KeyDistributorship() {
         <SectionHeader
           eyebrow="02 — Authorised Brands"
           title="Key Distributorship"
-          desc="Hyper Advance is the authorised distributor for five core ELV system categories in Malaysia."
+          desc="Hyper Advance is the authorised distributor for eight leading ELV brands in Malaysia."
         />
 
         <Reveal className="key-dist-grid key-dist-grid--five">
