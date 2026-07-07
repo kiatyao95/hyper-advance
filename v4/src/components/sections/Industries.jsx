@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCatalog } from '../../context/CatalogContext';
 import { projectSlug } from '../../utils/projectSlug';
-import { publicPath } from '../../utils/publicPath';
 import Reveal, { RevealItem } from '../ui/Reveal';
 import SectionHeader from '../ui/SectionHeader';
 
@@ -50,7 +49,7 @@ const PANELS = {
 
 export default function Industries() {
   const [active, setActive] = useState('healthcare');
-  const { getIndustryProjects, getSystem, getDistributor, uniqueProjects } = useCatalog();
+  const { getIndustryProjects, uniqueProjects } = useCatalog();
   const panel = PANELS[active];
   const projects = getIndustryProjects(active);
 
@@ -120,27 +119,6 @@ export default function Industries() {
                       <Link to={`/project/${slug}`} className="ind-proj-name">
                         {item.name}
                       </Link>
-                      {active !== 'healthcare' && (
-                        <div className="ind-proj-models">
-                          {item.links.map((link, i) => {
-                            const system = getSystem(link.systemId);
-                            const distributor = getDistributor(link.distributorId);
-                            if (!system || !distributor) return null;
-                            return (
-                              <div key={`${link.systemId}-${link.distributorId}-${i}`} className="ind-model-chip">
-                                <Link to={`/system/${link.systemId}`} className="ind-model-chip__system">
-                                  <i className={`fa-solid ${system.icon || 'fa-layer-group'}`} />
-                                  {system.shortName}
-                                </Link>
-                                <Link to={`/distributor/${link.distributorId}`} className="ind-model-chip__brand">
-                                  <img src={publicPath(distributor.logo)} alt="" loading="lazy" />
-                                  {distributor.name}
-                                </Link>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
                     </div>
                   );
                 })}
