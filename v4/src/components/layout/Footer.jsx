@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { publicPath } from '../../utils/publicPath';
 
 export default function Footer({ minimal = false }) {
   if (minimal) {
@@ -21,7 +22,7 @@ export default function Footer({ minimal = false }) {
         <div className="footer-grid">
           <div>
             <img
-              src="https://www.hyper-advance.com/assets/img/about/HAT.jpg"
+              src={publicPath('/assets/brand/hyper-advance-logo-with-name.png')}
               alt="Hyper Advance"
               className="footer-logo-img"
             />

@@ -46,17 +46,19 @@ export default function Hero() {
   return (
     <section id="hero">
       <div className="hero-slides">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={current}
-            className="hero-slide active"
-            style={{ backgroundImage: `url('${slides[current]}')` }}
-            initial={{ opacity: 0, scale: 1.08 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ opacity: { duration: 2 }, scale: { duration: 10, ease: 'easeOut' } }}
-          />
-        </AnimatePresence>
+        {slides[current] && (
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={current}
+              className="hero-slide active"
+              style={{ backgroundImage: `url('${slides[current]}')` }}
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ opacity: { duration: 2 }, scale: { duration: 10, ease: 'easeOut' } }}
+            />
+          </AnimatePresence>
+        )}
       </div>
       <div className="hero-grid-overlay" />
 

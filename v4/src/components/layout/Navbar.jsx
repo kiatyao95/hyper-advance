@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
+import { publicPath } from '../../utils/publicPath';
 
 const DISTRIBUTORS = [
   { id: 'aiphone', label: 'Aiphone' },
@@ -54,7 +55,7 @@ export default function Navbar({ activeKey = '' }) {
         <div className="container">
           <div className="nav-inner">
             <Link to="/" className="nav-logo">
-              <img src="https://www.hyper-advance.com/assets/img/HA.png" alt="Hyper Advance Logo" />
+              <img src={publicPath('/assets/brand/hyper-advance-logo.png')} alt="Hyper Advance Logo" />
               <div className="nav-logo-text">
                 <strong>Hyper Advance</strong>
                 <span>Sdn Bhd</span>
