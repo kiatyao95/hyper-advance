@@ -33,4 +33,6 @@ for (const route of routes) {
   fs.writeFileSync(path.join(dir, 'index.html'), indexHtml);
 }
 
-console.log(`Generated ${routes.size} SPA fallback routes in ${distDir}`);
+fs.writeFileSync(path.join(distDir, '404.html'), indexHtml);
+
+console.log(`Generated ${routes.size} SPA fallback routes and 404.html in ${distDir}`);

@@ -9,7 +9,7 @@ function shouldFallback(url = '') {
   return ['/projects', '/systems', '/distributors'].includes(path) || path.startsWith('/system/') || path.startsWith('/distributor/') || path.startsWith('/project/');
 }
 
-const base = process.env.BASE_PATH || (process.env.GITHUB_PAGES === 'true' ? '/hyper-advance/docs/' : '/');
+const base = process.env.BASE_PATH || '/';
 
 export default defineConfig({
   base,

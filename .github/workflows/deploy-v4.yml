@@ -31,7 +31,7 @@ jobs:
         run: npm run build:pages --prefix v4
         env:
           GITHUB_PAGES: true
-          BASE_PATH: /hyper-advance/docs/
+          BASE_PATH: /
 
       - name: Add SPA fallback for GitHub Pages
         run: touch v4/dist/.nojekyll
