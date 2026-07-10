@@ -4,8 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
-    "build:pages": "node scripts/generate-sitemap.mjs && vite build && node scripts/generate-spa-fallbacks.mjs",
+    "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/generate-prerender.mjs",
+    "build:pages": "node scripts/generate-sitemap.mjs && vite build && node scripts/generate-prerender.mjs",
+    "build:iis": "node scripts/build-iis.mjs",
+    "package:iis": "npm run build:iis && node scripts/package-iis.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "preview": "vite preview"
   },

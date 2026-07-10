@@ -23,6 +23,18 @@ function upsertLink(rel, href) {
   el.setAttribute('href', href);
 }
 
+function upsertAlternate(hreflang, href) {
+  if (!href) return;
+  let el = document.head.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
 function upsertJsonLd(id, data) {
   const existing = document.getElementById(id);
   if (existing) existing.remove();
@@ -75,14 +87,19 @@ export function usePageSeo(seo) {
     upsertMeta('name', 'twitter:image', image);
 
     upsertLink('canonical', url);
+    upsertAlternate('en-my', url);
+    upsertAlternate('x-default', url);
 
     const ld = Array.isArray(seo.jsonLd) ? seo.jsonLd : seo.jsonLd ? [seo.jsonLd] : [];
-    upsertJsonLd('seo-jsonld-primary', ld[0]);
-    upsertJsonLd('seo-jsonld-secondary', ld[1]);
+    ld.forEach((data, i) => upsertJsonLd(`seo-jsonld-${i}`, data));
+    for (let i = ld.length; i < 6; i += 1) {
+      document.getElementById(`seo-jsonld-${i}`)?.remove();
+    }
 
     return () => {
-      document.getElementById('seo-jsonld-primary')?.remove();
-      document.getElementById('seo-jsonld-secondary')?.remove();
+      for (let i = 0; i < 6; i += 1) {
+        document.getElementById(`seo-jsonld-${i}`)?.remove();
+      }
     };
   }, [seo]);
 }

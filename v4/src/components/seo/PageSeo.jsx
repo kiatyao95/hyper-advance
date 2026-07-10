@@ -6,8 +6,12 @@ import {
   PAGE_SEO,
   SITE,
   SYSTEM_SEO,
+  breadcrumbJsonLd,
+  distributorJsonLd,
   organizationJsonLd,
   serviceJsonLd,
+  systemJsonLd,
+  websiteJsonLd,
 } from '../../seo/seoConfig';
 import { usePageSeo } from '../../seo/usePageSeo';
 
@@ -23,20 +27,32 @@ export default function PageSeo() {
       return {
         ...PAGE_SEO.home,
         path: '/',
-        jsonLd: [organizationJsonLd(), serviceJsonLd()],
+        jsonLd: [organizationJsonLd(), websiteJsonLd(), serviceJsonLd()],
       };
     }
 
     if (path === '/projects') {
-      return { ...PAGE_SEO.projects, path: '/projects' };
+      return {
+        ...PAGE_SEO.projects,
+        path: '/projects',
+        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])],
+      };
     }
 
     if (path === '/systems') {
-      return { ...PAGE_SEO.systems, path: '/systems' };
+      return {
+        ...PAGE_SEO.systems,
+        path: '/systems',
+        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Systems', path: '/systems' }])],
+      };
     }
 
     if (path === '/distributors') {
-      return { ...PAGE_SEO.distributors, path: '/distributors' };
+      return {
+        ...PAGE_SEO.distributors,
+        path: '/distributors',
+        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Distributors', path: '/distributors' }])],
+      };
     }
 
     if (path.startsWith('/project/') && params.slug) {
@@ -51,6 +67,13 @@ export default function PageSeo() {
         keywords: [project.name, systems, 'ELV contractor Malaysia', project.sector],
         path,
         image: project.image,
+        jsonLd: [
+          breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Projects', path: '/projects' },
+            { name: project.name, path },
+          ]),
+        ],
       };
     }
 
@@ -60,11 +83,21 @@ export default function PageSeo() {
       if (!sys) {
         return { title: 'System | Hyper Advance', description: PAGE_SEO.systems.description, path, noindex: true };
       }
+      const dist = getDistributor(sys.distributorId);
+      const keywords = override?.keywords || [sys.shortName, 'ELV Malaysia', ...(sys.brands || [])];
       return {
         title: override?.title || `${sys.name} Malaysia | Hyper Advance`,
         description: override?.description || sys.description,
-        keywords: override?.keywords || [sys.shortName, 'ELV Malaysia', ...(sys.brands || [])],
+        keywords,
         path,
+        jsonLd: [
+          systemJsonLd(sys, dist, path, keywords),
+          breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Systems', path: '/systems' },
+            { name: sys.name, path },
+          ]),
+        ],
       };
     }
 
@@ -74,12 +107,21 @@ export default function PageSeo() {
       if (!dist) {
         return { title: 'Distributor | Hyper Advance', description: PAGE_SEO.distributors.description, path, noindex: true };
       }
+      const keywords = override?.keywords || [dist.name, 'authorised distributor', 'ELV Malaysia'];
       return {
         title: override?.title || `${dist.fullName} Authorised Distributor Malaysia`,
         description: override?.description || dist.description,
-        keywords: override?.keywords || [dist.name, 'authorised distributor', 'ELV Malaysia'],
+        keywords,
         path,
         image: dist.logo,
+        jsonLd: [
+          distributorJsonLd(dist, path, keywords),
+          breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Distributors', path: '/distributors' },
+            { name: dist.fullName || dist.name, path },
+          ]),
+        ],
       };
     }
 

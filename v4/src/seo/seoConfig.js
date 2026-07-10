@@ -4,6 +4,9 @@ export const SITE = {
   url: 'https://www.hyper-advance.com',
   email: 'admin@hyper-advance.com',
   phone: '+603-7498-0827',
+  phones: ['+603-7498-0827', '+603-7877-6537', '+603-7877-0289'],
+  sameAs: ['https://www.facebook.com/ha.sb.3382'],
+  founded: '1995',
   locale: 'en_MY',
   region: 'Malaysia',
   address: {
@@ -15,46 +18,70 @@ export const SITE = {
   },
 };
 
-/** Target keywords from SEO strategy — used in meta tags and on-page copy. */
+/**
+ * Target keywords from SEO strategy — used in meta tags, structured data,
+ * and on-page copy. Ordered by commercial priority for the Malaysian market.
+ */
 export const TARGET_KEYWORDS = [
   'ELV contractor Malaysia',
-  'extra low voltage',
+  'ELV contractors',
   'ELV maintenance',
+  'extra low voltage',
   'security system',
   'CCTV',
+  'Dahua',
+  'Hikvision',
   'card access',
+  'ZKTECO',
+  'intruder alarm',
+  'Paradox',
+  'Bosch',
   'intercom',
   'Aiphone',
   'video intercom',
   'audio intercom',
   'IP intercom',
+  'fireman intercom',
+  'Mictron',
+  'image speak through',
   'nurse call system',
   'IP nurse call system',
   'Austco',
+  'digital call',
+  'GMS',
+  'myQ',
+  'panic button',
+  'code blue',
+  'call bell',
   'public address system',
   'PA system',
-  'announcement system',
   'IP PA system',
+  'announcement system',
   'Amperes',
   'SMATV',
   'Fagor',
   'Ikusi',
+  'Triax',
+  'multiswitch',
+  'tap and splitter',
+  'amplifier',
+  'signal booster',
   'lighting control system',
   'Lutron',
   'master clock',
+  'National time',
   'Bodet',
-  'audio visual system',
   'AV system',
+  'audio visual system',
+  'conference system',
+  'AMX',
+  'Abtus',
+  'Yamaha',
+  'Aten',
+  'Extron',
+  'OT tie line',
+  'IPS',
   'isolated power supply',
-  'IPS system',
-  'fireman intercom',
-  'digital call',
-  'panic button',
-  'intruder alarm',
-  'Dahua',
-  'Hikvision',
-  'ZKTECO',
-  'code blue',
 ];
 
 export const SOLUTION_GROUPS = [
@@ -267,11 +294,15 @@ export function organizationJsonLd() {
     '@type': 'LocalBusiness',
     '@id': `${SITE.url}/#organization`,
     name: SITE.name,
+    legalName: SITE.legalName,
     url: SITE.url,
     email: SITE.email,
     telephone: SITE.phone,
     image: `${SITE.url}/assets/brand/hyper-advance-logo.png`,
+    logo: `${SITE.url}/assets/brand/hyper-advance-logo.png`,
     description: PAGE_SEO.home.description,
+    slogan: 'Malaysia ELV Contractor & Authorised Distributor since 1995',
+    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.address.street,
@@ -281,8 +312,34 @@ export function organizationJsonLd() {
       addressCountry: SITE.address.country,
     },
     areaServed: { '@type': 'Country', name: 'Malaysia' },
-    foundingDate: '1995',
-    knowsAbout: TARGET_KEYWORDS.slice(0, 20),
+    foundingDate: SITE.founded,
+    contactPoint: SITE.phones.map((tel) => ({
+      '@type': 'ContactPoint',
+      telephone: tel,
+      contactType: 'sales',
+      areaServed: 'MY',
+      availableLanguage: ['en', 'ms'],
+    })),
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:30',
+    },
+    sameAs: SITE.sameAs,
+    knowsAbout: TARGET_KEYWORDS,
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE.url}/#website`,
+    url: SITE.url,
+    name: SITE.name,
+    publisher: { '@id': `${SITE.url}/#organization` },
+    inLanguage: 'en-MY',
   };
 }
 
@@ -306,5 +363,53 @@ export function serviceJsonLd() {
         },
       })),
     },
+  };
+}
+
+/** BreadcrumbList schema. `crumbs` is an array of { name, path }. */
+export function breadcrumbJsonLd(crumbs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: `${SITE.url}${c.path}`,
+    })),
+  };
+}
+
+/** Service schema for a single ELV system detail page. */
+export function systemJsonLd(sys, dist, path, keywords) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE.url}${path}#service`,
+    name: sys.name,
+    serviceType: sys.name,
+    category: sys.category,
+    description: sys.description,
+    provider: { '@id': `${SITE.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'Malaysia' },
+    brand: (sys.brands || []).map((b) => ({ '@type': 'Brand', name: b })),
+    url: `${SITE.url}${path}`,
+    keywords: (keywords || []).join(', '),
+    ...(dist ? { additionalType: 'https://schema.org/Product' } : {}),
+  };
+}
+
+/** Organization/Brand schema for a distributor page. */
+export function distributorJsonLd(dist, path, keywords) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE.url}${path}#brand`,
+    name: dist.fullName || dist.name,
+    url: dist.website || `${SITE.url}${path}`,
+    logo: dist.logo?.startsWith('http') ? dist.logo : `${SITE.url}${dist.logo || ''}`,
+    description: dist.description,
+    keywords: (keywords || []).join(', '),
+    subOrganization: { '@id': `${SITE.url}/#organization` },
   };
 }
