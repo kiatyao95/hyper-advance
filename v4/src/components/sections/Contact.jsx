@@ -1,20 +1,8 @@
-import { useState } from 'react';
 import Button from '../ui/Button';
 import Reveal from '../ui/Reveal';
 import SectionHeader from '../ui/SectionHeader';
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      e.target.reset();
-    }, 3500);
-  };
-
   return (
     <section id="contact" className="section">
       <div className="container">
@@ -83,16 +71,17 @@ export default function Contact() {
 
           <Reveal delay={0.2} className="contact-form-wrap">
             <h3>Send Us a Message</h3>
-            <form onSubmit={handleSubmit}>
+            <form action="https://formsubmit.co/kiatyao@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New quotation request from Hyper Advance website" />
               <div className="form-row">
-                <div className="form-group"><label>First Name *</label><input type="text" placeholder="John" required /></div>
-                <div className="form-group"><label>Last Name *</label><input type="text" placeholder="Doe" required /></div>
+                <div className="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required /></div>
+                <div className="form-group"><label>Last Name *</label><input type="text" name="last_name" placeholder="Doe" required /></div>
               </div>
-              <div className="form-group"><label>Email *</label><input type="email" placeholder="john@company.com" required /></div>
-              <div className="form-group"><label>Phone</label><input type="tel" placeholder="+60 12-345 6789" /></div>
+              <div className="form-group"><label>Email *</label><input type="email" name="email" placeholder="john@company.com" required /></div>
+              <div className="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="+60 12-345 6789" /></div>
               <div className="form-group">
                 <label>Service of Interest</label>
-                <select defaultValue="">
+                <select name="service" defaultValue="">
                   <option value="">Select a service...</option>
                   <option>Public Address System</option>
                   <option>Nurse Call System</option>
@@ -107,9 +96,9 @@ export default function Contact() {
                   <option>Multiple Services</option>
                 </select>
               </div>
-              <div className="form-group"><label>Message *</label><textarea placeholder="Tell us about your project..." required /></div>
-              <Button type="submit" style={{ width: '100%', justifyContent: 'center', ...(sent ? { background: 'var(--teal-dark)' } : {}) }}>
-                {sent ? <><i className="fa-solid fa-check" /> Message Sent!</> : <><i className="fa-solid fa-paper-plane" /> Send Message</>}
+              <div className="form-group"><label>Message *</label><textarea name="message" placeholder="Tell us about your project..." required /></div>
+              <Button type="submit" style={{ width: '100%', justifyContent: 'center' }}>
+                <i className="fa-solid fa-paper-plane" /> Send Message
               </Button>
             </form>
           </Reveal>
