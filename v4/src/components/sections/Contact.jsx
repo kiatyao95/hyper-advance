@@ -71,8 +71,9 @@ export default function Contact() {
 
           <Reveal delay={0.2} className="contact-form-wrap">
             <h3>Send Us a Message</h3>
-            <form action="https://formsubmit.co/kiatyao@gmail.com" method="POST">
+            <form action="https://formsubmit.co/admin@hyper-advance.com" method="POST">
               <input type="hidden" name="_subject" value="New quotation request from Hyper Advance website" />
+              <input type="hidden" name="_cc" value="jason@hyper-advance.com,kiatyao@gmail.com" />
               <div className="form-row">
                 <div className="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required /></div>
                 <div className="form-group"><label>Last Name *</label><input type="text" name="last_name" placeholder="Doe" required /></div>
