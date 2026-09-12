@@ -1,24 +1,25 @@
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function LegacyRedirect() {
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const { pathname, search } = location;
+    const { pathname, search, hash } = location;
     const params = new URLSearchParams(search);
 
+    // window.location is used deliberately: the catch-all route ("*" -> "/")
+    // also redirects on mount and would otherwise beat router-side navigation.
     if (pathname === '/system.html' || pathname.endsWith('/system.html')) {
       const id = params.get('id');
-      navigate(id ? `/system/${id}` : '/systems', { replace: true });
+      window.location.replace(id ? `/system/${id}` : '/systems');
     } else if (pathname === '/distributor.html' || pathname.endsWith('/distributor.html')) {
       const id = params.get('id');
-      navigate(id ? `/distributor/${id}` : '/distributors', { replace: true });
+      window.location.replace(id ? `/distributor/${id}` : '/distributors');
     } else if (pathname === '/index_3.html' || pathname.endsWith('/index_3.html')) {
-      window.location.replace(`/v3/index.html${location.hash || ''}`);
+      window.location.replace(`/${hash || ''}`);
     }
-  }, [location, navigate]);
+  }, [location]);
 
   return null;
 }
