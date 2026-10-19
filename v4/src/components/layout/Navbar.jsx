@@ -54,7 +54,7 @@ export default function Navbar({ activeKey = '' }) {
       >
         <div className="container">
           <div className="nav-inner">
-            <Link to="/" className="nav-logo">
+            <Link to="/home" className="nav-logo">
               <img src={publicPath('/assets/brand/hyper-advance-logo.png')} alt="Hyper Advance Logo" />
               <div className="nav-logo-text">
                 <strong>Hyper Advance</strong>
@@ -64,10 +64,10 @@ export default function Navbar({ activeKey = '' }) {
 
             <ul className="nav-links">
               <li className="nav-item">
-                <Link to="/#about" className={navClass('about', '#about')}>About</Link>
+                <Link to="/home#about" className={navClass('about', '#about')}>About</Link>
               </li>
               <li className="nav-item">
-                <Link to="/#services" className={navClass('services', '#services')}>Services</Link>
+                <Link to="/home#services" className={navClass('services', '#services')}>Services</Link>
               </li>
               <li className="nav-item">
                 <Link to="/systems" className={navClass('systems')}>Systems</Link>
@@ -83,17 +83,17 @@ export default function Navbar({ activeKey = '' }) {
                 </div>
               </li>
               <li className="nav-item">
-                <Link to="/#industries" className={navClass('industries', '#industries')}>Industries</Link>
+                <Link to="/home#industries" className={navClass('industries', '#industries')}>Industries</Link>
               </li>
               <li className="nav-item">
                 <Link to="/projects" className={navClass('projects')}>Projects</Link>
               </li>
               <li className="nav-item">
-                <Link to="/#contact" className={navClass('contact', '#contact')}>Contact</Link>
+                <Link to="/home#contact" className={navClass('contact', '#contact')}>Contact</Link>
               </li>
             </ul>
 
-            <Button to="/#contact" className="nav-cta-btn" style={{ fontSize: 13, padding: '8px 20px' }}>
+            <Button to="/home#contact" className="nav-cta-btn" style={{ fontSize: 13, padding: '8px 20px' }}>
               Get a Quote
             </Button>
 
@@ -118,18 +118,18 @@ export default function Navbar({ activeKey = '' }) {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
           >
-            <Link to="/#about" className="mob-link" onClick={() => setMobileOpen(false)}>About Us</Link>
-            <Link to="/#services" className="mob-link" onClick={() => setMobileOpen(false)}>Services</Link>
+            <Link to="/home#about" className="mob-link" onClick={() => setMobileOpen(false)}>About Us</Link>
+            <Link to="/home#services" className="mob-link" onClick={() => setMobileOpen(false)}>Services</Link>
             <Link to="/systems" className="mob-link" onClick={() => setMobileOpen(false)}>Systems</Link>
             <div className="mob-sublabel">Distributors</div>
             <Link to="/distributors" className="mob-sublink" onClick={() => setMobileOpen(false)}>All Brand Partners</Link>
             {DISTRIBUTORS.map((d) => (
               <Link key={d.id} to={`/distributor/${d.id}`} className="mob-sublink" onClick={() => setMobileOpen(false)}>{d.label}</Link>
             ))}
-            <Link to="/#industries" className="mob-link" onClick={() => setMobileOpen(false)}>Industries</Link>
+            <Link to="/home#industries" className="mob-link" onClick={() => setMobileOpen(false)}>Industries</Link>
             <Link to="/projects" className="mob-link" onClick={() => setMobileOpen(false)}>Projects</Link>
-            <Link to="/#contact" className="mob-link" onClick={() => setMobileOpen(false)}>Contact</Link>
-            <Button to="/#contact" style={{ marginTop: '1.5rem', justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>
+            <Link to="/home#contact" className="mob-link" onClick={() => setMobileOpen(false)}>Contact</Link>
+            <Button to="/home#contact" style={{ marginTop: '1.5rem', justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>
               Get a Quote
             </Button>
           </motion.div>

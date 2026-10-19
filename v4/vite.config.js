@@ -6,7 +6,7 @@ function shouldFallback(url = '') {
   if (path === '/' || path === '/index.html') return true;
   if (path.startsWith('/assets') || path.startsWith('/data') || path.endsWith('.html')) return false;
   if (path.includes('.')) return false;
-  return ['/projects', '/systems', '/distributors'].includes(path) || path.startsWith('/system/') || path.startsWith('/distributor/') || path.startsWith('/project/');
+  return ['/home', '/projects', '/systems', '/distributors'].includes(path) || path.startsWith('/system/') || path.startsWith('/distributor/') || path.startsWith('/project/');
 }
 
 const base = process.env.BASE_PATH || '/';

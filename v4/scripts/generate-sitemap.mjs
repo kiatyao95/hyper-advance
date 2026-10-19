@@ -12,6 +12,7 @@ const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
 
 const urls = new Set([
   '/',
+  '/home',
   '/projects',
   '/systems',
   '/distributors',
@@ -35,7 +36,7 @@ ${[...urls].sort().map((loc) => `  <url>
     <loc>${SITE}${loc}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${loc === '/' ? 'weekly' : 'monthly'}</changefreq>
-    <priority>${loc === '/' ? '1.0' : loc.startsWith('/project/') ? '0.7' : '0.8'}</priority>
+    <priority>${loc === '/' ? '1.0' : loc === '/home' ? '0.9' : loc.startsWith('/project/') ? '0.7' : '0.8'}</priority>
   </url>`).join('\n')}
 </urlset>
 `;

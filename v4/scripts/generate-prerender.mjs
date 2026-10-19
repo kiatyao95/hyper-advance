@@ -125,7 +125,7 @@ function renderDocument(routeSeo) {
 }
 
 const navLinks = `      <nav aria-label="Site">
-        <a href="${absUrl('/')}">Home</a>
+        <a href="${absUrl('/home')}">Home</a>
         <a href="${absUrl('/systems')}">ELV Systems</a>
         <a href="${absUrl('/distributors')}">Authorised Distributors</a>
         <a href="${absUrl('/projects')}">Project References</a>
@@ -147,10 +147,24 @@ ${napBlock}
 
 const routes = [];
 
-// Home
+// Landing page (hologram) — the site root.
 routes.push({
   path: '/',
   file: 'index.html',
+  title: `${SITE.name} | ELV Contractor Malaysia`,
+  description:
+    'Hyper Advance — extra low voltage systems supplied, installed and maintained across Malaysia. Nurse call, public address, master clock, AV intercom and lighting control.',
+  keywords: PAGE_SEO.home.keywords,
+  jsonLd: [organizationJsonLd(), websiteJsonLd()],
+  noscript: fallback(`      <h1>Hyper Advance — ELV Contractor Malaysia</h1>
+      <p>${escapeHtml(PAGE_SEO.home.description)}</p>
+      <p><a href="${absUrl('/home')}">Enter the Hyper Advance website</a></p>`),
+});
+
+// Site home — reached from the landing page's "Visit Us" button.
+const homeRoute = {
+  path: '/home',
+  file: 'home/index.html',
   ...PAGE_SEO.home,
   keywords: PAGE_SEO.home.keywords,
   jsonLd: [organizationJsonLd(), websiteJsonLd(), serviceJsonLd()],
@@ -160,14 +174,16 @@ routes.push({
       <ul>
 ${SOLUTION_GROUPS.map((g) => `        <li><strong>${escapeHtml(g.title)}:</strong> ${escapeHtml(g.keywords.join(', '))} — ${escapeHtml(g.brands)}</li>`).join('\n')}
       </ul>`),
-});
+};
+
+routes.push(homeRoute);
 
 // Static list pages
 routes.push({
   path: '/systems',
   file: 'systems/index.html',
   ...PAGE_SEO.systems,
-  jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Systems', path: '/systems' }])],
+  jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/home' }, { name: 'Systems', path: '/systems' }])],
   noscript: fallback(`      <h1>ELV Systems in Malaysia</h1>
       <p>${escapeHtml(PAGE_SEO.systems.description)}</p>
       <ul>
@@ -179,7 +195,7 @@ routes.push({
   path: '/distributors',
   file: 'distributors/index.html',
   ...PAGE_SEO.distributors,
-  jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Distributors', path: '/distributors' }])],
+  jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/home' }, { name: 'Distributors', path: '/distributors' }])],
   noscript: fallback(`      <h1>Authorised ELV Brand Distributors in Malaysia</h1>
       <p>${escapeHtml(PAGE_SEO.distributors.description)}</p>
       <ul>
@@ -191,7 +207,7 @@ routes.push({
   path: '/projects',
   file: 'projects/index.html',
   ...PAGE_SEO.projects,
-  jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])],
+  jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/home' }, { name: 'Projects', path: '/projects' }])],
   noscript: fallback(`      <h1>ELV Project References in Malaysia</h1>
       <p>${escapeHtml(PAGE_SEO.projects.description)}</p>`),
 });
@@ -211,7 +227,7 @@ for (const sys of catalog.systems || []) {
     jsonLd: [
       systemJsonLd(sys, dist, routePath, keywords),
       breadcrumbJsonLd([
-        { name: 'Home', path: '/' },
+        { name: 'Home', path: '/home' },
         { name: 'Systems', path: '/systems' },
         { name: sys.name, path: routePath },
       ]),
@@ -239,7 +255,7 @@ for (const dist of catalog.distributors || []) {
     jsonLd: [
       distributorJsonLd(dist, routePath, keywords),
       breadcrumbJsonLd([
-        { name: 'Home', path: '/' },
+        { name: 'Home', path: '/home' },
         { name: 'Distributors', path: '/distributors' },
         { name: dist.fullName || dist.name, path: routePath },
       ]),
@@ -272,7 +288,7 @@ for (const p of catalog.projects || []) {
     image: p.image,
     jsonLd: [
       breadcrumbJsonLd([
-        { name: 'Home', path: '/' },
+        { name: 'Home', path: '/home' },
         { name: 'Projects', path: '/projects' },
         { name: p.name, path: routePath },
       ]),
@@ -293,6 +309,6 @@ for (const routeSeo of routes) {
 }
 
 // 404 falls back to the home shell so client routing can recover.
-fs.writeFileSync(path.join(distDir, '404.html'), renderDocument(routes[0]));
+fs.writeFileSync(path.join(distDir, '404.html'), renderDocument(homeRoute));
 
 console.log(`Prerendered ${routes.length} routes (+404.html) into ${distDir}`);

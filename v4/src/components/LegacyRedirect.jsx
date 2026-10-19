@@ -17,7 +17,7 @@ export default function LegacyRedirect() {
       const id = params.get('id');
       window.location.replace(id ? `/distributor/${id}` : '/distributors');
     } else if (pathname === '/index_3.html' || pathname.endsWith('/index_3.html')) {
-      window.location.replace(`/${hash || ''}`);
+      window.location.replace(`/home${hash || ''}`);
     }
   }, [location]);
 

@@ -1,0 +1,397 @@
+/* Hologram landing page — scoped under .ha-holo so the v4 site styles stay untouched. */
+
+body.ha-scroll-lock {
+  overflow: hidden;
+}
+
+.ha-holo {
+  --ha-bg: #050a09;
+  --ha-mint: #5cf2c0;
+  --ha-mint-bright: #c4fff0;
+  --ha-text: #e9fff7;
+  --ha-muted: rgba(233, 255, 247, 0.56);
+  --ha-faint: rgba(233, 255, 247, 0.34);
+  --ha-line: rgba(92, 242, 192, 0.16);
+  --ha-sans: "Inter", "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --ha-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  --ha-pad: clamp(20px, 4vw, 64px);
+
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  background: var(--ha-bg);
+  color: var(--ha-text);
+  font-family: var(--ha-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ha-holo *,
+.ha-holo *::before,
+.ha-holo *::after {
+  box-sizing: border-box;
+}
+
+/* Atmosphere ---------------------------------------------------------- */
+.ha-ground {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(48% 52% at 30% 46%, rgba(24, 140, 106, 0.2), rgba(5, 10, 9, 0) 68%),
+    radial-gradient(70% 60% at 78% 30%, rgba(12, 70, 58, 0.24), rgba(5, 10, 9, 0) 70%),
+    radial-gradient(120% 100% at 50% 110%, rgba(2, 8, 7, 0.9), rgba(5, 10, 9, 0) 60%);
+}
+
+.ha-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 85% at 50% 46%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.62) 100%);
+}
+
+.ha-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(196, 255, 240, 0.028) 0 1px,
+    rgba(196, 255, 240, 0) 1px 3px
+  );
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+.ha-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Stage --------------------------------------------------------------- */
+.ha-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ha-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+
+.ha-canvas:active {
+  cursor: grabbing;
+}
+
+/* Skin ---------------------------------------------------------------- */
+.ha-skin {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--ha-pad);
+}
+
+.ha-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.ha-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ha-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(233, 255, 247, 0.62);
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ha-line);
+  background: rgba(6, 16, 14, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.ha-chip::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ha-mint);
+  box-shadow: 0 0 8px rgba(92, 242, 192, 0.9);
+  animation: ha-blink 3.4s ease-in-out infinite;
+}
+
+@keyframes ha-blink {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.ha-icon-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--ha-line);
+  background: rgba(6, 16, 14, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(233, 255, 247, 0.72);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ha-icon-btn:hover {
+  border-color: rgba(92, 242, 192, 0.45);
+  color: var(--ha-mint-bright);
+  box-shadow: 0 0 22px rgba(92, 242, 192, 0.18);
+}
+
+.ha-icon-btn svg { width: 14px; height: 14px; display: block; }
+.ha-icon-btn .ha-play { display: none; }
+.ha-holo.is-paused .ha-icon-btn .ha-pause { display: none; }
+.ha-holo.is-paused .ha-icon-btn .ha-play { display: block; }
+
+/* Bottom row ---------------------------------------------------------- */
+.ha-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ha-wordmark h1 {
+  margin: 0;
+  font-size: clamp(26px, 4.6vw, 64px);
+  line-height: 0.96;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  color: #f4fffc;
+  text-shadow: 0 0 46px rgba(92, 242, 192, 0.22);
+}
+
+.ha-wordmark p {
+  margin: 12px 0 0;
+  font-family: var(--ha-mono);
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ha-faint);
+}
+
+.ha-readout {
+  font-family: var(--ha-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(233, 255, 247, 0.36);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.9;
+  white-space: nowrap;
+}
+
+/* Portal card --------------------------------------------------------- */
+.ha-portal {
+  position: absolute;
+  z-index: 3;
+  right: var(--ha-pad);
+  top: 50%;
+  transform: translateY(calc(-50% + 14px));
+  width: min(384px, calc(100vw - var(--ha-pad) * 2));
+  padding: 28px 28px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(92, 242, 192, 0.18);
+  background: linear-gradient(160deg, rgba(14, 32, 28, 0.78), rgba(6, 14, 12, 0.72));
+  backdrop-filter: blur(26px) saturate(130%);
+  -webkit-backdrop-filter: blur(26px) saturate(130%);
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(196, 255, 240, 0.09),
+    0 0 0 1px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ha-portal__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 16px;
+  font-family: var(--ha-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(92, 242, 192, 0.8);
+}
+
+.ha-portal__eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(92, 242, 192, 0.32), rgba(92, 242, 192, 0));
+}
+
+.ha-portal h2 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.24;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: #f2fffb;
+}
+
+.ha-portal__lede {
+  margin: 12px 0 22px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ha-muted);
+}
+
+.ha-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 50px;
+  border-radius: 11px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: #04231b;
+  background: linear-gradient(100deg, #7bf7cd 0%, #45e6bb 48%, #2fd6b6 100%);
+  box-shadow: 0 14px 34px rgba(47, 214, 182, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.ha-cta:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 18px 42px rgba(47, 214, 182, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.ha-cta:active { transform: translateY(1px); }
+
+.ha-cta svg { width: 15px; height: 15px; transition: transform 0.25s ease; }
+.ha-cta:hover svg { transform: translateX(3px); }
+
+.ha-portal__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(92, 242, 192, 0.1);
+  font-family: var(--ha-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(233, 255, 247, 0.34);
+}
+
+.ha-portal__foot span:last-child { color: rgba(92, 242, 192, 0.55); }
+
+/* Veil ---------------------------------------------------------------- */
+.ha-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  background: #040807;
+  transition: opacity 1.1s ease 0.2s;
+}
+
+.ha-holo.is-ready .ha-veil {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ha-veil span {
+  font-family: var(--ha-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(92, 242, 192, 0.6);
+}
+
+.ha-holo.is-failed .ha-veil span { color: #ff9c8a; }
+
+/* Entrance ------------------------------------------------------------ */
+.ha-chip,
+.ha-icon-btn,
+.ha-wordmark,
+.ha-readout {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ha-holo.is-ready .ha-chip { opacity: 1; transform: none; transition-delay: 0.9s; }
+.ha-holo.is-ready .ha-icon-btn { opacity: 1; transform: none; transition-delay: 1s; }
+.ha-holo.is-ready .ha-portal { opacity: 1; transform: translateY(-50%); transition-delay: 1.25s; }
+.ha-holo.is-ready .ha-wordmark { opacity: 1; transform: none; transition-delay: 1.45s; }
+.ha-holo.is-ready .ha-readout { opacity: 1; transform: none; transition-delay: 1.6s; }
+
+/* Responsive ---------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .ha-portal { width: min(350px, calc(100vw - var(--ha-pad) * 2)); padding: 24px; }
+  .ha-portal h2 { font-size: 22px; }
+}
+
+@media (max-width: 900px) {
+  .ha-skin { justify-content: flex-start; }
+  .ha-bottom {
+    position: absolute;
+    top: calc(var(--ha-pad) + 54px);
+    left: var(--ha-pad);
+    right: var(--ha-pad);
+    display: block;
+  }
+  .ha-readout { display: none; }
+  .ha-portal {
+    top: auto;
+    bottom: var(--ha-pad);
+    left: var(--ha-pad);
+    right: var(--ha-pad);
+    width: auto;
+    transform: translateY(14px);
+  }
+  .ha-holo.is-ready .ha-portal { transform: none; }
+  .ha-wordmark h1 { font-size: clamp(22px, 6.2vw, 34px); }
+  .ha-wordmark p { margin-top: 7px; font-size: 9px; letter-spacing: 0.2em; }
+}
+
+@media (max-width: 520px) {
+  .ha-portal { padding: 20px; }
+  .ha-portal h2 { font-size: 20px; }
+  .ha-portal__lede { font-size: 12.5px; margin-bottom: 18px; }
+  .ha-portal__foot { margin-top: 14px; padding-top: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ha-chip::before { animation: none; opacity: 0.7; }
+  .ha-chip,
+  .ha-icon-btn,
+  .ha-portal,
+  .ha-wordmark,
+  .ha-readout,
+  .ha-veil { transition-duration: 0.01ms; }
+}

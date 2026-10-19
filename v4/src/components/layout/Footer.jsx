@@ -9,7 +9,7 @@ export default function Footer({ minimal = false }) {
           <p>
             &copy; 2025 Hyper Advance Sdn Bhd (338032-H) &nbsp;|&nbsp;
             <Link to="/systems">Systems</Link> &nbsp;|&nbsp;
-            <Link to="/#contact">Contact</Link>
+            <Link to="/home#contact">Contact</Link>
           </p>
         </div>
       </footer>
@@ -43,12 +43,12 @@ export default function Footer({ minimal = false }) {
           <div>
             <h4>Quick Links</h4>
             <ul className="footer-links">
-              <li><Link to="/#about"><i className="fa-solid fa-chevron-right" /> About Us</Link></li>
-              <li><Link to="/#services"><i className="fa-solid fa-chevron-right" /> Our Services</Link></li>
+              <li><Link to="/home#about"><i className="fa-solid fa-chevron-right" /> About Us</Link></li>
+              <li><Link to="/home#services"><i className="fa-solid fa-chevron-right" /> Our Services</Link></li>
               <li><Link to="/systems"><i className="fa-solid fa-chevron-right" /> Systems</Link></li>
               <li><Link to="/distributors"><i className="fa-solid fa-chevron-right" /> Distributors</Link></li>
               <li><Link to="/projects"><i className="fa-solid fa-chevron-right" /> Our Projects</Link></li>
-              <li><Link to="/#contact"><i className="fa-solid fa-chevron-right" /> Contact Us</Link></li>
+              <li><Link to="/home#contact"><i className="fa-solid fa-chevron-right" /> Contact Us</Link></li>
             </ul>
           </div>
           <div>

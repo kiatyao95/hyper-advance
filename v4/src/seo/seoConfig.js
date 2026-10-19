@@ -138,14 +138,14 @@ export const SOLUTION_GROUPS = [
     keywords: ['IPS', 'Isolated Power Supply', 'Operating Theatre Power'],
     brands: 'Esa Grimma via HA Meditech',
     systemIds: [],
-    href: '/#ha-meditech',
+    href: '/home#ha-meditech',
   },
   {
     title: 'ELV Contractor Services',
     keywords: ['ELV Contractor', 'ELV Maintenance', 'Extra Low Voltage'],
     brands: 'Hyper Advance — design, supply, install, commission & maintain',
     systemIds: [],
-    href: '/#services',
+    href: '/home#services',
   },
 ];
 

@@ -24,9 +24,21 @@ export default function PageSeo() {
     const path = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
 
     if (path === '/' || path === '/index.html') {
+      // Landing page (hologram). The site itself lives at /home.
+      return {
+        title: `${SITE.name} | ELV Contractor Malaysia`,
+        description:
+          'Hyper Advance — extra low voltage systems supplied, installed and maintained across Malaysia. Nurse call, public address, master clock, AV intercom and lighting control.',
+        keywords: PAGE_SEO.home.keywords,
+        path: '/',
+        jsonLd: [organizationJsonLd(), websiteJsonLd()],
+      };
+    }
+
+    if (path === '/home') {
       return {
         ...PAGE_SEO.home,
-        path: '/',
+        path: '/home',
         jsonLd: [organizationJsonLd(), websiteJsonLd(), serviceJsonLd()],
       };
     }
@@ -35,7 +47,7 @@ export default function PageSeo() {
       return {
         ...PAGE_SEO.projects,
         path: '/projects',
-        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])],
+        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/home' }, { name: 'Projects', path: '/projects' }])],
       };
     }
 
@@ -43,7 +55,7 @@ export default function PageSeo() {
       return {
         ...PAGE_SEO.systems,
         path: '/systems',
-        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Systems', path: '/systems' }])],
+        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/home' }, { name: 'Systems', path: '/systems' }])],
       };
     }
 
@@ -51,7 +63,7 @@ export default function PageSeo() {
       return {
         ...PAGE_SEO.distributors,
         path: '/distributors',
-        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Distributors', path: '/distributors' }])],
+        jsonLd: [breadcrumbJsonLd([{ name: 'Home', path: '/home' }, { name: 'Distributors', path: '/distributors' }])],
       };
     }
 
@@ -69,7 +81,7 @@ export default function PageSeo() {
         image: project.image,
         jsonLd: [
           breadcrumbJsonLd([
-            { name: 'Home', path: '/' },
+            { name: 'Home', path: '/home' },
             { name: 'Projects', path: '/projects' },
             { name: project.name, path },
           ]),
@@ -93,7 +105,7 @@ export default function PageSeo() {
         jsonLd: [
           systemJsonLd(sys, dist, path, keywords),
           breadcrumbJsonLd([
-            { name: 'Home', path: '/' },
+            { name: 'Home', path: '/home' },
             { name: 'Systems', path: '/systems' },
             { name: sys.name, path },
           ]),
@@ -117,7 +129,7 @@ export default function PageSeo() {
         jsonLd: [
           distributorJsonLd(dist, path, keywords),
           breadcrumbJsonLd([
-            { name: 'Home', path: '/' },
+            { name: 'Home', path: '/home' },
             { name: 'Distributors', path: '/distributors' },
             { name: dist.fullName || dist.name, path },
           ]),
